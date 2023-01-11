@@ -42,14 +42,16 @@ html {
 
 .header_logo {
   margin-bottom: 10px;
-  margin-left: 6.4px;
+  margin-left: 4.4px;
 }
 
 .nav_list {
   display: flex;
   flex-wrap: wrap;
 }
-
+span.home {
+  color: #e06733;
+}
 .nav_item:not(:last-child) {
   margin-right: 46.2px;
 }
@@ -69,6 +71,7 @@ html {
 .nav_link:active,
 .nav_link:hover {
   color: #e06733;
+  transition-duration: 200ms;
 }
 
 .welcome {
@@ -84,7 +87,8 @@ html {
   justify-content: space-between;
 }
 .welcome_picture {
-  margin-top: 55px;
+  margin-top: 53px;
+  margin-left: -5px;
 }
 
 .welcome_info {
@@ -94,7 +98,7 @@ html {
   height: 340px;
 }
 .info_heading {
-  margin-left: 2.4px;
+  margin-left: 1.4px;
   font-weight: 700;
   font-size: 45px;
   line-height: 50px;
@@ -108,16 +112,14 @@ span.plants {
 .info_text {
   font-size: 20px;
   line-height: 35px;
-  margin-top: 42px;
+  margin-top: 44px;
+  margin-left: 2px;
   margin-bottom: 48px;
   color: #636060;
 }
-.learn-more {
-  margin-top: 48px;
-  margin-bottom: 94px;
-}
+
 .learn-more_button {
-  padding: 11px 27px;
+  padding: 10px 27px;
   border: 2px solid #e06733;
   border-radius: 10px;
   font-size: 16px;
@@ -128,6 +130,7 @@ span.plants {
 .learn-more_button:hover {
   background-color: #e06733;
   color: #fff;
+  transition-duration: 200ms;
 }
 
 .about {
@@ -172,6 +175,7 @@ span.professional {
 
 .about_picture {
   margin-top: 93px;
+  margin-right: -4px;
 }
 
 .service {
@@ -225,6 +229,7 @@ span.professional {
 .service_list-button:hover {
   background-color: #e06733;
   color: #fff;
+  transition-duration: 200ms;
 }
 
 .service_list-item {
@@ -318,7 +323,7 @@ span.professional {
 }
 
 .prices {
-  height: 560px;
+  height: 518px;
   background-color: #fff;
 }
 
@@ -422,6 +427,7 @@ span.gardeners {
 .contact_us-button:hover {
   background-color: #e06733;
   color: #fff;
+  transition-duration: 200ms;
 }
 
 img.leafs_small {
@@ -445,7 +451,8 @@ img.leafs_small {
 }
 
 .woman_picture {
-  padding-top: 52px;
+  margin-top: 53px;
+  margin-left: 4px;
 }
 
 .contact_us {
@@ -454,14 +461,15 @@ img.leafs_small {
   font-weight: 700;
   line-height: 52px;
   color: #499a18;
-  padding-top: 60px;
-  padding-left: 40px;
+  margin-top: 60px;
+  margin-left: 48px;
 }
 
 .city_accordion {
   width: 450px;
   height: 50px;
   margin-top: 148px;
+  margin-right: -4px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -498,16 +506,24 @@ img.leafs_small {
 }
 
 .copyright {
+  display: flex;
+  justify-content: space-between;
   height: 50px;
-  width: 182px;
+  width: 172px;
 }
-.github_link,
-.school {
+
+.copyright,
+.school,
+.github_link {
   font-family: "Inter";
   font-weight: 400;
   font-size: 20px;
   line-height: 50px;
   text-decoration: none;
+}
+
+a.school {
+  margin-left: 16px;
 }
 
 .github_link:visited,
@@ -518,12 +534,13 @@ img.leafs_small {
 .github_link:hover,
 .school:hover {
   color: #e06733;
+  transition-duration: 200ms;
 }
 
 .social_list {
   padding-top: 10px;
-  height: 50px;
-  width: 188px;
+  height: 47px;
+  width: 181px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
