@@ -520,10 +520,12 @@ img.leafs_small {
   font-size: 20px;
   line-height: 50px;
   text-decoration: none;
+  color: black;
 }
 
 a.school {
   margin-left: 16px;
+  color: black;
 }
 
 .github_link:visited,
