@@ -547,3 +547,10 @@ a.school {
   flex-wrap: wrap;
   justify-content: space-between;
 }
+
+.social_logo:hover {
+  transition-duration: 50ms;
+  transform: scale(1.1);
+  filter: invert(54%) sepia(50%) saturate(2998%) hue-rotate(339deg)
+    brightness(91%) contrast(91%);
+}
