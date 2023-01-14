@@ -21,7 +21,7 @@ html,
 body {
   box-sizing: border-box;
   scroll-behavior: smooth;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
   font-family: "Inter";
   font-size: 16px;
   font-style: normal;
@@ -30,8 +30,10 @@ body {
 }
 
 ._wrapper {
+  min-height: 100%;
   max-width: 100%;
   min-width: 1440px;
+  overflow: hidden;
 }
 
 ._container {
@@ -39,17 +41,30 @@ body {
   margin: 0 auto;
 }
 
+/* @media (max-width: 768px) {
+  ._wrapper {
+    min-height: 100%;
+    max-width: 100%;
+    min-width: 768px;
+    overflow: hidden;
+  }
+  ._container {
+    max-width: 668px;
+  }
+} */
+
+/*---------HEADER------------------*/
 .header {
-  height: 134px;
   background-color: #edf2ec;
 }
 
 .header_wrapper {
   display: flex;
   flex-wrap: wrap;
-  padding-top: 42px;
   align-items: center;
   justify-content: space-between;
+  padding-top: 42px;
+  padding-bottom: 104px;
 }
 
 .header_logo {
@@ -61,9 +76,11 @@ body {
   display: flex;
   flex-wrap: wrap;
 }
+
 span.home {
   color: #e06733;
 }
+
 .nav_item:not(:last-child) {
   margin-right: 46.2px;
 }
@@ -75,30 +92,24 @@ span.home {
   color: #010201;
 }
 
+/*---------WELCOME------------------*/
 .welcome {
-  height: 532px;
   background-color: #edf2ec;
 }
 
 .welcome_wrapper {
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
 }
 
-.welcome_picture {
-  margin-top: 53px;
-  margin-left: -5px;
+.welcome_info {
+  margin-top: 36px;
+  margin-bottom: 94px;
+  margin-left: 214px;
 }
 
-.welcome_info {
-  display: block;
-  width: 547px;
-  height: 340px;
-  margin-top: 98px;
-}
 .info_heading {
-  margin-left: 1.4px;
+  padding-left: 1.4px;
   font-weight: 700;
   font-size: 45px;
   line-height: 50px;
@@ -110,16 +121,15 @@ span.plants {
 }
 
 .info_text {
-  margin-top: 44px;
-  margin-left: 2px;
-  margin-bottom: 48px;
+  margin-top: 42px;
   font-size: 20px;
   line-height: 35px;
   color: #636060;
 }
 
 .learn-more_button {
-  padding: 10px 27px;
+  margin-top: 48px;
+  padding: 10px 25px;
   border: 2px solid #e06733;
   border-radius: 10px;
   line-height: 20px;
@@ -131,25 +141,24 @@ span.plants {
   transition-duration: 200ms;
 }
 
+/*---------ABOUT------------------*/
 .about {
-  height: 666px;
   background-color: #fff;
 }
 
 .about_wrapper {
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
+  padding-top: 94px;
+  padding-bottom: 94px;
 }
 
 .about_info {
-  display: block;
-  width: 605px;
-  height: 350px;
-  margin-top: 160px;
+  margin-right: 153px;
   padding-left: 3px;
 }
 .about_heading {
+  margin-top: 68px;
   font-family: "Inika";
   font-size: 40px;
   font-weight: 400;
@@ -168,29 +177,26 @@ span.professional {
   color: #636060;
 }
 
-.about_picture {
-  margin-top: 93px;
-  margin-right: -4px;
+/*------------SERVICE------------------*/
+.service {
+  background-color: #edf2ec;
 }
 
-.service {
-  height: 1300px;
-  background-color: #edf2ec;
+.service_wrapper {
+  padding-bottom: 121px;
 }
 
 .service_buttons {
   display: flex;
   flex-wrap: wrap;
-  width: 1007px;
-  height: 94px;
-  padding-top: 40px;
   justify-content: space-between;
   align-items: center;
+  margin-right: 215px;
+  margin-bottom: 79px;
+  padding-top: 39px;
 }
 
 .service_heading {
-  width: 306px;
-  height: 94px;
   padding-left: 2px;
   font-family: "Inika";
   font-size: 40px;
@@ -202,7 +208,7 @@ span.professional {
 .service_list {
   display: flex;
   flex-wrap: wrap;
-  padding-top: 14.5px;
+  padding-top: 7.5px;
   justify-content: space-between;
 }
 
@@ -243,11 +249,9 @@ span.professional {
 
 .gallery {
   display: grid;
-  height: 955px;
-  margin-top: 128px;
   grid-template-rows: repeat(2, 1fr);
   grid-template-columns: repeat(3, 1fr);
-  row-gap: 55px;
+  row-gap: 54px;
   column-gap: 116.7px;
 }
 
@@ -257,8 +261,6 @@ span.professional {
 }
 
 .gallery_image {
-  width: 329px;
-  height: 350px;
   border-radius: 20px 20px 0px 0px;
 }
 
@@ -273,30 +275,27 @@ span.professional {
 
 .image_text {
   margin-top: 13.6px;
+  margin-bottom: 36px;
   text-align: center;
   line-height: 20px;
 }
 
+/*------------PRICES------------------*/
 .prices {
-  height: 518px;
   background-color: #fff;
 }
 
 .prices_wrapper {
   display: flex;
   flex-wrap: wrap;
-  height: 405px;
-  margin-top: 40px;
+  padding-top: 40px;
+  margin-bottom: 115px;
   justify-content: space-between;
-}
-
-.prices_left-column {
-  width: 332px;
-  height: 391.01px;
 }
 
 .prices_left-column-heading {
   margin-left: 4px;
+  margin-bottom: 60px;
   font-size: 40px;
   font-weight: 700;
   line-height: 48px;
@@ -306,22 +305,17 @@ span.professional {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  width: 332px;
-  height: 282.01px;
-  margin-top: 60px;
   border: 1px solid #e3e1d5;
   border-radius: 20px;
 }
+
 .price_menu-wrapper-inner {
-  width: 250px;
-  height: 214.01px;
-  margin: 34px 41px;
+  margin: 30px 41px;
 }
+
 .price_menu-tab {
   display: flex;
   flex-wrap: wrap;
-  width: 250px;
-  height: 50px;
   margin-bottom: 32px;
   border-radius: 20px;
   align-items: center;
@@ -329,12 +323,17 @@ span.professional {
   background: #edf2ec;
 }
 
+.price_menu-tab:last-child {
+  margin-bottom: 0px;
+}
+
 .price_menu-arrow {
   margin-right: 40px;
 }
 
 .price_menu-tab-title {
-  margin-left: 43px;
+  padding: 16px 63px 16px 40px;
+  margin-left: 2px;
   font-size: 20px;
   font-weight: 700;
   line-height: 20px;
@@ -344,12 +343,9 @@ span.professional {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  width: 452px;
-  height: 405px;
 }
+
 .prices_right-column-heading {
-  width: 452px;
-  height: 103px;
   margin-left: 4px;
   text-align: right;
   font-size: 40px;
@@ -361,9 +357,11 @@ span.gardeners {
   color: #499a18;
 }
 
+/*------------CONTACT------------------*/
+
 .contact_us-button {
-  width: 162px;
-  height: 50px;
+  padding-top: 12px;
+  padding-bottom: 12px;
   text-align: center;
   margin-top: 37px;
   margin-left: 293px;
@@ -386,12 +384,11 @@ span.gardeners {
 img.leafs_small {
   margin-top: 39px;
   margin-left: 300px;
-  height: 174.991597235703px;
-  width: 151.99965524675463px;
+  height: 174.99px;
+  width: 151.99px;
 }
 
 .contacts {
-  height: 550px;
   background-color: #edf2ec;
 }
 
@@ -419,18 +416,17 @@ img.leafs_small {
 .city_menu {
   display: flex;
   flex-wrap: wrap;
-  width: 450px;
-  height: 50px;
-  margin-top: 148px;
-  margin-right: -4px;
   justify-content: space-between;
   align-items: center;
+  margin-top: 148px;
+  margin-right: -5px;
+  margin-bottom: 353px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   background: #d6e7d2;
 }
 
 .city_menu-title {
-  padding-left: 20px;
+  padding: 5px 337px 5px 20px;
   font-size: 20px;
   line-height: 40px;
   letter-spacing: 0.05em;
@@ -440,8 +436,9 @@ img.leafs_small {
   padding-right: 35px;
 }
 
+/*------------FOOTER------------------*/
+
 .footer {
-  height: 130px;
   background-color: #fff;
 }
 
@@ -449,15 +446,18 @@ img.leafs_small {
   display: flex;
   flex-wrap: wrap;
   padding-top: 39.3px;
+  padding-bottom: 40px;
   align-items: center;
   justify-content: space-between;
 }
 
 .copyright {
   display: flex;
-  width: 172px;
-  height: 50px;
   justify-content: space-between;
+}
+
+h2.copyright {
+  margin-right: 23px;
 }
 
 .copyright,
@@ -468,16 +468,18 @@ img.leafs_small {
 }
 
 a.school {
-  margin-left: 16px;
+  margin-left: 21px;
 }
 
 .social_list {
   display: flex;
   flex-wrap: wrap;
-  width: 181px;
-  height: 47px;
   padding-top: 10px;
   justify-content: space-between;
+}
+
+.social_item:not(:last-child) {
+  margin-right: 27px;
 }
 
 .social_logo:hover {
