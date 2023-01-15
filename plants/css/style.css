@@ -38,20 +38,9 @@ body {
 
 ._container {
   max-width: 1222px;
+  /* padding: 0 20px; */
   margin: 0 auto;
 }
-
-/* @media (max-width: 768px) {
-  ._wrapper {
-    min-height: 100%;
-    max-width: 100%;
-    min-width: 768px;
-    overflow: hidden;
-  }
-  ._container {
-    max-width: 668px;
-  }
-} */
 
 /*---------HEADER------------------*/
 .header {
@@ -157,6 +146,7 @@ span.plants {
   margin-right: 153px;
   padding-left: 3px;
 }
+
 .about_heading {
   margin-top: 68px;
   font-family: "Inika";
@@ -239,6 +229,7 @@ span.professional {
 .planting {
   padding-right: 38px;
 }
+
 .gardens {
   padding-right: 43px;
 }
@@ -487,4 +478,29 @@ a.school {
   transform: scale(1.1);
   filter: invert(54%) sepia(50%) saturate(2998%) hue-rotate(339deg)
     brightness(91%) contrast(91%);
+}
+
+@media (max-width: 768px) {
+  ._wrapper {
+    min-height: 100%;
+    max-width: 100%;
+    min-width: 768px;
+    overflow: hidden;
+  }
+  ._container {
+    max-width: 668px;
+  }
+
+  .header_wrapper {
+    padding-top: 35px;
+    padding-bottom: 35px;
+  }
+
+  .header_logo {
+    margin-left: 0;
+  }
+
+  .nav_item:not(:last-child) {
+    margin-right: 47.2px;
+  }
 }
