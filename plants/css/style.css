@@ -491,7 +491,7 @@ a.school {
   ._container {
     max-width: 668px;
   }
-  /*-----------HEADER------------*/
+  /*-----------HEADER_768------------*/
   .header_wrapper {
     padding-top: 35px;
     padding-bottom: 35px;
@@ -505,7 +505,7 @@ a.school {
     margin-right: 47.2px;
   }
 
-  /*-----------WELCOME------------*/
+  /*-----------WELCOME_768------------*/
 
   .welcome_wrapper {
     flex-direction: row-reverse;
@@ -542,5 +542,38 @@ a.school {
     margin-top: 27px;
   }
 
+ /*-----------ABOUT_768------------*/
+ .about {
+  background-color: #fff;
+}
+
+.about_wrapper {
+  flex-direction: column;
+  padding-top: 40px;
+  padding-bottom: 0px;
+}
+
+.about_info {
+  margin-right: 0px;
+}
+
+.about_heading {
+margin-top: 0px;
+margin-bottom: 50px;
+font-size: 35px;
+line-height: 46px;
+text-align: center;
+
+}
+
+.about_text {
+  margin-top: 0px;
+  margin-bottom: 68px;
+}
+
+.about_picture {
+  text-align: center;
+  margin-bottom: 95px;
+}
 
 }
