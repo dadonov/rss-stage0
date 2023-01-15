@@ -509,7 +509,7 @@ a.school {
 
   .welcome_wrapper {
     flex-direction: row-reverse;
-    margin-bottom:0px;
+    margin-bottom: 0px;
     padding-bottom: 70px;
   }
 
@@ -542,38 +542,66 @@ a.school {
     margin-top: 27px;
   }
 
- /*-----------ABOUT_768------------*/
- .about {
-  background-color: #fff;
-}
+  /*-----------ABOUT_768------------*/
+  .about_wrapper {
+    flex-direction: column;
+    padding-top: 40px;
+    padding-bottom: 0px;
+  }
 
-.about_wrapper {
-  flex-direction: column;
-  padding-top: 40px;
-  padding-bottom: 0px;
-}
+  .about_info {
+    margin-right: 0px;
+  }
 
-.about_info {
-  margin-right: 0px;
-}
+  .about_heading {
+    margin-top: 0px;
+    margin-bottom: 50px;
+    font-size: 35px;
+    line-height: 46px;
+    text-align: center;
+  }
 
-.about_heading {
-margin-top: 0px;
-margin-bottom: 50px;
-font-size: 35px;
-line-height: 46px;
-text-align: center;
+  .about_text {
+    margin-top: 0px;
+    margin-bottom: 68px;
+  }
 
-}
+  .about_picture {
+    text-align: center;
+    margin-bottom: 95px;
+  }
+  /*-----------SERVICE_768------------*/
+  .service_wrapper {
+    padding-bottom: 67px;
+  }
 
-.about_text {
-  margin-top: 0px;
-  margin-bottom: 68px;
-}
+  .service_buttons {
+    margin-right: 0px;
+    margin-bottom: 37px;
+    padding-top: 60px;
+  }
 
-.about_picture {
-  text-align: center;
-  margin-bottom: 95px;
-}
+  .service_heading {
+    font-size: 35px;
+    line-height: 45.61px;
+  }
 
+  .service_list {
+    padding-top: 42.5px;
+  }
+
+  .gallery {
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 36px;
+    column-gap: 105.7px;
+  }
+
+  .image_text {
+    padding: 0 21px;
+    margin-top: 13.6px;
+    margin-bottom: 17px;
+  }
+
+  
 }
