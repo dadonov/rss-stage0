@@ -349,7 +349,6 @@ span.gardeners {
   color: #499a18;
 }
 
-
 .contact_us-button {
   padding-top: 12px;
   padding-bottom: 12px;
@@ -628,7 +627,7 @@ a.school {
   }
 
   .prices_right-column-heading {
-    margin-top:100px;
+    margin-top: 100px;
     margin-bottom: 27px;
     font-size: 25px;
     line-height: 35px;
@@ -638,9 +637,36 @@ a.school {
     margin-top: 0px;
     margin-left: 125px;
   }
-  
+
   img.leafs_small {
     margin-top: 31px;
     margin-left: 135px;
+  }
+
+  /*------------CONTACT------------------*/
+
+  .contacts_wrapper {
+    flex-direction: column;
+  }
+
+  .woman_picture {
+    order: 3;
+    margin-top: 53px;
+    margin-left: 244px;
+  }
+
+  .contact_us {
+    order: 1;
+    margin-top: 40px;
+    margin-left: 237px;
+    margin-bottom: 99px;
+  }
+
+  .city_menu {
+    order: 2;
+    margin-top: 0px;
+    margin-right: 110px;
+    margin-left: 108px;
+    margin-bottom: 197px;
   }
 }
