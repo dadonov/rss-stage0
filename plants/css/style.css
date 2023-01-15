@@ -38,7 +38,6 @@ body {
 
 ._container {
   max-width: 1222px;
-  /* padding: 0 20px; */
   margin: 0 auto;
 }
 
@@ -744,5 +743,100 @@ a.school {
   .social_list {
     padding-top: 5px;
     margin-bottom: 30px;
+  }
+}
+
+/*--------------MOBILE--------------*/
+@media (max-width: 380px) {
+  ._wrapper {
+    min-width: 380px;
+  }
+
+  ._container {
+    max-width: 330px;
+  }
+
+  /*-------------HEADER_MOBILE--------------*/
+
+  .header_wrapper {
+    padding-top: 35px;
+    padding-bottom: 54px;
+  }
+
+  .header_logo {
+    margin-left: 0px;
+  }
+
+  .nav_list {
+    display: none;
+  }
+  /*-------------WELCOME_MOBILE--------------*/
+
+  .welcome_wrapper {
+    padding-bottom: 0;
+  }
+  .welcome_info {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+  }
+  .welcome_leaves {
+    display: none;
+  }
+  .info_heading {
+    margin-bottom: 20px;
+    padding-bottom: 0px;
+    padding-left: 1.4px;
+    font-size: 25px;
+    line-height: 35px;
+  }
+
+  .info_text {
+    margin-top: 0px;
+    margin-bottom: 0;
+    font-size: 16px;
+    line-height: 25px;
+  }
+
+  .learn-more_button {
+    margin-top: 0px;
+    margin-bottom: 23px;
+    padding: 6px 15px;
+    font-size: 10px;
+    line-height: 20px;
+  }
+
+  /*---------ABOUT------------------*/
+  .about {
+    background-color: #fff;
+  }
+
+  .about_wrapper {
+    flex-direction: column;
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+
+  .about_info {
+    margin-right: 0px;
+    padding-left: 3px;
+  }
+
+  .about_heading {
+    margin-top: 30px;
+    margin-bottom: 14px;
+    font-size: 25px;
+    line-height: 32.57px;
+    text-align: center;
+  }
+
+  .about_text {
+    margin-top: 0px;
+    margin-bottom: 4px;
+    font-size: 15px;
+    line-height: 25px;
+  }
+  .about_picture{
+    margin-bottom: 31px;
   }
 }
