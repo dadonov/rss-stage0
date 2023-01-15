@@ -669,4 +669,32 @@ a.school {
     margin-left: 108px;
     margin-bottom: 197px;
   }
+
+  /*------------FOOTER------------------*/
+
+  .footer_wrapper {
+    flex-direction: column;
+    padding-top: 18.29px;
+    padding-bottom: 0px;
+  }
+
+  .copyright {
+    margin-bottom: -10px;
+  }
+
+  h2.copyright {
+    margin-right: 23px;
+  }
+
+  .school {
+    padding-bottom: 10px;
+  }
+  a.school {
+    margin-left: 0px;
+    margin-bottom: 10px;
+  }
+
+  .social_list {
+    padding-top: 5px;
+  }
 }
