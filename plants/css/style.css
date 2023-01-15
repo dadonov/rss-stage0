@@ -480,6 +480,7 @@ a.school {
     brightness(91%) contrast(91%);
 }
 
+/*--------------TABLET----------------*/
 @media (max-width: 768px) {
   ._wrapper {
     min-height: 100%;
@@ -520,7 +521,6 @@ a.school {
 
   .info_heading {
     margin-bottom: 23px;
-    padding-left: 1.4px;
     font-size: 35px;
     font-weight: 700;
     line-height: 50px;
@@ -531,6 +531,7 @@ a.school {
     line-height: 25px;
     margin-top: 0px;
     margin-bottom: 34px;
+    margin-left: 5px;
   }
 
   .learn-more_button {
@@ -552,6 +553,9 @@ a.school {
     margin-right: 0px;
   }
 
+  .about_container {
+    max-width: 674px;
+  }
   .about_heading {
     margin-top: 0px;
     margin-bottom: 50px;
@@ -562,6 +566,7 @@ a.school {
 
   .about_text {
     margin-top: 0px;
+    padding-right: 5px;
     margin-bottom: 68px;
   }
 
@@ -602,6 +607,43 @@ a.school {
     margin-bottom: 17px;
   }
 
+  h2.garden_care {
+    margin-bottom: 10px;
+  }
+
+  p.garden_care {
+    margin-top: 0;
+  }
+  h2.lawn_care {
+    margin-bottom: 8px;
+  }
+  p.lawn_care {
+    margin-top: 0;
+  }
+
+  h2.garden_care_two {
+    margin-bottom: 9px;
+  }
+
+  p.garden_care_two {
+    margin-top: 0;
+  }
+  h2.planting_two {
+    margin-bottom: 10px;
+  }
+
+  p.planting_two {
+    margin-top: 0;
+    margin-left: -4px;
+  }
+
+  h2.planting_three {
+    margin-bottom: 11px;
+  }
+
+  p.planting_three {
+    margin-top: 0;
+  }
   /*------------PRICES------------------*/
 
   .prices_wrapper {
@@ -613,6 +655,7 @@ a.school {
   }
 
   .prices_left-column-heading {
+    margin-bottom: 57px;
     margin-left: 15px;
     font-size: 35px;
     line-height: 42.36px;
@@ -668,6 +711,10 @@ a.school {
     margin-right: 110px;
     margin-left: 108px;
     margin-bottom: 197px;
+  }
+
+  p.basics {
+    padding-left: 37px;
   }
 
   /*------------FOOTER------------------*/
