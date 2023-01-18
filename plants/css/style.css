@@ -6,6 +6,7 @@
 
 a {
   text-decoration: none;
+  color: black;
 }
 
 a:visited {
@@ -21,7 +22,7 @@ html,
 body {
   box-sizing: border-box;
   scroll-behavior: smooth;
-  /* overflow-x: hidden; */
+  overflow-x: hidden;
   font-family: "Inter";
   font-size: 16px;
   font-style: normal;
@@ -30,14 +31,16 @@ body {
 }
 
 ._wrapper {
+  display: flex;
+  flex-direction: column;
   min-height: 100%;
   max-width: 100%;
-  min-width: 1440px;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 ._container {
-  max-width: 1222px;
+  max-width: 1282px;
+  padding: 0 30px;
   margin: 0 auto;
 }
 
@@ -46,18 +49,25 @@ body {
   background-color: #edf2ec;
 }
 
+.header_container {
+  max-width: 1298px;
+  padding: 0 30px;
+  margin: 0 auto;
+}
+
 .header_wrapper {
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   padding-top: 42px;
-  padding-bottom: 104px;
+  padding-bottom: 42px;
 }
 
 .header_logo {
-  margin-bottom: 10px;
-  margin-left: 4.4px;
+  padding-bottom: 10px;
+  padding-left: 20.4px;
 }
 
 .nav_list {
@@ -86,19 +96,28 @@ span.home {
 }
 
 .welcome_wrapper {
+  width: 100%;
   display: flex;
   justify-content: space-between;
 }
+.welcome_container {
+  max-width: 1282px;
+  padding: 0 30px;
+  margin: 0 auto;
+}
+
+.welcome_picture {
+  margin-top: 52px;
+}
 
 .welcome_info {
-  margin-top: 36px;
-  margin-bottom: 94px;
-  margin-left: 214px;
+  max-width: 547px;
+  margin-top: 98px;
 }
 
 .info_heading {
-  padding-bottom: 10px;
-  padding-left: 1.4px;
+  margin-bottom: 45px;
+  padding-left: 8.4px;
   font-weight: 700;
   font-size: 45px;
   line-height: 50px;
@@ -110,14 +129,16 @@ span.plants {
 }
 
 .info_text {
-  margin-top: 42px;
+  margin-bottom: 48px;
+  padding-left: 10px;
   font-size: 20px;
   line-height: 35px;
   color: #636060;
 }
 
 .learn-more_button {
-  margin-top: 48px;
+  margin-left: 10px;
+  margin-bottom: 94px;
   padding: 10px 25px;
   border: 2px solid #e06733;
   border-radius: 10px;
@@ -138,20 +159,24 @@ span.plants {
 .about_wrapper {
   display: flex;
   justify-content: space-between;
-  padding-top: 94px;
-  padding-bottom: 94px;
+}
+.about_container {
+  max-width: 1282px;
+  padding: 0 30px;
+  margin: 0 auto;
 }
 
 .about_info {
-  margin-right: 153px;
-  padding-left: 3px;
+  max-width: 608px;
+  margin-top: 94px;
+  padding-left: 10px;
 }
 
 .about_heading {
   margin-top: 68px;
+  margin-bottom: 36.5px;
   font-family: "Inika";
   font-size: 40px;
-  font-weight: 400;
   line-height: 52px;
   color: #499a18;
 }
@@ -161,36 +186,44 @@ span.professional {
 }
 
 .about_text {
-  margin-top: 39.5px;
   font-size: 20.1px;
   line-height: 30px;
   color: #636060;
 }
 
+.about_picture {
+  margin-top: 94px;
+  margin-bottom: 94px;
+}
 /*------------SERVICE------------------*/
 .service {
   background-color: #edf2ec;
 }
 
+.service_container {
+  max-width: 1282px;
+  padding: 0 30px;
+  margin: 0 auto;
+}
+
 .service_wrapper {
-  padding-bottom: 121px;
+  padding-bottom: 118px;
 }
 
 .service_buttons {
+  max-width: 1014px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  margin-right: 215px;
   margin-bottom: 79px;
   padding-top: 39px;
 }
 
 .service_heading {
-  padding-left: 2px;
+  padding-left: 12px;
   font-family: "Inika";
   font-size: 40px;
-  font-weight: 400;
   line-height: 52px;
   color: #499a18;
 }
@@ -198,7 +231,6 @@ span.professional {
 .service_list {
   display: flex;
   flex-wrap: wrap;
-  padding-top: 7.5px;
   justify-content: space-between;
 }
 
@@ -240,10 +272,11 @@ span.professional {
 
 .gallery {
   display: grid;
+  padding: 0 6px;
   grid-template-rows: repeat(2, 1fr);
   grid-template-columns: repeat(3, 1fr);
   row-gap: 54px;
-  column-gap: 116.7px;
+  column-gap: 116px;
 }
 
 .card {
@@ -276,16 +309,26 @@ span.professional {
   background-color: #fff;
 }
 
+.prices_container {
+  max-width: 1282px;
+  padding-left: 30px;
+  padding-right: 19px;
+  margin: 0 auto;
+}
+
 .prices_wrapper {
   display: flex;
   flex-wrap: wrap;
   padding-top: 40px;
-  margin-bottom: 115px;
+  padding-bottom: 129px;
   justify-content: space-between;
 }
 
+.prices_left-column {
+  padding-left: 8px;
+}
+
 .prices_left-column-heading {
-  margin-left: 4px;
   margin-bottom: 60px;
   font-size: 40px;
   font-weight: 700;
@@ -333,15 +376,18 @@ span.professional {
 .prices_right-column {
   display: flex;
   flex-wrap: wrap;
+  max-width: 452px;
   flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
 }
 
 .prices_right-column-heading {
-  margin-left: 4px;
   text-align: right;
   font-size: 40px;
   font-weight: 700;
   line-height: 50px;
+  margin-bottom: 12px;
 }
 
 span.gardeners {
@@ -349,17 +395,15 @@ span.gardeners {
 }
 
 .contact_us-button {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: center;
-  margin-top: 37px;
-  margin-left: 293px;
+  width: 162px;
+  height: 50px;
   border: 1px solid #e06733;
   border-radius: 5px;
   font-family: Inika;
   font-size: 20px;
   font-weight: 700;
   line-height: 26px;
+  text-align: center;
   background-color: #fff;
   color: #e06733;
 }
@@ -371,9 +415,6 @@ span.gardeners {
 }
 
 img.leafs_small {
-  margin-top: 39px;
-  margin-left: 300px;
-  height: 174.99px;
   width: 151.99px;
 }
 
@@ -386,6 +427,12 @@ img.leafs_small {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+}
+
+.contacts_container {
+  max-width: 1282px;
+  padding: 0 30px;
+  margin: 0 auto;
 }
 
 .woman_picture {
@@ -447,7 +494,7 @@ img.leafs_small {
 }
 
 h2.copyright {
-  margin-right: 23px;
+  margin-right: 30px;
 }
 
 .copyright,
@@ -464,12 +511,11 @@ a.school {
 .social_list {
   display: flex;
   flex-wrap: wrap;
-  padding-top: 10px;
   justify-content: space-between;
 }
 
 .social_item:not(:last-child) {
-  margin-right: 27px;
+  margin-right: 24px;
 }
 
 .social_logo:hover {
@@ -481,208 +527,168 @@ a.school {
 
 /*--------------TABLET----------------*/
 @media (max-width: 768px) {
+  /*---------HEADER------------------*/
   ._wrapper {
-    min-height: 100%;
-    max-width: 100%;
     min-width: 768px;
-    overflow: hidden;
   }
-  ._container {
-    max-width: 668px;
+
+  .header_container {
+    max-width: 728px;
   }
-  /*-----------HEADER_768------------*/
+
   .header_wrapper {
     padding-top: 35px;
     padding-bottom: 35px;
   }
 
   .header_logo {
-    margin-left: 0;
+    padding-left: 0px;
   }
 
-  .nav_item:not(:last-child) {
-    margin-right: 47.2px;
-  }
-
-  /*-----------WELCOME_768------------*/
+  /*---------WELCOME------------------*/
 
   .welcome_wrapper {
     flex-direction: row-reverse;
-    margin-bottom: 0px;
-    padding-bottom: 70px;
   }
 
-  .welcome_info {
-    margin-left: 0;
-    margin-right: 24px;
-    margin-bottom: 0px;
-  }
-
-  .info_heading {
-    margin-bottom: 23px;
-    font-size: 35px;
-    font-weight: 700;
-    line-height: 50px;
-  }
-
-  .info_text {
-    font-size: 16px;
-    line-height: 25px;
-    margin-top: 0px;
-    margin-bottom: 34px;
-    margin-left: 5px;
-  }
-
-  .learn-more_button {
-    margin-top: 0px;
+  .welcome_container {
+    max-width: 728px;
   }
 
   .welcome_picture {
     margin-top: 27px;
   }
 
-  /*-----------ABOUT_768------------*/
+  .welcome_info {
+    max-width: 346px;
+    margin-top: 37px;
+  }
+
+  .info_heading {
+    margin-bottom: 31px;
+    padding-left: 0px;
+    font-size: 35px;
+    line-height: 50px;
+  }
+
+  .info_text {
+    margin-bottom: 35px;
+    padding-left: 5px;
+    font-size: 16px;
+    line-height: 25px;
+  }
+
+  .learn-more_button {
+    margin-left: 0px;
+    margin-bottom: 70px;
+  }
+
+  /*---------ABOUT------------------*/
+
+  .about_container {
+    max-width: 728px;
+  }
+
   .about_wrapper {
     flex-direction: column;
-    padding-top: 40px;
-    padding-bottom: 0px;
   }
 
   .about_info {
-    margin-right: 0px;
+    max-width: 668px;
+    margin-top: 0px;
+    padding-left: 0px;
   }
 
-  .about_container {
-    max-width: 674px;
-  }
   .about_heading {
-    margin-top: 0px;
-    margin-bottom: 50px;
+    margin-top: 40px;
+    margin-bottom: 50.5px;
     font-size: 35px;
-    line-height: 46px;
+    line-height: 45.61px;
     text-align: center;
-  }
-
-  .about_text {
-    margin-top: 0px;
-    padding-right: 5px;
-    margin-bottom: 68px;
   }
 
   .about_picture {
-    text-align: center;
+    margin-top: 68px;
     margin-bottom: 95px;
+    text-align: center;
   }
-  /*-----------SERVICE_768------------*/
+
+  /*------------SERVICE------------------*/
+
+  .service_container {
+    max-width: 728px;
+  }
+
   .service_wrapper {
-    padding-bottom: 67px;
+    padding-bottom: 71px;
   }
 
   .service_buttons {
-    margin-right: 0px;
     margin-bottom: 37px;
     padding-top: 60px;
   }
 
   .service_heading {
+    padding-left: 0px;
+    margin-bottom: 43px;
     font-size: 35px;
     line-height: 45.61px;
   }
 
-  .service_list {
-    padding-top: 42.5px;
-  }
-
   .gallery {
+    padding: 0;
     grid-template-rows: repeat(3, 1fr);
     grid-template-columns: repeat(2, 1fr);
-    row-gap: 36px;
-    column-gap: 105.7px;
+    row-gap: 37px;
+    column-gap: 105px;
   }
 
   .image_text {
-    padding: 0 21px;
-    margin-top: 13.6px;
-    margin-bottom: 17px;
+    padding: 0 8px;
+    margin-bottom: 15px;
   }
 
-  h2.garden_care {
-    margin-bottom: 10px;
-  }
-
-  p.garden_care {
-    margin-top: 0;
-  }
-  h2.lawn_care {
-    margin-bottom: 8px;
-  }
-  p.lawn_care {
-    margin-top: 0;
-  }
-
-  h2.garden_care_two {
-    margin-bottom: 9px;
-  }
-
-  p.garden_care_two {
-    margin-top: 0;
-  }
-  h2.planting_two {
-    margin-bottom: 10px;
-  }
-
-  p.planting_two {
-    margin-top: 0;
-    margin-left: -4px;
-  }
-
-  h2.planting_three {
-    margin-bottom: 11px;
-  }
-
-  p.planting_three {
-    margin-top: 0;
-  }
   /*------------PRICES------------------*/
 
+  .prices_container {
+    max-width: 728px;
+    padding-left: 31px;
+    padding-right: 30px;
+  }
+
   .prices_wrapper {
-    display: flex;
-    flex-wrap: wrap;
     padding-top: 40px;
-    margin-bottom: 81px;
-    justify-content: space-between;
+    padding-bottom: 93px;
+  }
+
+  .prices_left-column {
+    padding: 0;
   }
 
   .prices_left-column-heading {
-    margin-bottom: 57px;
-    margin-left: 15px;
+    padding-left: 14px;
+    margin-bottom: 60px;
     font-size: 35px;
     line-height: 42.36px;
   }
 
+  .price_menu-wrapper-inner {
+    margin: 28px 40px;
+  }
+
   .prices_right-column {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    margin-left: 10px;
-    margin-bottom: 10px;
+    max-width: 296px;
+    margin-top: 100px;
   }
 
   .prices_right-column-heading {
-    margin-top: 100px;
-    margin-bottom: 27px;
     font-size: 25px;
     line-height: 35px;
+    margin-bottom: 28px;
   }
 
   .contact_us-button {
-    margin-top: 0px;
-    margin-left: 125px;
-  }
-
-  img.leafs_small {
-    margin-top: 31px;
-    margin-left: 135px;
+    margin-bottom: 34px;
   }
 
   /*------------CONTACT------------------*/
@@ -690,153 +696,65 @@ a.school {
   .contacts_wrapper {
     flex-direction: column;
   }
-
-  .woman_picture {
-    order: 3;
-    margin-top: 53px;
-    margin-left: 244px;
+  .contacts_container {
+    max-width: 728px;
   }
 
   .contact_us {
     order: 1;
-    margin-top: 40px;
-    margin-left: 237px;
-    margin-bottom: 99px;
+    margin-top: 39px;
+    margin-bottom: 100px;
+    margin-left: 0px;
+    text-align: center;
   }
-
   .city_menu {
     order: 2;
+    max-width: 450px;
     margin-top: 0px;
-    margin-right: 110px;
-    margin-left: 108px;
-    margin-bottom: 197px;
+    margin-right: 0px;
+    margin-left: 110px;
+    margin-bottom: 249px;
   }
 
-  p.basics {
-    padding-left: 37px;
+  .woman_picture {
+    order: 3;
+    margin-top: 0px;
+    margin-left: 244px;
   }
 
   /*------------FOOTER------------------*/
 
   .footer_wrapper {
     flex-direction: column;
-    padding-top: 18.29px;
+    justify-content: center;
+    padding-top: 20.3px;
     padding-bottom: 0px;
-  }
-
-  .copyright {
-    margin-bottom: -10px;
   }
 
   h2.copyright {
-    margin-right: 23px;
+    margin-right: 30px;
   }
 
-  .school {
-    padding-bottom: 10px;
+  .copyright,
+  .school,
+  .github_link {
+    font-size: 20px;
+    line-height: 50px;
   }
+
   a.school {
     margin-left: 0px;
+  }
+  .school {
+    margin-top: -10px;
     margin-bottom: 10px;
   }
-
   .social_list {
-    padding-top: 5px;
-    margin-bottom: 30px;
-  }
-}
-
-/*--------------MOBILE--------------*/
-@media (max-width: 380px) {
-  ._wrapper {
-    min-width: 380px;
+    padding-top: 4px;
+    padding-bottom: 18px;
   }
 
-  ._container {
-    max-width: 330px;
-  }
-
-  /*-------------HEADER_MOBILE--------------*/
-
-  .header_wrapper {
-    padding-top: 35px;
-    padding-bottom: 54px;
-  }
-
-  .header_logo {
-    margin-left: 0px;
-  }
-
-  .nav_list {
-    display: none;
-  }
-  /*-------------WELCOME_MOBILE--------------*/
-
-  .welcome_wrapper {
-    padding-bottom: 0;
-  }
-  .welcome_info {
-    margin-top: 0px;
-    margin-bottom: 0px;
-    margin-left: 0px;
-  }
-  .welcome_leaves {
-    display: none;
-  }
-  .info_heading {
-    margin-bottom: 20px;
-    padding-bottom: 0px;
-    padding-left: 1.4px;
-    font-size: 25px;
-    line-height: 35px;
-  }
-
-  .info_text {
-    margin-top: 0px;
-    margin-bottom: 0;
-    font-size: 16px;
-    line-height: 25px;
-  }
-
-  .learn-more_button {
-    margin-top: 0px;
-    margin-bottom: 23px;
-    padding: 6px 15px;
-    font-size: 10px;
-    line-height: 20px;
-  }
-
-  /*---------ABOUT------------------*/
-  .about {
-    background-color: #fff;
-  }
-
-  .about_wrapper {
-    flex-direction: column;
-    padding-top: 0px;
-    padding-bottom: 0px;
-  }
-
-  .about_info {
-    margin-right: 0px;
-    padding-left: 3px;
-  }
-
-  .about_heading {
-    margin-top: 30px;
-    margin-bottom: 14px;
-    font-size: 25px;
-    line-height: 32.57px;
-    text-align: center;
-  }
-
-  .about_text {
-    margin-top: 0px;
-    margin-bottom: 4px;
-    font-size: 15px;
-    line-height: 25px;
-  }
-  .about_picture{
-    margin-bottom: 31px;
+  .social_item:not(:last-child) {
+    margin-right: 28px;
   }
 }
