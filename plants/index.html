@@ -14,9 +14,9 @@
 </head>
 
 <body>
-  <div class="wrapper">
+  <div class="_wrapper">
     <header class="header">
-      <div class="container">
+      <div class="header_container">
         <div class="header_wrapper">
           <div class="header_logo">
             <a href="/" class="main_page-link"><img src="./assets/img/svg/header-logo.svg" alt="Plants logo"></a>
@@ -35,25 +35,26 @@
     </header>
     <main class="main">
       <section class="welcome" id="home">
-        <div class="container">
+        <div class="welcome_container">
           <div class="welcome_wrapper">
             <div class="welcome_picture">
-              <img src="./assets/img/leafs.png" alt="Leaves picture">
+              <picture>
+                <source media="(max-width:768px)" srcset="./assets/img/leafs_768.png">
+                <img src="./assets/img/leafs_1444.png" alt="Leaves picture" class="welcome_leaves">
+              </picture>
             </div>
             <div class="welcome_info">
               <h1 class="info_heading">We grow <span class="plants">plants</span> and give you oxygen
               </h1>
               <p class="info_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
                 Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-              <form class="learn-more">
-                <button class="learn-more_button" type="button">LEARN MORE</button>
-              </form>
+              <button class="learn-more_button" type="button">LEARN MORE</button>
             </div>
           </div>
         </div>
       </section>
       <section class="about" id="about">
-        <div class="container">
+        <div class="about_container">
           <div class="about_wrapper">
             <div class="about_info">
               <h2 class="about_heading">We are&nbsp;<span class="professional">professional
@@ -64,93 +65,111 @@
                 but also the leap into electronic typesetting, remaining essentially unchanged. </p>
             </div>
             <div class="about_picture">
-              <img src="./assets/img/houseplant.png" alt="Houseplant" class="houseplant">
+              <picture>
+                <source media="(max-width:380px)" srcset="./assets/img/houseplant_380.png">
+                <source media="(max-width:768px)" srcset="./assets/img/houseplant_768.png">
+                <img src="./assets/img/houseplant_1444.png" alt="Houseplant" class="houseplant">
+              </picture>
             </div>
           </div>
         </div>
       </section>
       <section class="service" id="service">
-        <div class="container">
+        <div class="service_container">
           <div class="service_wrapper">
             <div class="service_buttons">
-              <h2 class="service_heading">Service and our projects</h2>
+              <h2 class="service_heading">Service and our<br> projects</h2>
               <ul class="service_list">
-                <li class="service_list-item"><button class="service_list-button gardens">Gardens</button></li>
-                <li class="service_list-item"><button class="service_list-button lawn">Lawn</button></li>
-                <li class="service_list-item"><button class="service_list-button planting">Planting</button></li>
+                <li class="service_list-item gardens"><button class="service_list-button gardens">Gardens</button></li>
+                <li class="service_list-item lawn"><button class="service_list-button lawn">Lawn</button></li>
+                <li class="service_list-item planting"><button class="service_list-button planting">Planting</button></li>
               </ul>
             </div>
             <div class="gallery">
-              <div class="card card1">
-                <img src="./assets/img/garden_care.jpg" alt="Garden Care" class="gallery_image">
-                <h2 class="image_heading">Garden care</h2>
-                <p class="image_text">Lorem Ipsum has been the industry</p>
+              <div class="card">
+                <picture>
+                  <source media="(max-width:768px)" srcset="./assets/img/garden_care_768.jpg">
+                  <img src="./assets/img/garden_care_1444.jpg" alt="Garden Care" class="gallery_image">
+                </picture>
+                <h2 class="image_heading garden_care">Garden care</h2>
+                <p class="image_text garden_care">Lorem Ipsum has been the industry</p>
               </div>
-              <div class="card card2">
-                <img src="./assets/img/planting.jpg" alt="Planting" class="gallery_image">
+              <div class="card">
+                <picture>
+                  <source media="(max-width:768px)" srcset="./assets/img/planting_768.jpg">
+                  <img src="./assets/img/planting_1444.jpg" alt="Planting" class="gallery_image">
+                </picture>
                 <h2 class="image_heading">Planting</h2>
                 <p class="image_text">Lorem Ipsum has been the industry</p>
               </div>
-              <div class="card card3">
-                <img src="./assets/img/lawn_care.jpg" alt="Lawn Care" class="gallery_image">
-                <h2 class="image_heading">Lawn care</h2>
-                <p class="image_text">Lorem Ipsum has been the industry</p>
+              <div class="card">
+                <picture>
+                  <source media="(max-width:768px)" srcset="./assets/img/lawn_care_768.jpg">
+                  <img src="./assets/img/lawn_care_1444.jpg" alt="Planting" class="gallery_image">
+                </picture>
+                <h2 class="image_heading lawn_care">Lawn care</h2>
+                <p class="image_text lawn_care">Lorem Ipsum has been the industry</p>
               </div>
-              <div class="card card4">
-                <img src="./assets/img/planting-2.jpg" alt="Planting" class="gallery_image">
-                <h2 class="image_heading">Planting</h2>
-                <p class="image_text">Lorem Ipsum has been the industry</p>
+              <div class="card">
+                <picture>
+                  <source media="(max-width:768px)" srcset="./assets/img/planting-2_768.jpg">
+                  <img src="./assets/img/planting-2_1444.jpg" alt="Planting" class="gallery_image">
+                </picture>
+                <h2 class="image_heading planting_two">Planting</h2>
+                <p class="image_text planting_two">Lorem Ipsum has been the industry</p>
               </div>
-              <div class="card card5">
-                <img src="./assets/img/garden_care-2.jpg" alt="Garden Care" class="gallery_image">
-                <h2 class="image_heading">Garden care</h2>
-                <p class="image_text">Lorem Ipsum has been the industry</p>
+              <div class="card">
+                <picture>
+                  <source media="(max-width:768px)" srcset="./assets/img/garden_care-2_768.jpg">
+                  <img src="./assets/img/garden_care-2_1444.jpg" alt="Garden Care" class="gallery_image">
+                </picture>
+                <h2 class="image_heading garden_care_two">Garden care</h2>
+                <p class="image_text garden_care_two">Lorem Ipsum has been the industry</p>
               </div>
-              <div class="card card6">
-                <img src="./assets/img/planting-3.jpg" alt="Planting" class="gallery_image">
-                <h2 class="image_heading">Planting</h2>
-                <p class="image_text">Lorem Ipsum has been the industry</p>
+              <div class="card">
+                <picture>
+                  <source media="(max-width:768px)" srcset="./assets/img/planting-3_768.jpg">
+                  <img src="./assets/img/planting-3_1444.jpg" alt="Planting" class="gallery_image">
+                </picture>
+                <h2 class="image_heading planting_three">Planting</h2>
+                <p class="image_text planting_three">Lorem Ipsum has been the industry</p>
               </div>
             </div>
           </div>
         </div>
       </section>
       <section class="prices" id="price">
-        <div class="container">
+        <div class="prices_container">
           <div class="prices_wrapper">
-            <div class="price_menu">
-              <h2 class="accordion_heading">Prices</h2>
-              <div class="accordion_price-wrapper">
-                <div class="accordion_price">
-                  <div class="accordion_tab">
-                    <div class="tab_heading">
-                      <h2 class="tab_heading">Basics</h2>
-                    </div>
-                    <div class="tab_button">
+            <div class="prices_left-column">
+              <h2 class="prices_left-column-heading">Prices</h2>
+              <div class="price_menu-wrapper-outer">
+                <div class="price_menu-wrapper-inner">
+                  <div class="price_menu-tab">
+                    <p class="price_menu-tab-title basics">Basics</p>
+                    <div class="price_menu-arrow">
                       <img src="./assets/img/accordion_btn.png" alt="Arrow" class="accordion_arrow">
                     </div>
                   </div>
-                  <div class="accordion_tab">
-                    <div class="tab_heading">
-                      <h2 class="tab_heading">Standard</h2>
-                    </div>
-                    <div class="tab_button">
+                  <div class="price_menu-tab">
+                    <p class="price_menu-tab-title">Standard</p>
+                    <div class="price_menu-arrow">
                       <img src="./assets/img/accordion_btn.png" alt="Arrow" class="accordion_arrow">
                     </div>
                   </div>
-                  <div class="accordion_tab">
-                    <div class="tab_heading">
-                      <h2 class="tab_heading">Pro care</h2>
-                    </div>
-                    <div class="tab_button">
+                  <div class="price_menu-tab">
+                    <p class="price_menu-tab-title">Pro care</p>
+                    <div class="price_menu-arrow">
                       <img src="./assets/img/accordion_btn.png" alt="Arrow" class="accordion_arrow">
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="price_contact">
-              <h2 class="price_contact-header">Our best <span class="gardeners">gardeners</span> are ready to help you
+            <div class="prices_right-column">
+              <h2 class="prices_right-column-heading">Our best <span class="gardeners">gardeners</span> are<br> ready to
+                help
+                you
               </h2>
               <button class="contact_us-button">Contact us</button>
               <img src="./assets/img/leafs_small.png" alt="Small leaves" class="leafs_small">
@@ -159,22 +178,22 @@
         </div>
       </section>
       <section class="contacts" id="contacts">
-        <div class="container">
+        <div class="contacts_container">
           <div class="contacts_wrapper">
             <div class="woman_picture">
-              <img src="./assets/img/contact_woman.png" alt="Woman with pot" class="woman">
+              <picture>
+                <source media="(max-width:768px)" srcset="./assets/img/contact_woman_768.png">
+                <img src="./assets/img/contact_woman_1444.png" alt="Woman with pot" class="woman">
+              </picture>
+
             </div>
             <div class="contacts_heading">
               <h2 class="contact_us">Contact us </h2>
             </div>
             <div class="city_menu">
-              <div class="city_accordion">
-                <div class="city_heading">
-                  <h2>City</h2>
-                </div>
-                <div class="city_button">
-                  <img src="./assets/img/accordion_btn.png" alt="">
-                </div>
+              <p class="city_menu-title">City</p>
+              <div class="city_menu-arrow">
+                <img src="./assets/img/accordion_btn.png" alt="">
               </div>
             </div>
           </div>
@@ -182,7 +201,7 @@
       </section>
     </main>
     <footer class="footer">
-      <div class="container">
+      <div class="footer_container">
         <div class="footer_wrapper">
           <div class="copyright">
             <h2 class="copyright">&copy; &nbsp;&nbsp;&nbsp;2022</h2>
