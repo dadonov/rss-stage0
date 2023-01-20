@@ -904,9 +904,8 @@ a.school {
     height: 500px;
   }
   .nav_link {
-    font-size: 35px;
+    font-size: 30px;
     line-height: 40px;
-    margin-bottom: 30px;
   }
 
   .nav_link :last-child {
@@ -917,8 +916,8 @@ a.school {
     width: 40px;
     height: 40px;
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 40px;
+    right: 40px;
     z-index: 11;
   }
 
@@ -1226,4 +1225,34 @@ a.school {
   .social_list {
     margin-top: -12px;
   }
+}
+
+@media (max-width: 352px) {
+  .gallery {
+    padding: 0 5px;
+  }
+
+  .prices_wrapper {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .price_menu-wrapper-outer {
+    margin-left: 30px;
+  }
+
+  .prices_left-column-heading {
+    padding-right: 24px;
+  }
+
+  .prices_right-column {
+    margin-left: 24px;
+  }
+
+  .contact_us {
+    padding-right: 8px;
+}
+.city_menu {
+  width: 260px;
+}
 }
