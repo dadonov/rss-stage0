@@ -517,7 +517,8 @@ a.school {
   /*---------HEADER------------------*/
 
   .header_container {
-    max-width: 728px;
+    max-width: 708px;
+    padding: 0 20px;
     margin: 0 auto;
   }
 
@@ -533,12 +534,13 @@ a.school {
   /*---------WELCOME------------------*/
 
   .welcome_wrapper {
-    width: 100%;
     flex-direction: row-reverse;
   }
 
   .welcome_container {
-    max-width: 728px;
+    max-width: 708px;
+    padding: 0 20px;
+    margin: 0 auto;
   }
 
   .welcome_picture {
@@ -572,7 +574,9 @@ a.school {
   /*---------ABOUT------------------*/
 
   .about_container {
-    max-width: 728px;
+    max-width: 708px;
+    padding: 0 20px;
+    margin: 0 auto;
   }
 
   .about_wrapper {
@@ -602,7 +606,9 @@ a.school {
   /*------------SERVICE------------------*/
 
   .service_container {
-    max-width: 728px;
+    max-width: 708px;
+    padding: 0 20px;
+    margin: 0 auto;
   }
 
   .service_wrapper {
@@ -610,7 +616,7 @@ a.school {
   }
 
   .service_buttons {
-    margin-bottom: 37px;
+    margin-bottom: 39px;
     padding-top: 60px;
   }
 
@@ -683,7 +689,9 @@ a.school {
     flex-direction: column;
   }
   .contacts_container {
-    max-width: 728px;
+    max-width: 708px;
+    padding: 0 20px;
+    margin: 0 auto;
   }
 
   .contact_us {
@@ -699,7 +707,7 @@ a.school {
     margin-top: 0px;
     margin-right: 0px;
     margin-left: 110px;
-    margin-bottom: 249px;
+    margin-bottom: 250px;
   }
 
   .woman_picture {
@@ -710,6 +718,12 @@ a.school {
 
   /*------------FOOTER------------------*/
 
+  .footer_container {
+    max-width: 708px;
+    padding: 0 20px;
+    margin: 0 auto;
+  }
+
   .footer_wrapper {
     flex-direction: column;
     justify-content: center;
@@ -718,14 +732,10 @@ a.school {
   }
 
   h2.copyright {
-    margin-right: 30px;
+    margin-right: 17px;
   }
-
-  .copyright,
-  .school,
-  .github_link {
-    font-size: 20px;
-    line-height: 50px;
+  .copyright {
+    display: inline-block;
   }
 
   a.school {
@@ -759,10 +769,6 @@ a.school {
     padding-bottom: 36px;
   }
 
-  .header_logo {
-    padding-left: 6px;
-  }
-
   .nav_list {
     display: none;
   }
@@ -777,6 +783,7 @@ a.school {
   .welcome_container {
     max-width: 360px;
     padding: 0 15px;
+    margin: 0 auto;
   }
 
   .welcome_picture {
@@ -790,37 +797,31 @@ a.school {
 
   .info_heading {
     margin-bottom: 20px;
-    padding-left: 8px;
     font-size: 25px;
     line-height: 35px;
   }
 
   .info_text {
     margin-bottom: 26px;
-    padding-left: 8px;
+    padding-left: 0px;
   }
 
   .learn-more_button {
-    margin-left: 8px;
     margin-bottom: 24px;
     padding: 5px 15px;
     font-size: 10px;
   }
 
   /*---------ABOUT------------------*/
-  .about {
-    background-color: #fff;
-  }
 
   .about_container {
     max-width: 360px;
     padding: 0 15px;
+    margin: 0 auto;
   }
 
   .about_info {
     max-width: 330px;
-    margin-top: 0px;
-    padding-left: 10px;
   }
 
   .about_heading {
@@ -836,7 +837,6 @@ a.school {
   }
 
   .about_picture {
-    padding-left: 14px;
     margin-top: 5px;
     margin-bottom: 31px;
   }
@@ -846,6 +846,7 @@ a.school {
   .service_container {
     max-width: 360px;
     padding: 0 15px;
+    margin: 0 auto;
   }
 
   .service_wrapper {
@@ -862,7 +863,6 @@ a.school {
   .service_heading {
     max-width: 252px;
     margin-bottom: 39px;
-    padding-left: 8px;
     font-size: 25px;
     line-height: 32.57px;
   }
@@ -870,7 +870,6 @@ a.school {
   .service_list {
     flex-direction: column;
     max-height: 79px;
-    padding-left: 8px;
   }
 
   .service_list-button {
@@ -895,7 +894,7 @@ a.school {
   }
 
   .gallery {
-    padding: 0 32px;
+    padding: 0 24px;
     grid-template-rows: repeat(6, 1fr);
     grid-template-columns: repeat(1, 1fr);
     row-gap: 34px;
@@ -914,11 +913,18 @@ a.school {
     padding-bottom: 5px;
   }
 
+  .prices_container {
+    max-width: 360px;
+    padding: 0 15px;
+    margin: 0 auto;
+  }
+
   .prices_left-column {
     padding-left: 0px;
   }
 
   .prices_left-column-heading {
+    padding-right: 13px;
     margin-bottom: 35px;
     font-size: 25px;
     line-height: 30.26px;
@@ -926,7 +932,7 @@ a.school {
   }
 
   .price_menu-wrapper-outer {
-    margin-left: 50px;
+    margin-left: 55px;
     border-radius: 20px;
     max-width: 224px;
     max-height: 235px;
@@ -964,7 +970,7 @@ a.school {
 
   .prices_right-column {
     margin-top: 21px;
-    margin-left: 45px;
+    margin-left: 49px;
     max-width: 230px;
   }
 
@@ -996,16 +1002,10 @@ a.school {
   .contacts_container {
     max-width: 360px;
     padding: 0 15px;
-  }
-
-  .woman_picture {
-    align-self:center;
-    margin-top: 132px;
-    margin-left: 10px;
+    margin: 0 auto;
   }
 
   .contact_us {
-    padding-left: 10px;
     margin-top: 26px;
     margin-bottom: 81px;
     font-size: 25px;
@@ -1015,7 +1015,7 @@ a.school {
   .city_menu {
     width: 300px;
     height: 50px;
-    margin: 0 0 0 21px;
+    margin: 0 0 0 13px;
   }
 
   .city_menu-title {
@@ -1029,37 +1029,36 @@ a.school {
     padding-right: 22px;
   }
 
+  .woman_picture {
+    align-self: center;
+    margin-top: 132px;
+    margin-left: 0px;
+  }
   /*------------FOOTER------------------*/
 
-.footer_container {
-  max-width: 360px;
-  padding: 0 15px;
-}
-.footer_wrapper {
-  padding-top: 9px;
-  padding-bottom: 0px;
-}
+  .footer_container {
+    max-width: 360px;
+    padding: 0 15px;
+    margin: 0 auto;
+  }
+  .footer_wrapper {
+    padding-top: 9px;
+    padding-bottom: 0px;
+  }
 
+  .copyright {
+    display: inline-block;
+  }
 
-h2.copyright {
-  margin-right: 0px;
-}
+  h2.copyright {
+    margin-right: 7px;
+  }
 
+  .github_link {
+    padding-left: 10px;
+  }
 
-a.school {
-  margin-left: 13px;
-}
-
-.github_link{
-  padding-left: 10px;
-}
-
-.social_list {
-  margin-top: -12px;
-}
-
-.social_item:not(:last-child) {
-  margin-right: 24px;
-}
-
+  .social_list {
+    margin-top: -12px;
+  }
 }
