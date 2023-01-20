@@ -1,3 +1,16 @@
-console.log(
-  "Вёрстка валидная +10\n Вёрстка семантическая +20\n Вёрстка соответствует макету +48\n Требования к css + 12\n Интерактивность, реализуемая через css +20\n Total: 110"
-);
+// BURGER MENU ACTUATION//
+(function () {
+  const burger = document.querySelector(".header_burger");
+  const menu = document.querySelector(".nav_menu");
+  const closeMenu = document.querySelector(".nav_menu-close");
+  const link = document.querySelector(".nav_link");
+  burger.addEventListener("click", () => {
+    menu.classList.add("nav_menu_active");
+  });
+  closeMenu.addEventListener("click", () => {
+    menu.classList.remove("nav_menu_active");
+  });
+  link.addEventListener("click", () => {
+    menu.classList.remove("nav_menu_active");
+  });
+})();

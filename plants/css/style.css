@@ -56,7 +56,7 @@ body {
   align-items: center;
   justify-content: space-between;
   padding-top: 42px;
-  padding-bottom: 42px;
+  padding-bottom: 39px;
 }
 
 .header_logo {
@@ -84,6 +84,36 @@ span.home {
   color: #010201;
 }
 
+.header_burger {
+  display: none;
+  width: 42px;
+  height: 26px;
+  position: relative;
+}
+
+.burger_line {
+  position: absolute;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #717171;
+}
+.burger_line_first {
+  top: 0;
+}
+.burger_line_second {
+  top: 25%;
+  transform: translateY(-25%);
+}
+.burger_line_third {
+  top: 50%;
+  transform: translateY(-50%);
+}
+.burger_line_fourth {
+  top: 75%;
+  transform: translateY(-75);
+}
 /*---------WELCOME------------------*/
 .welcome {
   background-color: #edf2ec;
@@ -253,6 +283,7 @@ span.professional {
 }
 
 .gallery {
+  margin: 0 auto;
   display: grid;
   padding: 0 6px;
   grid-template-rows: repeat(2, 1fr);
@@ -512,8 +543,77 @@ a.school {
     brightness(91%) contrast(91%);
 }
 
+@media (max-width: 1300px) {
+  .contacts_wrapper {
+    flex-direction: column;
+  }
+  .contacts_container {
+    max-width: 708px;
+    padding: 0 20px;
+    margin: 0 auto;
+  }
+
+  .contact_us {
+    order: 1;
+    margin-top: 39px;
+    margin-bottom: 100px;
+    margin-left: 0px;
+    text-align: center;
+  }
+  .city_menu {
+    order: 2;
+    max-width: 450px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-left: 110px;
+    margin-bottom: 250px;
+  }
+
+  .woman_picture {
+    order: 3;
+    margin-top: 0px;
+    margin-left: 172px;
+  }
+  .gallery {
+    margin: 0 auto;
+    display: grid;
+    padding: 0 6px;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 54px;
+    column-gap: 0px;
+  }
+
+  .card {
+    width: 330px;
+    height: 450px;
+    border: 1px solid #e3e1d5;
+    border-radius: 20px;
+  }
+
+  .gallery_image {
+    border-radius: 20px 20px 0px 0px;
+  }
+
+  .image_heading {
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 20px;
+    text-align: center;
+    color: #e06733;
+  }
+
+  .image_text {
+    margin-top: 13.6px;
+    margin-bottom: 36px;
+    text-align: center;
+    line-height: 20px;
+  }
+}
+
 /*--------------TABLET----------------*/
-@media (max-width: 768px) {
+@media (max-width: 1080px) {
   /*---------HEADER------------------*/
 
   .header_container {
@@ -626,8 +726,13 @@ a.school {
     font-size: 35px;
     line-height: 45.61px;
   }
+  .card {
+    width: 281px;
+    height: 450px;
+  }
 
   .gallery {
+    margin: 0 auto;
     padding: 0;
     grid-template-rows: repeat(3, 1fr);
     grid-template-columns: repeat(2, 1fr);
@@ -756,9 +861,11 @@ a.school {
 }
 
 /*--------------MOBILE----------------*/
-@media (max-width: 390px) {
+@media (max-width: 702px) {
   /*---------HEADER------------------*/
-
+  .header_burger {
+    display: block;
+  }
   .header_container {
     max-width: 360px;
     padding: 0 15px;
@@ -766,13 +873,71 @@ a.school {
 
   .header_wrapper {
     padding-top: 36px;
-    padding-bottom: 36px;
+    padding-bottom: 37px;
+  }
+
+  /* .nav_list {
+    display: none;
+  } */
+  .nav_menu {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    padding: 75px;
+    background-color: white;
+    transform: translateX(100%);
+    transition: 200ms all linear;
+  }
+
+  .nav_menu_active {
+    transform: translateX(0);
+  }
+  .nav_item {
+    width: 100%;
+    margin-right: 0px;
   }
 
   .nav_list {
-    display: none;
+    height: 500px;
+  }
+  .nav_link {
+    font-size: 35px;
+    line-height: 40px;
+    margin-bottom: 30px;
   }
 
+  .nav_link :last-child {
+    margin-bottom: 0;
+  }
+
+  .nav_menu-close {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 11;
+  }
+
+  .nav_menu-close-line {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background-color: black;
+    position: absolute;
+    top: 50%;
+  }
+
+  .nav_menu-close-line:first-child {
+    transform: translateY(-50%) rotate(45deg);
+  }
+
+  .nav_menu-close-line:last-child {
+    transform: translateY(-50%) rotate(-45deg);
+  }
   /*---------WELCOME------------------*/
 
   .welcome_wrapper {
@@ -850,7 +1015,7 @@ a.school {
   }
 
   .service_wrapper {
-    padding-bottom: 30px;
+    padding-bottom: 26px;
   }
 
   .service_buttons {
@@ -910,7 +1075,7 @@ a.school {
   .prices_wrapper {
     flex-direction: column;
     padding-top: 25px;
-    padding-bottom: 5px;
+    padding-bottom: 6px;
   }
 
   .prices_container {
