@@ -12,3 +12,36 @@
     }
   });
 })();
+
+// adding blur to service cards
+const serviceButton = document.querySelectorAll(".service_list-button");
+const gardenCare = document.querySelectorAll("div.garden");
+const planting = document.querySelectorAll("div.planting");
+const lawnCare = document.querySelectorAll("div.lawn_care");
+
+serviceButton.forEach((button) =>
+  button.addEventListener("click", () => {
+    button.classList.toggle("active-button");
+  })
+);
+
+const blur = (pic) => {
+  pic.classList.toggle("blur");
+};
+
+
+
+// serviceButton.forEach((button) => {
+//   button.addEventListener("click", () => {
+//     if (button.classList.contains("button_gardens")) {
+//       planting.forEach(blur);
+//       lawnCare.forEach(blur);
+//     } else if (button.classList.contains("button_planting")) {
+//       gardenCare.forEach(blur);
+//       lawnCare.forEach(blur);
+//     } else if (button.classList.contains("button_lawn")) {
+//       planting.forEach(blur);
+//       gardenCare.forEach(blur);
+//     }
+//   });
+// });
