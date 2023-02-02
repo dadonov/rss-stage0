@@ -29,19 +29,36 @@ const blur = (pic) => {
   pic.classList.toggle("blur");
 };
 
+serviceButton.forEach((button) => {
+  button.addEventListener("click", () => {
+    if (button.classList.contains("button_gardens")) {
+      planting.forEach(blur);
+      lawnCare.forEach(blur);
+    } else if (button.classList.contains("button_planting")) {
+      gardenCare.forEach(blur);
+      lawnCare.forEach(blur);
+    } else if (button.classList.contains("button_lawn")) {
+      planting.forEach(blur);
+      gardenCare.forEach(blur);
+    }
+  });
+});
 
+// prices accordion
+const accordionTabs = document.querySelectorAll(".accordion_label");
 
-// serviceButton.forEach((button) => {
-//   button.addEventListener("click", () => {
-//     if (button.classList.contains("button_gardens")) {
-//       planting.forEach(blur);
-//       lawnCare.forEach(blur);
-//     } else if (button.classList.contains("button_planting")) {
-//       gardenCare.forEach(blur);
-//       lawnCare.forEach(blur);
-//     } else if (button.classList.contains("button_lawn")) {
-//       planting.forEach(blur);
-//       gardenCare.forEach(blur);
-//     }
-//   });
-// });
+accordionTabs.forEach((tab) => {
+  tab.addEventListener("click", () => {
+    let content = tab.nextElementSibling;
+    if (content.style.maxHeight) {
+      document
+        .querySelectorAll(".tab-content")
+        .forEach((element) => (element.style.maxHeight = null));
+    } else {
+      document
+        .querySelectorAll(".tab-content")
+        .forEach((element) => (element.style.maxHeight = null));
+      content.style.maxHeight = content.scrollHeight + "px";
+    }
+  });
+});
