@@ -51,14 +51,44 @@ accordionTabs.forEach((tab) => {
   tab.addEventListener("click", () => {
     let content = tab.nextElementSibling;
     if (content.style.maxHeight) {
-      document
-        .querySelectorAll(".tab-content")
-        .forEach((element) => (element.style.maxHeight = null));
+      document.querySelectorAll(".tab-content").forEach((element) => {
+        element.style.maxHeight = null;
+      });
     } else {
-      document
-        .querySelectorAll(".tab-content")
-        .forEach((element) => (element.style.maxHeight = null));
+      document.querySelectorAll(".tab-content").forEach((element) => {
+        element.style.maxHeight = null;
+      });
       content.style.maxHeight = content.scrollHeight + "px";
     }
   });
 });
+
+// City drop-down menu
+function cityToggle() {
+  this.parentElement.classList.toggle("active");
+  this.classList.toggle(".active");
+}
+function cityChoose() {
+  let cityName = this.innerText;
+  let currentCityName =
+    this.closest(".city_select").querySelector(".select_current");
+  currentCityName.innerText = cityName;
+  this.closest(".city_select").classList.remove("active");
+}
+
+const selectCity = () => {
+  let selectHeader = document.querySelectorAll(".city_select-header");
+  let selectItem = document.querySelectorAll(".city_select-item");
+
+  selectHeader.forEach((item) => {
+    document.querySelector(".city_select-body").classList.add("active");
+    item.classList.toggle("active");
+    item.addEventListener("click", cityToggle);
+  });
+
+  selectItem.forEach((item) => {
+    item.addEventListener("click", cityChoose);
+  });
+};
+
+selectCity();

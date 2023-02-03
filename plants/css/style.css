@@ -533,27 +533,76 @@ img.leafs_small {
   color: #499a18;
 }
 
-.city_menu {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
+.city_select {
+  width: 450px;
+  position: relative;
   margin-top: 148px;
-  margin-right: -5px;
-  margin-bottom: 64px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  background: #d6e7d2;
+  margin-bottom: 47px;
+}
+.city_select-header.active .city_select-body {
+  display: block;
+  transition: 300ms ease-in-out;
+}
+.city_select-header.active {
+  background-color: #c1e698;
+}
+.city_select-header {
+  display: flex;
+  background-color: #d6e7d2;
+  justify-content: space-between;
+  padding: 5px 35px;
+  cursor: pointer;
+}
+.city_select-header:hover {
+  transition: 300ms;
+  background-color: #c1e698;
+}
+.select_icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
-.city_menu-title {
-  padding: 5px 337px 5px 20px;
+.select_current {
+  font-family: Inter;
   font-size: 20px;
+  font-weight: 400;
   line-height: 40px;
   letter-spacing: 0.05em;
+  text-align: left;
 }
 
-.city_menu-arrow {
-  padding-right: 35px;
+.city_select-body {
+  display: none;
+  padding: 27px 41px;
+  background-color: #d6e7d2;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  transition: 300ms ease-in-out;
+}
+
+.city_select.active .city_select-body {
+  display: block;
+}
+
+.city_select-item {
+  margin-bottom: 12px;
+  border-bottom: 1px solid #d9d9d9;
+  line-height: 40px;
+  letter-spacing: 0.05em;
+  color: #499a18;
+}
+.city_select-item:last-child {
+  margin-bottom: 0;
+}
+
+.city_select-item:hover {
+  transition: 400ms;
+  color: #717171;
+  border-color: #717171;
 }
 
 .city-menu_container {
@@ -562,6 +611,7 @@ img.leafs_small {
   align-content: space-between;
 }
 .city_card {
+  display: none;
   width: 448px;
   max-height: 214px;
   padding: 17px 76px 32px 33px;
@@ -577,7 +627,6 @@ img.leafs_small {
 
 .call_us {
   display: block;
-  /* margin: 0 auto; */
   margin-top: 24px;
   margin-left: 130px;
   width: 122px;
@@ -585,7 +634,6 @@ img.leafs_small {
   border: 1px solid #e06733;
   border-radius: 5px;
   font-family: "Inika";
-  font-style: normal;
   font-weight: 700;
   font-size: 10px;
   line-height: 13px;
@@ -601,9 +649,6 @@ img.leafs_small {
 .city_name,
 .phone_number,
 .street {
-  font-family: Inter;
-  font-size: 16px;
-  font-weight: 400;
   line-height: 40px;
   letter-spacing: 0.05em;
   text-align: left;
