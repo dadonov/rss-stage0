@@ -353,21 +353,21 @@ span.professional {
 }
 
 .prices_left-column-heading {
-  margin-bottom: 60px;
+  margin-bottom: 65px;
   font-size: 40px;
   font-weight: 700;
   line-height: 48px;
 }
 
 .accordion_block {
-  padding: 34px 41px;
+  padding: 27px 41px;
   border: 1px solid #e3e1d5;
   border-radius: 20px;
 }
 
 .accordion_tab {
   max-width: 250px;
-  margin-bottom: 32px;
+  margin-bottom: 29px;
   border-radius: 20px;
   background-color: #edf2ec;
 }
@@ -379,7 +379,6 @@ span.professional {
   background-color: #d6e7d2;
   transition: 350ms;
 }
-
 
 .accordion_label {
   display: flex;
@@ -521,12 +520,12 @@ img.leafs_small {
 
 .woman_picture {
   margin-top: 53px;
-  margin-left: 4px;
+  margin-left: 12px;
 }
 
 .contact_us {
-  margin-top: 60px;
-  margin-left: 48px;
+  padding-top: 60px;
+  padding-left: 48px;
   font-family: "Inika";
   font-size: 40px;
   font-weight: 700;
@@ -541,7 +540,7 @@ img.leafs_small {
   align-items: center;
   margin-top: 148px;
   margin-right: -5px;
-  margin-bottom: 353px;
+  margin-bottom: 64px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   background: #d6e7d2;
 }
@@ -555,6 +554,71 @@ img.leafs_small {
 
 .city_menu-arrow {
   padding-right: 35px;
+}
+
+.city-menu_container {
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+}
+.city_card {
+  width: 448px;
+  max-height: 214px;
+  padding: 17px 76px 32px 33px;
+  background: #edf2ec;
+  border: 1px solid #000000;
+  border-radius: 20px;
+}
+
+.city_card > p {
+  line-height: 40px;
+  letter-spacing: 0.05em;
+}
+
+.call_us {
+  display: block;
+  /* margin: 0 auto; */
+  margin-top: 24px;
+  margin-left: 130px;
+  width: 122px;
+  padding: 7px 29px;
+  border: 1px solid #e06733;
+  border-radius: 5px;
+  font-family: "Inika";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 10px;
+  line-height: 13px;
+  color: #717171;
+}
+
+.call_us:hover {
+  transition: 300ms;
+  background-color: #e06733;
+  color: white;
+}
+
+.city_name,
+.phone_number,
+.street {
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 0.05em;
+  text-align: left;
+  color: #717171;
+}
+
+.city_name {
+  padding-left: 120px;
+}
+
+.phone_number {
+  padding-left: 95px;
+}
+.street {
+  padding-left: 35px;
 }
 
 /*------------FOOTER------------------*/
@@ -1178,7 +1242,6 @@ a.school {
   .label_text {
     padding: 16px 0 16px 40px;
     font-size: 15px;
-
   }
   .prices_right-column {
     margin-top: 21px;
