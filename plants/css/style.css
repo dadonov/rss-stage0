@@ -625,6 +625,9 @@ img.leafs_small {
   letter-spacing: 0.05em;
 }
 
+.city_card.active {
+  display: block;
+}
 .call_us {
   display: block;
   margin-top: 24px;

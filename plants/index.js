@@ -64,31 +64,46 @@ accordionTabs.forEach((tab) => {
 });
 
 // City drop-down menu
-function cityToggle() {
-  this.parentElement.classList.toggle("active");
-  this.classList.toggle(".active");
-}
-function cityChoose() {
-  let cityName = this.innerText;
-  let currentCityName =
-    this.closest(".city_select").querySelector(".select_current");
-  currentCityName.innerText = cityName;
-  this.closest(".city_select").classList.remove("active");
-}
-
-const selectCity = () => {
-  let selectHeader = document.querySelectorAll(".city_select-header");
-  let selectItem = document.querySelectorAll(".city_select-item");
-
-  selectHeader.forEach((item) => {
-    document.querySelector(".city_select-body").classList.add("active");
-    item.classList.toggle("active");
-    item.addEventListener("click", cityToggle);
-  });
-
-  selectItem.forEach((item) => {
-    item.addEventListener("click", cityChoose);
-  });
+const cities = {
+  ["Canandaigua, NY"]: ["Canandaigua, NY","+1 585 393 0001","151 Charlotte Street"],
+  ["New York City"]: ["New York City", "+1 212 456 0002", "9 East 91st Street"],
+  ["Yonkers, NY"]: ["Yonkers, NY", "+1 914 678 0003", "511 Warburton Ave"],
+  ["Sherrill, NY"]: ["Sherrill, NY", "+1 315 908 0004", "14 WEST Noyes BLVD"],
 };
 
-selectCity();
+const cityMenuHeader = document.querySelectorAll(".city_select-header");
+const cityMenuItem = document.querySelectorAll(".city_select-item");
+const cityCard = document.querySelector(".city_card");
+const city = cityCard.querySelector("span.city_name");
+const phoneNumber = cityCard.querySelector(".phone_number");
+const street = cityCard.querySelector(".street");
+
+function openCityMenu() {
+  if (cityCard.classList.contains("active")) {
+    cityCard.classList.remove("active");
+  }
+  this.parentElement.classList.toggle("active");
+}
+
+function changeMenuHeader() {
+  let cityName = this.textContent;
+  let citySelect = this.closest(".city_select");
+  let currentCityName = citySelect.querySelector(".select_current");
+  currentCityName.textContent = cityName;
+  city.textContent = cities[currentCityName.textContent][0];
+  phoneNumber.textContent = cities[currentCityName.textContent][1];
+  street.textContent = cities[currentCityName.textContent][2];
+  citySelect.classList.remove("active");
+  cityCard.classList.toggle("active");
+}
+
+(function selectCity() {
+  cityMenuHeader.forEach((item) => {
+    cityCard.classList.remove("active");
+    item.classList.toggle("active");
+    item.addEventListener("click", openCityMenu);
+  });
+  cityMenuItem.forEach((item) => {
+    item.addEventListener("click", changeMenuHeader);
+  });
+})();
