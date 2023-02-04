@@ -45,9 +45,8 @@ serviceButton.forEach((button) => {
 });
 
 // prices accordion
-const accordionTabs = document.querySelectorAll(".accordion_label");
-
-accordionTabs.forEach((tab) => {
+const accordionLabels = document.querySelectorAll(".accordion_label");
+accordionLabels.forEach((tab) => {
   tab.addEventListener("click", () => {
     let content = tab.nextElementSibling;
     if (content.style.maxHeight) {
@@ -65,7 +64,7 @@ accordionTabs.forEach((tab) => {
 
 // City drop-down menu
 const cities = {
-  ["Canandaigua, NY"]: ["Canandaigua, NY","+1 585 393 0001","151 Charlotte Street"],
+  ["Canandaigua, NY"]: ["Canandaigua, NY", "+1 585 393 0001", "151 Charlotte Street"],
   ["New York City"]: ["New York City", "+1 212 456 0002", "9 East 91st Street"],
   ["Yonkers, NY"]: ["Yonkers, NY", "+1 914 678 0003", "511 Warburton Ave"],
   ["Sherrill, NY"]: ["Sherrill, NY", "+1 315 908 0004", "14 WEST Noyes BLVD"],
@@ -77,6 +76,7 @@ const cityCard = document.querySelector(".city_card");
 const city = cityCard.querySelector("span.city_name");
 const phoneNumber = cityCard.querySelector(".phone_number");
 const street = cityCard.querySelector(".street");
+const callButton = document.querySelector(".call_us");
 
 function openCityMenu() {
   if (cityCard.classList.contains("active")) {
@@ -90,9 +90,12 @@ function changeMenuHeader() {
   let citySelect = this.closest(".city_select");
   let currentCityName = citySelect.querySelector(".select_current");
   currentCityName.textContent = cityName;
+
+  //filling in the contacts card
   city.textContent = cities[currentCityName.textContent][0];
   phoneNumber.textContent = cities[currentCityName.textContent][1];
   street.textContent = cities[currentCityName.textContent][2];
+  callButton.href = `tel:${cities[currentCityName.textContent][1]}`;
   citySelect.classList.remove("active");
   cityCard.classList.toggle("active");
 }
