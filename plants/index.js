@@ -18,9 +18,6 @@ const serviceButton = document.querySelectorAll(".service_list-button");
 const gardenCare = document.querySelectorAll("div.garden");
 const planting = document.querySelectorAll("div.planting");
 const lawnCare = document.querySelectorAll("div.lawn_care");
-const gardensButton = document.querySelector("button.button_gardens");
-const lawnButton = document.querySelector("button.button_lawn");
-const plantingButton = document.querySelector("button.button_planting");
 
 serviceButton.forEach((button) =>
   button.addEventListener("click", () => {
