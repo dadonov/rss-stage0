@@ -90,57 +90,59 @@
             <div class="service_buttons">
               <h2 class="service_heading">Service and our<br> projects</h2>
               <ul class="service_list">
-                <li class="service_list-item gardens"><button class="service_list-button gardens">Gardens</button></li>
-                <li class="service_list-item lawn"><button class="service_list-button lawn">Lawn</button></li>
-                <li class="service_list-item planting"><button class="service_list-button planting">Planting</button>
+                <li class="service_list-item "><button class="service_list-button button_gardens">Gardens</button></li>
+                <li class="service_list-item button_lawn"><button class="service_list-button button_lawn">Lawn</button>
+                </li>
+                <li class="service_list-item button_planting"><button
+                    class="service_list-button button_planting">Planting</button>
                 </li>
               </ul>
             </div>
             <div class="gallery">
-              <div class="card">
+              <div class="card garden">
                 <picture>
                   <source media="(max-width:1080px)" srcset="./assets/img/garden_care_768.jpg">
-                  <img src="./assets/img/garden_care_1444.jpg" alt="Garden Care" class="gallery_image">
+                  <img src="./assets/img/garden_care_1444.jpg" alt="Garden Care" class="gallery_image garden">
                 </picture>
                 <h2 class="image_heading garden_care">Garden care</h2>
                 <p class="image_text garden_care">Lorem Ipsum has been the industry</p>
               </div>
-              <div class="card">
+              <div class="card planting">
                 <picture>
                   <source media="(max-width:1080px)" srcset="./assets/img/planting_768.jpg">
-                  <img src="./assets/img/planting_1444.jpg" alt="Planting" class="gallery_image">
+                  <img src="./assets/img/planting_1444.jpg" alt="Planting" class="gallery_image planting">
                 </picture>
                 <h2 class="image_heading">Planting</h2>
                 <p class="image_text">Lorem Ipsum has been the industry</p>
               </div>
-              <div class="card">
+              <div class="card lawn_care">
                 <picture>
                   <source media="(max-width:1080px)" srcset="./assets/img/lawn_care_768.jpg">
-                  <img src="./assets/img/lawn_care_1444.jpg" alt="Planting" class="gallery_image">
+                  <img src="./assets/img/lawn_care_1444.jpg" alt="Planting" class="gallery_image lawn_care">
                 </picture>
                 <h2 class="image_heading lawn_care">Lawn care</h2>
                 <p class="image_text lawn_care">Lorem Ipsum has been the industry</p>
               </div>
-              <div class="card">
+              <div class="card planting">
                 <picture>
                   <source media="(max-width:1080px)" srcset="./assets/img/planting-2_768.jpg">
-                  <img src="./assets/img/planting-2_1444.jpg" alt="Planting" class="gallery_image">
+                  <img src="./assets/img/planting-2_1444.jpg" alt="Planting" class="gallery_image planting">
                 </picture>
                 <h2 class="image_heading planting_two">Planting</h2>
                 <p class="image_text planting_two">Lorem Ipsum has been the industry</p>
               </div>
-              <div class="card">
+              <div class="card garden">
                 <picture>
                   <source media="(max-width:1080px)" srcset="./assets/img/garden_care-2_768.jpg">
-                  <img src="./assets/img/garden_care-2_1444.jpg" alt="Garden Care" class="gallery_image">
+                  <img src="./assets/img/garden_care-2_1444.jpg" alt="Garden Care" class="gallery_image garden">
                 </picture>
                 <h2 class="image_heading garden_care_two">Garden care</h2>
                 <p class="image_text garden_care_two">Lorem Ipsum has been the industry</p>
               </div>
-              <div class="card">
+              <div class="card planting">
                 <picture>
                   <source media="(max-width:1080px)" srcset="./assets/img/planting-3_768.jpg">
-                  <img src="./assets/img/planting-3_1444.jpg" alt="Planting" class="gallery_image">
+                  <img src="./assets/img/planting-3_1444.jpg" alt="Planting" class="gallery_image planting">
                 </picture>
                 <h2 class="image_heading planting_three">Planting</h2>
                 <p class="image_text planting_three">Lorem Ipsum has been the industry</p>
@@ -154,24 +156,55 @@
           <div class="prices_wrapper">
             <div class="prices_left-column">
               <h2 class="prices_left-column-heading">Prices</h2>
-              <div class="price_menu-wrapper-outer">
-                <div class="price_menu-wrapper-inner">
-                  <div class="price_menu-tab">
-                    <p class="price_menu-tab-title basics">Basics</p>
-                    <div class="price_menu-arrow">
-                      <img src="./assets/img/accordion_btn.png" alt="Arrow" class="accordion_arrow">
+              <div class="accordion_block">
+                <div class="accordion_tab">
+                  <div class="accordion_label">
+                    <p class="label_text">Basics</p>
+                    <span class="accordion_arrow">
+                      <img src="/assets/img/accordion_btn.png" alt="arrow" class="arrow">
+                    </span>
+                  </div>
+                  <div class="tab-content">
+                    <div class="tab_container">
+                      <p class="content-descr">Release of Letraset sheets containing Lorem Ipsum passages, and more
+                        recently</p>
+                      <p class="tab-price"><span class="price"><span class="dollar-sign">$</span>15</span> / per hour
+                      </p>
+                      <a href="#contacts" class="order-button">Order</a>
                     </div>
                   </div>
-                  <div class="price_menu-tab">
-                    <p class="price_menu-tab-title">Standard</p>
-                    <div class="price_menu-arrow">
-                      <img src="./assets/img/accordion_btn.png" alt="Arrow" class="accordion_arrow">
+                </div>
+                <div class="accordion_tab">
+                  <div class="accordion_label">
+                    <p class="label_text">Standard</p>
+                    <span class="accordion_arrow">
+                      <img src="/assets/img/accordion_btn.png" alt="arrow" class="arrow">
+                    </span>
+                  </div>
+                  <div class="tab-content">
+                    <div class="tab_container">
+                      <p class="content-descr">Release of Letraset sheets containing Lorem Ipsum passages, and more
+                        recently</p>
+                      <p class="tab-price"><span class="price"><span class="dollar-sign">$</span>25</span> / per hour
+                      </p>
+                      <a href="#contacts" class="order-button">Order</a>
                     </div>
                   </div>
-                  <div class="price_menu-tab">
-                    <p class="price_menu-tab-title">Pro care</p>
-                    <div class="price_menu-arrow">
-                      <img src="./assets/img/accordion_btn.png" alt="Arrow" class="accordion_arrow">
+                </div>
+                <div class="accordion_tab">
+                  <div class="accordion_label">
+                    <p class="label_text">Pro care</p>
+                    <span class="accordion_arrow">
+                      <img src="/assets/img/accordion_btn.png" alt="arrow" class="arrow">
+                    </span>
+                  </div>
+                  <div class="tab-content">
+                    <div class="tab_container">
+                      <p class="content-descr">Release of Letraset sheets containing Lorem Ipsum passages, and more
+                        recently</p>
+                      <p class="tab-price"><span class="price"><span class="dollar-sign">$</span>35</span> / per hour
+                      </p>
+                      <a href="#contacts" class="order-button">Order</a>
                     </div>
                   </div>
                 </div>
@@ -182,7 +215,7 @@
                 help
                 you
               </h2>
-              <button class="contact_us-button">Contact us</button>
+              <a class="contact_us-button" href="#contacts">Contact us</a>
               <img src="./assets/img/leafs_small.png" alt="Small leaves" class="leafs_small">
             </div>
           </div>
@@ -197,15 +230,28 @@
                 <source media="(max-width:1080px)" srcset="./assets/img/contact_woman_768.png">
                 <img src="./assets/img/contact_woman_1444.png" alt="Woman with pot" class="woman">
               </picture>
-
             </div>
             <div class="contacts_heading">
               <h2 class="contact_us">Contact us </h2>
             </div>
-            <div class="city_menu">
-              <p class="city_menu-title">City</p>
-              <div class="city_menu-arrow">
-                <img src="./assets/img/accordion_btn.png" alt="">
+            <div class="city-menu_container">
+              <div class="city_select">
+                <div class="city_select-header">
+                  <span class="select_current">City</span>
+                  <div class="select_icon"><img src="assets/img/accordion_btn.png" alt="" class="select_arrow"></div>
+                </div>
+                <div class="city_select-body">
+                  <div class="city_select-item">Canandaigua, NY</div>
+                  <div class="city_select-item">New York City</div>
+                  <div class="city_select-item">Yonkers, NY</div>
+                  <div class="city_select-item">Sherrill, NY</div>
+                </div>
+              </div>
+              <div class="city_card">
+                <p class="city">City:<span class="city_name"></span></p>
+                <p class="phone">Phone: <span class="phone_number"></span></p>
+                <p class="adress">Office adress: <span class="street"></span></p>
+                <a href="#" class="call_us">Call us</a>
               </div>
             </div>
           </div>
