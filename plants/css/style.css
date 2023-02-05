@@ -268,6 +268,10 @@ span.professional {
   transition-duration: 300ms;
 }
 
+.service_list-button.active-button {
+  scale: 1.05;
+  transition-duration: 500ms;
+}
 .service_list-button:hover {
   transition-duration: 300ms;
   background-color: #e06733;
@@ -312,6 +316,7 @@ span.professional {
   transition-duration: 300ms;
   filter: blur(3px);
 }
+
 .image_heading {
   margin-top: 10px;
   font-size: 20px;
@@ -369,7 +374,7 @@ span.professional {
   max-width: 250px;
   margin-bottom: 29px;
   border-radius: 20px;
-  background-color: #edf2ec;
+  background-color: #d6e7d2;
 }
 
 .accordion_tab:last-child {
@@ -388,13 +393,28 @@ span.professional {
   font-weight: 700;
   font-size: 20px;
   line-height: 20px;
+  cursor: pointer;
 }
+
+img.arrow {
+  filter: brightness(100%);
+  transition: 700ms;
+}
+img.arrow.open {
+  filter: brightness(80%);
+  transform: rotate(180deg);
+  transition: 700ms;
+}
+
 .label_text {
   padding: 16px 0 16px 40px;
 }
 
 .accordion_arrow {
   padding: 17px 40px 17px 0;
+}
+.accordion_arrow.active {
+  transform: rotate(180);
 }
 
 /* accordion- content */
@@ -403,7 +423,7 @@ span.professional {
   overflow: hidden;
   background-color: #d6e7d2;
   border-radius: 20px;
-  transition: 300ms ease-in-out;
+  transition: 500ms ease-out;
 }
 
 .content-descr {
@@ -416,7 +436,13 @@ span.professional {
   color: #717171;
 }
 .tab_container {
+  transform: translateY(-700px);
   padding: 0 40px;
+}
+
+.tab_container.active {
+  transition: 550ms ease-out;
+  transform: translateY(0px);
 }
 
 .tab-price {
@@ -478,8 +504,7 @@ span.gardeners {
 }
 
 .contact_us-button {
-  width: 162px;
-  height: 50px;
+  padding: 12px 33.96px 12px 30.04px;
   border: 1px solid #e06733;
   border-radius: 5px;
   font-family: Inika;
@@ -488,6 +513,9 @@ span.gardeners {
   line-height: 26px;
   text-align: center;
   background-color: #fff;
+  color: #e06733;
+}
+.contact_us-button:visited {
   color: #e06733;
 }
 
@@ -564,13 +592,18 @@ img.leafs_small {
   text-align: center;
 }
 
+img.select_arrow {
+  transition: 700ms;
+}
+img.select_arrow.open {
+  filter: brightness(80%);
+  transform: rotate(180deg);
+}
+
 .select_current {
-  font-family: Inter;
   font-size: 20px;
-  font-weight: 400;
   line-height: 40px;
   letter-spacing: 0.05em;
-  text-align: left;
 }
 
 .city_select-body {
@@ -611,13 +644,14 @@ img.leafs_small {
   align-content: space-between;
 }
 .city_card {
-  display: none;
   width: 448px;
   max-height: 214px;
   padding: 17px 76px 32px 33px;
   background: #edf2ec;
   border: 1px solid #000000;
   border-radius: 20px;
+  transform: translateX(550px);
+  filter: blur(5px);
 }
 
 .city_card > p {
@@ -626,7 +660,9 @@ img.leafs_small {
 }
 
 .city_card.active {
-  display: block;
+  filter: blur(0);
+  transform: translateX(0);
+  transition: 800ms ease-out;
 }
 .call_us {
   display: block;
@@ -645,9 +681,9 @@ img.leafs_small {
 }
 
 .call_us:hover {
-  transition: 300ms;
   background-color: #e06733;
   color: white;
+  transition: 300ms;
 }
 
 .city_name,
@@ -723,8 +759,7 @@ a.school {
 .social_logo:hover {
   transition-duration: 50ms;
   transform: scale(1.1);
-  filter: invert(54%) sepia(50%) saturate(2998%) hue-rotate(339deg)
-    brightness(91%) contrast(91%);
+  filter: invert(54%) sepia(50%) saturate(2998%) hue-rotate(339deg) brightness(91%) contrast(91%);
 }
 
 @media (max-width: 1300px) {
@@ -966,8 +1001,8 @@ a.school {
 
   .contact_us-button {
     margin-bottom: 34px;
+    padding: 8px 22px;
   }
-
   /*------------CONTACT------------------*/
 
   .contacts_wrapper {
@@ -981,24 +1016,21 @@ a.school {
 
   .contact_us {
     order: 1;
-    margin-top: 39px;
-    margin-bottom: 100px;
-    margin-left: 0px;
-    text-align: center;
+    margin: 39px auto 60px auto;
+    padding-left: 0;
   }
-  .city_menu {
-    order: 2;
-    max-width: 450px;
-    margin-top: 0px;
-    margin-right: 0px;
-    margin-left: 110px;
-    margin-bottom: 250px;
+  .city_select {
+    margin: 0 auto 60px auto;
+  }
+
+  .city_card {
+    margin: 0 auto;
+    transform: translateX(700px);
   }
 
   .woman_picture {
-    order: 3;
-    margin-top: 0px;
-    margin-left: 244px;
+    margin: 0 auto;
+    margin-top: 14px;
   }
 
   /*------------FOOTER------------------*/
@@ -1330,33 +1362,56 @@ a.school {
   }
 
   .contact_us {
+    padding: 0;
     margin-top: 26px;
-    margin-bottom: 81px;
+    margin-bottom: 40px;
     font-size: 25px;
     line-height: 32.57px;
   }
 
-  .city_menu {
+  .city_select {
     width: 300px;
     height: 50px;
-    margin: 0 0 0 13px;
+    margin: 0 0 50px 13px;
   }
 
-  .city_menu-title {
-    padding: 5px 0px 5px 20px;
-    font-size: 20px;
+  .select_current {
+    font-size: 16px;
     line-height: 40px;
     letter-spacing: 0.05em;
   }
-
-  .city_menu-arrow {
-    padding-right: 22px;
+  .select_icon {
+    padding-right: 0px;
   }
 
+  .city_card {
+    width: 282px;
+    max-height: 212px;
+    padding: 23px 36px;
+    margin-bottom: 60px;
+  }
+
+  .call_us {
+    margin: 0 auto;
+    margin-top: 24px;
+  }
+
+  .city_name {
+    padding-left: 25px;
+  }
+
+  .phone_number {
+    padding-left: 4px;
+  }
+  .street {
+    padding-left: 0px;
+  }
   .woman_picture {
-    align-self: center;
-    margin-top: 132px;
-    margin-left: 0px;
+    margin: 0 auto;
+    margin-left: 115px;
+  }
+  p.adress {
+    display: none;
   }
   /*------------FOOTER------------------*/
 

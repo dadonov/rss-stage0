@@ -18,6 +18,9 @@ const serviceButton = document.querySelectorAll(".service_list-button");
 const gardenCare = document.querySelectorAll("div.garden");
 const planting = document.querySelectorAll("div.planting");
 const lawnCare = document.querySelectorAll("div.lawn_care");
+const gardensButton = document.querySelector("button.button_gardens");
+const lawnButton = document.querySelector("button.button_lawn");
+const plantingButton = document.querySelector("button.button_planting");
 
 serviceButton.forEach((button) =>
   button.addEventListener("click", () => {
@@ -46,9 +49,13 @@ serviceButton.forEach((button) => {
 
 // prices accordion
 const accordionLabels = document.querySelectorAll(".accordion_label");
+
 accordionLabels.forEach((tab) => {
-  tab.addEventListener("click", () => {
+  tab.addEventListener("click", (event) => {
     let content = tab.nextElementSibling;
+    let container = content.firstElementChild;
+    tab.lastElementChild.firstElementChild.classList.toggle("open");
+    container.classList.remove("active");
     if (content.style.maxHeight) {
       document.querySelectorAll(".tab-content").forEach((element) => {
         element.style.maxHeight = null;
@@ -58,6 +65,7 @@ accordionLabels.forEach((tab) => {
         element.style.maxHeight = null;
       });
       content.style.maxHeight = content.scrollHeight + "px";
+      container.classList.add("active");
     }
   });
 });
@@ -77,11 +85,13 @@ const city = cityCard.querySelector("span.city_name");
 const phoneNumber = cityCard.querySelector(".phone_number");
 const street = cityCard.querySelector(".street");
 const callButton = document.querySelector(".call_us");
+const arrow = document.querySelector(".select_icon").firstElementChild;
 
 function openCityMenu() {
   if (cityCard.classList.contains("active")) {
     cityCard.classList.remove("active");
   }
+  arrow.classList.toggle("open");
   this.parentElement.classList.toggle("active");
 }
 
