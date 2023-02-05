@@ -650,7 +650,7 @@ img.select_arrow.open {
   background: #edf2ec;
   border: 1px solid #000000;
   border-radius: 20px;
-  transform: translateX(550px);
+  transform: translateX(1220px);
   filter: blur(5px);
 }
 
@@ -662,7 +662,7 @@ img.select_arrow.open {
 .city_card.active {
   filter: blur(0);
   transform: translateX(0);
-  transition: 800ms ease-out;
+  transition: 700ms ease-out;
 }
 .call_us {
   display: block;
@@ -1025,7 +1025,7 @@ a.school {
 
   .city_card {
     margin: 0 auto;
-    transform: translateX(700px);
+    transform: translateX(1200px);
   }
 
   .woman_picture {
