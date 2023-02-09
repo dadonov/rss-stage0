@@ -4,6 +4,10 @@ const greetingElement = document.querySelector(".greeting");
 const timeOfDay = getTimeOfDay();
 const greeting = `Good ${timeOfDay},`;
 const username = document.querySelector(".name");
+const body = document.querySelector("body");
+let randomNumber;
+const slideNext = document.querySelector(".slide-next");
+const slidePrev = document.querySelector(".slide-prev");
 
 function showTime() {
   const date = new Date();
@@ -58,3 +62,38 @@ function getLocalStorage() {
   }
 }
 window.addEventListener("load", getLocalStorage);
+
+function getRandomNum() {
+  randomNumber = Math.round(Math.random() * (20 - 1) + 1);
+}
+getRandomNum();
+
+function setBg() {
+  const timeOfDay = getTimeOfDay();
+  const bgNum = randomNumber.toString().padStart(2, "0");
+  body.style.backgroundImage = `url('https://raw.githubusercontent.com/dadonov/Momentum-Images-/master/${timeOfDay}/${bgNum}.webp')`;
+}
+
+function getSlideNext() {
+  console.log(randomNumber);
+  randomNumber++;
+  if (randomNumber <= 20) {
+    setBg();
+  } else {
+    randomNumber = 1;
+    setBg();
+  }
+}
+
+function getSlidePrev() {
+  randomNumber--;
+  if (randomNumber >= 1) {
+    setBg();
+  } else {
+    randomNumber = 20;
+    setBg();
+  }
+}
+
+slideNext.addEventListener("click", getSlideNext);
+slidePrev.addEventListener("click", getSlidePrev);
