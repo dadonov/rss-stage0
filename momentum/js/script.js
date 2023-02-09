@@ -69,13 +69,16 @@ function getRandomNum() {
 getRandomNum();
 
 function setBg() {
-  const timeOfDay = getTimeOfDay();
   const bgNum = randomNumber.toString().padStart(2, "0");
-  body.style.backgroundImage = `url('https://raw.githubusercontent.com/dadonov/Momentum-Images-/master/${timeOfDay}/${bgNum}.webp')`;
+  const img = new Image();
+  img.src = `https://raw.githubusercontent.com/dadonov/Momentum-Images-/master/${timeOfDay}/${bgNum}.webp`;
+  img.onload = () => {
+    body.style.backgroundImage = `url(${img.src})`;
+  };
 }
+setBg();
 
 function getSlideNext() {
-  console.log(randomNumber);
   randomNumber++;
   if (randomNumber <= 20) {
     setBg();
