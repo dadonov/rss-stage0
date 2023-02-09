@@ -1,4 +1,3 @@
-// show time
 const timeElement = document.querySelector(".time");
 const dateElement = document.querySelector(".date");
 const greetingElement = document.querySelector(".greeting");
@@ -29,17 +28,17 @@ function showDate() {
   const currentDate = date.toLocaleDateString("en-US", options);
   dateElement.innerText = currentDate;
 }
-// greeting
+
 function getTimeOfDay() {
   const date = new Date();
   const hours = date.getHours();
-  if (hours > 0 && hours < 6) {
+  if (hours >= 0 && hours < 6) {
     return "night";
-  } else if (hours > 6 && hours < 12) {
+  } else if (hours >= 6 && hours < 12) {
     return "morning";
-  } else if (hours > 12 && hours < 18) {
+  } else if (hours >= 12 && hours < 18) {
     return "afternoon";
-  } else if (hours > 18 && hours < 24) {
+  } else if (hours >= 18 && hours < 24) {
     return "evening";
   }
 }
