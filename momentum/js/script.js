@@ -120,13 +120,22 @@ async function getWeather() {
   const response = await fetch(url);
   const weatherData = await response.json();
 
-  weatherIcon.className = "weather-icon owf";
-  weatherIcon.classList.add(`owf-${weatherData.weather[0].id}`);
-  weatherDescription.textContent = weatherData.weather[0].description;
-  temperature.textContent = `Temperature: ${Math.round(weatherData.main.temp)}°C`;
-  wind.textContent = `Wind speed: ${Math.round(weatherData.wind.speed)} m/s`;
-  humidity.textContent = `Humidity: ${Math.round(weatherData.main.humidity)}%`;
+  if (response.status === 200) {
+    weatherError.innerText = "";
+    weatherIcon.className = "weather-icon owf";
+    weatherIcon.classList.add(`owf-${weatherData.weather[0].id}`);
+    weatherDescription.textContent = weatherData.weather[0].description;
+    temperature.textContent = `Temperature: ${weatherData.main.temp.toFixed(0)}°C`;
+    wind.textContent = `Wind speed: ${weatherData.wind.speed.toFixed(0)} m/s`;
+    humidity.textContent = `Humidity: ${weatherData.main.humidity.toFixed(0)}%`;
+  } else {
+    weatherError.innerText = "Please, enter the correct location name";
+    weatherIcon.className = "weather-icon owf";
+    weatherDescription.textContent = "";
+    temperature.textContent = "";
+    wind.textContent = "";
+    humidity.textContent = "";
+  }
 }
 
 city.addEventListener("change", getWeather);
-// getWeather();
