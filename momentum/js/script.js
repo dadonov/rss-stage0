@@ -1,3 +1,4 @@
+import playList from "./playlist.js";
 const timeElement = document.querySelector(".time");
 const dateElement = document.querySelector(".date");
 const greetingElement = document.querySelector(".greeting");
@@ -5,8 +6,8 @@ const timeOfDay = getTimeOfDay();
 const username = document.querySelector(".name");
 const body = document.querySelector("body");
 let randomNumber;
-const slideNext = document.querySelector(".slide-next");
-const slidePrev = document.querySelector(".slide-prev");
+const slideNextBtn = document.querySelector(".slide-next");
+const slidePrevBtn = document.querySelector(".slide-prev");
 const city = document.querySelector(".city");
 const weatherIcon = document.querySelector(".weather-icon");
 const weatherDescription = document.querySelector(".weather-description");
@@ -20,7 +21,7 @@ const changeQuoteBtn = document.querySelector(".change-quote");
 
 function showTime() {
   const date = new Date();
-  const currentTime = date.toLocaleTimeString("en-US", {
+  const currentTime = date.toLocaleTimeString("en-UK", {
     hour12: false,
   });
   timeElement.innerText = currentTime;
@@ -115,8 +116,8 @@ function getSlidePrev() {
   }
 }
 
-slideNext.addEventListener("click", getSlideNext);
-slidePrev.addEventListener("click", getSlidePrev);
+slideNextBtn.addEventListener("click", getSlideNext);
+slidePrevBtn.addEventListener("click", getSlidePrev);
 
 async function getWeather() {
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=en&appid=f0002bf3f73c9f1f545985301e5142ab&units=metric`;
@@ -127,10 +128,12 @@ async function getWeather() {
     weatherError.innerText = "";
     weatherIcon.className = "weather-icon owf";
     weatherIcon.classList.add(`owf-${weatherData.weather[0].id}`);
-    weatherDescription.textContent = weatherData.weather[0].description;
-    temperature.textContent = `Temperature: ${weatherData.main.temp.toFixed(0)}°C`;
-    wind.textContent = `Wind speed: ${weatherData.wind.speed.toFixed(0)} m/s`;
-    humidity.textContent = `Humidity: ${weatherData.main.humidity.toFixed(0)}%`;
+    weatherDescription.textContent =
+      weatherData.weather[0].description[0].toUpperCase() +
+      weatherData.weather[0].description.slice(1);
+    temperature.textContent = `Temperature: ${Math.round(weatherData.main.temp)}°C`;
+    wind.textContent = `Wind speed: ${Math.round(weatherData.wind.speed)} m/s`;
+    humidity.textContent = `Humidity: ${Math.round(weatherData.main.humidity)}%`;
   } else {
     weatherError.innerText = "Please, enter the correct location name";
     weatherIcon.className = "weather-icon owf";
@@ -155,3 +158,63 @@ async function getQuote() {
 
 changeQuoteBtn.addEventListener("click", getQuote);
 getQuote();
+
+const audio = document.querySelector("audio");
+audio.controls = false;
+const playBtn = document.querySelector(".play");
+const playPrevBtn = document.querySelector(".play-prev");
+const playNextBtn = document.querySelector(".play-next");
+const playListLength = Object.keys(playList).length;
+const playListContainer = document.querySelector(".play-list");
+let isPlay = false;
+let trackNum = 0;
+
+function createPlaylist() {
+  for (let i = 0; i < playListLength; i++) {
+    const li = document.createElement("li");
+    playListContainer.append(li);
+    li.classList.add("track");
+    li.innerText = playList[i].title;
+  }
+}
+createPlaylist();
+
+function playAudio() {
+  if (isPlay === false) {
+    audio.currentTime = 0;
+    audio.src = playList[trackNum].src;
+    audio.play();
+    isPlay = true;
+    playBtn.classList.add("pause");
+  } else {
+    audio.pause();
+    isPlay = false;
+    playBtn.classList.remove("pause");
+  }
+}
+
+playBtn.addEventListener("click", playAudio);
+
+function previousTrack() {
+  isPlay = false;
+  if (trackNum > 0) {
+    trackNum--;
+  } else {
+    trackNum = playListLength - 1;
+  }
+  playAudio();
+}
+playPrevBtn.addEventListener("click", previousTrack);
+
+function nextTrack() {
+  isPlay = false;
+  if (trackNum >= playListLength - 1) {
+    trackNum = 0;
+  } else {
+    trackNum++;
+  }
+  playAudio();
+}
+
+playNextBtn.addEventListener("click", nextTrack);
+
