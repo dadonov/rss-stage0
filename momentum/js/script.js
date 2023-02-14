@@ -18,6 +18,15 @@ const humidity = document.querySelector(".humidity");
 const quote = document.querySelector(".quote");
 const quoteAuthor = document.querySelector(".author");
 const changeQuoteBtn = document.querySelector(".change-quote");
+const audio = document.querySelector("audio");
+audio.controls = false;
+const playBtn = document.querySelector(".play");
+const playPrevBtn = document.querySelector(".play-prev");
+const playNextBtn = document.querySelector(".play-next");
+const playListLength = Object.keys(playList).length;
+const playListContainer = document.querySelector(".play-list");
+let isPlay = false;
+let trackNum = 0;
 
 function showTime() {
   const date = new Date();
@@ -159,15 +168,6 @@ async function getQuote() {
 changeQuoteBtn.addEventListener("click", getQuote);
 getQuote();
 
-const audio = document.querySelector("audio");
-audio.controls = false;
-const playBtn = document.querySelector(".play");
-const playPrevBtn = document.querySelector(".play-prev");
-const playNextBtn = document.querySelector(".play-next");
-const playListLength = Object.keys(playList).length;
-const playListContainer = document.querySelector(".play-list");
-let isPlay = false;
-let trackNum = 0;
 
 function createPlaylist() {
   for (let i = 0; i < playListLength; i++) {
@@ -217,4 +217,4 @@ function nextTrack() {
 }
 
 playNextBtn.addEventListener("click", nextTrack);
-
+audio.addEventListener("ended", nextTrack);
