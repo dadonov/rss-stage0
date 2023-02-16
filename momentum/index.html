@@ -11,11 +11,26 @@
 <body>
   <header class="header">
     <div class="player">
-      <audio src="" controls></audio>
-      <div class="player-controls">
-        <button class="play-prev player-icon"></button>
-        <button class="play player-icon"></button>
-        <button class="play-next player-icon"></button>
+      <audio src="" class="audio" controls></audio>
+      <div class="minimize"><img src="/assets/img/minimize.png" alt="" class="minimize_btn"></div>
+      <div class="cover_container">
+        <div class="cover"></div>
+      </div>
+      <div class="song">Bring Me The Horizon</div>
+      <div class="progress_container">
+        <div class="progress"></div>
+      </div>
+      <div class="play_time">
+        <div class="current">00:00</div>
+        <div class="whole">00:00</div>
+      </div>
+      <div class="buttons">
+        <div><img src="/assets/img/playlist.png" alt="Playlist icon" class="playlist_btn"></div>
+        <div><img src="/assets/img/prev.png" alt="Previous track icon" class="play-prev"></div>
+        <div><img src="/assets/img/play.png" alt="Play icon" class="play">
+        </div>
+        <div><img src="/assets/img/next.png" alt="Next track icon" class="play-next"></div>
+        <div><img src="/assets/img/volume.png" alt="Volume icon" class="volume_btn"></div>
       </div>
       <ul class="play-list"></ul>
     </div>

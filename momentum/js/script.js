@@ -27,6 +27,8 @@ const playListLength = Object.keys(playList).length;
 const playListContainer = document.querySelector(".play-list");
 let isPlay = false;
 let trackNum = 0;
+const minimize = document.querySelector(".minimize_btn");
+const cover = document.querySelector(".cover");
 
 function showTime() {
   const date = new Date();
@@ -168,7 +170,6 @@ async function getQuote() {
 changeQuoteBtn.addEventListener("click", getQuote);
 getQuote();
 
-
 function createPlaylist() {
   for (let i = 0; i < playListLength; i++) {
     const li = document.createElement("li");
@@ -185,11 +186,15 @@ function playAudio() {
     audio.src = playList[trackNum].src;
     audio.play();
     isPlay = true;
-    playBtn.classList.add("pause");
+    // playBtn.classList.add("pause");
+    playBtn.src = "/assets/img/pause.png";
+    console.log("click");
   } else {
     audio.pause();
     isPlay = false;
-    playBtn.classList.remove("pause");
+    console.log("click");
+    playBtn.src = "/assets/img/play.png";
+    // playBtn.classList.remove("pause");
   }
 }
 
@@ -215,6 +220,11 @@ function nextTrack() {
   }
   playAudio();
 }
+
+
+minimize.addEventListener("click", () => {
+  cover.classList.toggle("cover_hidden");
+});
 
 playNextBtn.addEventListener("click", nextTrack);
 audio.addEventListener("ended", nextTrack);
