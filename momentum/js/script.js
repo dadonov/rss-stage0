@@ -23,15 +23,15 @@ const quote = document.querySelector(".quote");
 const quoteAuthor = document.querySelector(".author");
 const changeQuoteBtn = document.querySelector(".change-quote");
 //audio player
+let trackNum = 0;
 const audio = document.querySelector("audio");
-const player = document.querySelector(".player");
 audio.controls = false;
+const player = document.querySelector(".player");
 const playBtn = document.querySelector(".play");
 const playPrevBtn = document.querySelector(".play-prev");
 const playNextBtn = document.querySelector(".play-next");
 const playListLength = Object.keys(playList).length;
 const playListContainer = document.querySelector(".play-list");
-let trackNum = 0;
 const minimizeBtn = document.querySelector(".minimize_btn");
 const song = document.querySelector(".song");
 song.innerText = playList[0].title;
@@ -44,6 +44,7 @@ duration.innerText = playList[0].duration;
 const progressBar = document.querySelector(".progress");
 const progressBarCont = document.querySelector(".progress_container");
 
+//----------------------TIME & DATE--------------------
 function showTime() {
   const date = new Date();
   const currentTime = date.toLocaleTimeString("en-UK", {
@@ -67,7 +68,7 @@ function showDate() {
   const currentDate = date.toLocaleDateString("en-US", options);
   dateElement.innerText = currentDate;
 }
-
+//------------------------GREETING------------------------------
 function getTimeOfDay() {
   const date = new Date();
   const hours = date.getHours();
@@ -86,7 +87,7 @@ function showGreeting() {
   const greeting = `Good ${timeOfDay},`;
   greetingElement.innerText = greeting;
 }
-
+//-------------------LOCAL STORAGE SET & GET--------------------
 function setLocalStorage() {
   localStorage.setItem("username", username.value);
   localStorage.setItem("city", city.value);
@@ -106,6 +107,7 @@ function getLocalStorage() {
 }
 window.addEventListener("load", getLocalStorage);
 
+//-----------------------BACKGROUND IMAGE SLIDER--------------------
 function getRandomNum() {
   randomNumber = Math.round(Math.random() * (20 - 1) + 1);
 }
@@ -140,10 +142,10 @@ function getSlidePrev() {
     setBg();
   }
 }
-
 slideNextBtn.addEventListener("click", getSlideNext);
 slidePrevBtn.addEventListener("click", getSlidePrev);
 
+//------------------------WEATHER WIDGET--------------------
 async function getWeather() {
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=en&appid=f0002bf3f73c9f1f545985301e5142ab&units=metric`;
   const response = await fetch(url);
@@ -168,9 +170,9 @@ async function getWeather() {
     humidity.textContent = "";
   }
 }
-
 city.addEventListener("change", getWeather);
 
+//-----------------------QUOTE WIDGET--------------------
 async function getQuote() {
   const quotesSrc = "/assets/json/quotes_en.json";
   const response = await fetch(quotesSrc);
@@ -184,6 +186,7 @@ async function getQuote() {
 changeQuoteBtn.addEventListener("click", getQuote);
 getQuote();
 
+//----------------------AUDIO PLAYER--------------------
 function createPlaylist() {
   for (let i = 0; i < playListLength; i++) {
     const li = document.createElement("li");
@@ -194,20 +197,24 @@ function createPlaylist() {
 }
 // createPlaylist();
 
+function initSong(song) {
+  audio.src = song.src;
+  song.innerText = song.title;
+  artist.innerText = song.artist;
+  albumCover.style.backgroundImage = `url(${song.cover})`;
+  duration.innerText = song.duration;
+}
+initSong(playList[trackNum]);
 
 function playAudio() {
-  audio.src = playList[trackNum].src;
-  setTrackInfo();
   player.classList.add("active");
   playBtn.src = "/assets/img/pause.png";
-  audio.currentTime = tracktime;
   audio.play();
 }
 
 function pauseAudio() {
   player.classList.remove("active");
   playBtn.src = "/assets/img/play.png";
-  tracktime = audio.currentTime;
   audio.pause();
 }
 
@@ -219,47 +226,45 @@ playBtn.addEventListener("click", () => {
     playAudio();
   }
 });
-// let tracktime;
+
 function previousTrack() {
-  if (trackNum > 0) {
-    trackNum--;
-  } else {
+  trackNum--;
+  if (trackNum < 0) {
     trackNum = playListLength - 1;
   }
-  // tracktime = 0;
+  initSong(playList[trackNum]);
   playAudio();
 }
 playPrevBtn.addEventListener("click", previousTrack);
 
 function nextTrack() {
-  // tracktime = 0;
+  trackNum++;
   if (trackNum > playListLength - 1) {
     trackNum = 0;
-  } else {
-    trackNum++;
   }
-
+  initSong(playList[trackNum]);
   playAudio();
 }
 playNextBtn.addEventListener("click", nextTrack);
 audio.addEventListener("ended", nextTrack);
 
-function updateProgress(event) {
+function updateProgressBar(event) {
   const duration = audio.duration;
   const currentTime = audio.currentTime;
   const progressPercentage = (currentTime / duration) * 100;
   progressBar.style.width = `${progressPercentage}%`;
 }
-audio.addEventListener("timeupdate", updateProgress);
+audio.addEventListener("timeupdate", updateProgressBar);
 
-function setProgress(event) {
+function setProgressBar(event) {
   const width = progressBarCont.clientWidth;
   const clickX = event.offsetX;
   const duration = audio.duration;
   audio.currentTime = (clickX / width) * duration;
 }
-progressBarCont.addEventListener("click", setProgress);
+progressBarCont.addEventListener("click", setProgressBar);
 
-minimizeBtn.addEventListener("click", () => {
+function minimizePlayer() {
   albumCover.classList.toggle("cover_hidden");
-});
+}
+minimizeBtn.addEventListener("click", minimizePlayer);
