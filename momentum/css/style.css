@@ -86,7 +86,7 @@ body {
   width: 200px;
   height: 200px;
   background-position: center;
-  box-shadow: 10px black;
+  background-size: contain;
   border-radius: 10px;
 }
 
@@ -128,7 +128,7 @@ body {
 }
 
 .current,
-.whole {
+.duration {
   font-size: 13px;
 }
 .buttons {

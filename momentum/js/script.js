@@ -18,6 +18,7 @@ const humidity = document.querySelector(".humidity");
 const quote = document.querySelector(".quote");
 const quoteAuthor = document.querySelector(".author");
 const changeQuoteBtn = document.querySelector(".change-quote");
+//audio player
 const audio = document.querySelector("audio");
 audio.controls = false;
 const playBtn = document.querySelector(".play");
@@ -28,7 +29,14 @@ const playListContainer = document.querySelector(".play-list");
 let isPlay = false;
 let trackNum = 0;
 const minimize = document.querySelector(".minimize_btn");
-const cover = document.querySelector(".cover");
+const song = document.querySelector(".song");
+song.innerText = playList[0].title;
+const artist = document.querySelector(".artist");
+artist.innerText = playList[0].artist;
+const albumCover = document.querySelector(".cover");
+albumCover.style.backgroundImage = `url(${playList[0].cover})`;
+const duration = document.querySelector(".duration");
+duration.innerText = playList[0].duration;
 
 function showTime() {
   const date = new Date();
@@ -178,15 +186,18 @@ function createPlaylist() {
     li.innerText = playList[i].title;
   }
 }
-createPlaylist();
+// createPlaylist();
 
 function playAudio() {
   if (isPlay === false) {
     audio.currentTime = 0;
     audio.src = playList[trackNum].src;
+    setAlbumCover();
+    setTrackName();
+    setArtistName();
+    setTrackDuration();
     audio.play();
     isPlay = true;
-    // playBtn.classList.add("pause");
     playBtn.src = "/assets/img/pause.png";
     console.log("click");
   } else {
@@ -194,7 +205,6 @@ function playAudio() {
     isPlay = false;
     console.log("click");
     playBtn.src = "/assets/img/play.png";
-    // playBtn.classList.remove("pause");
   }
 }
 
@@ -221,9 +231,21 @@ function nextTrack() {
   playAudio();
 }
 
+function setTrackName() {
+  song.innerText = playList[trackNum].title;
+}
+function setArtistName() {
+  artist.innerText = playList[trackNum].artist;
+}
+function setAlbumCover() {
+  albumCover.style.backgroundImage = `url(${playList[trackNum].cover})`;
+}
 
+function setTrackDuration() {
+  duration.innerText = playList[trackNum].duration;
+}
 minimize.addEventListener("click", () => {
-  cover.classList.toggle("cover_hidden");
+  albumCover.classList.toggle("cover_hidden");
 });
 
 playNextBtn.addEventListener("click", nextTrack);
