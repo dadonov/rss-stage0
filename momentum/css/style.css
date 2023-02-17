@@ -108,14 +108,13 @@ body {
   margin-top: 17.5px;
   border-radius: 5px;
   background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
 }
 
 .progress {
-  width: 25%;
   height: 5px;
   background-color: black;
   border-radius: 5px;
-  cursor: pointer;
 }
 .play_time {
   display: flex;
@@ -157,13 +156,6 @@ body {
 .minimize_btn:hover {
   transition: 300ms;
   scale: 1.1;
-}
-
-.progress:hover,
-.progress_container:hover {
-  transform: scaleY(1.3);
-  border-radius: 7.5px;
-  transition: 300ms;
 }
 
 .weather {

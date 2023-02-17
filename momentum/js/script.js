@@ -1,13 +1,16 @@
 import playList from "./playlist.js";
+//time, date and greeting
 const timeElement = document.querySelector(".time");
 const dateElement = document.querySelector(".date");
 const greetingElement = document.querySelector(".greeting");
 const timeOfDay = getTimeOfDay();
 const username = document.querySelector(".name");
+//background slider
 const body = document.querySelector("body");
 let randomNumber;
 const slideNextBtn = document.querySelector(".slide-next");
 const slidePrevBtn = document.querySelector(".slide-prev");
+//weather widget
 const city = document.querySelector(".city");
 const weatherIcon = document.querySelector(".weather-icon");
 const weatherDescription = document.querySelector(".weather-description");
@@ -15,20 +18,21 @@ const weatherError = document.querySelector(".weather-error");
 const temperature = document.querySelector(".temperature");
 const wind = document.querySelector(".wind");
 const humidity = document.querySelector(".humidity");
+//quote widget
 const quote = document.querySelector(".quote");
 const quoteAuthor = document.querySelector(".author");
 const changeQuoteBtn = document.querySelector(".change-quote");
 //audio player
 const audio = document.querySelector("audio");
+const player = document.querySelector(".player");
 audio.controls = false;
 const playBtn = document.querySelector(".play");
 const playPrevBtn = document.querySelector(".play-prev");
 const playNextBtn = document.querySelector(".play-next");
 const playListLength = Object.keys(playList).length;
 const playListContainer = document.querySelector(".play-list");
-let isPlay = false;
 let trackNum = 0;
-const minimize = document.querySelector(".minimize_btn");
+const minimizeBtn = document.querySelector(".minimize_btn");
 const song = document.querySelector(".song");
 song.innerText = playList[0].title;
 const artist = document.querySelector(".artist");
@@ -37,6 +41,8 @@ const albumCover = document.querySelector(".cover");
 albumCover.style.backgroundImage = `url(${playList[0].cover})`;
 const duration = document.querySelector(".duration");
 duration.innerText = playList[0].duration;
+const progressBar = document.querySelector(".progress");
+const progressBarCont = document.querySelector(".progress_container");
 
 function showTime() {
   const date = new Date();
@@ -188,65 +194,72 @@ function createPlaylist() {
 }
 // createPlaylist();
 
+
 function playAudio() {
-  if (isPlay === false) {
-    audio.currentTime = 0;
-    audio.src = playList[trackNum].src;
-    setAlbumCover();
-    setTrackName();
-    setArtistName();
-    setTrackDuration();
-    audio.play();
-    isPlay = true;
-    playBtn.src = "/assets/img/pause.png";
-    console.log("click");
-  } else {
-    audio.pause();
-    isPlay = false;
-    console.log("click");
-    playBtn.src = "/assets/img/play.png";
-  }
+  audio.src = playList[trackNum].src;
+  setTrackInfo();
+  player.classList.add("active");
+  playBtn.src = "/assets/img/pause.png";
+  audio.currentTime = tracktime;
+  audio.play();
 }
 
-playBtn.addEventListener("click", playAudio);
+function pauseAudio() {
+  player.classList.remove("active");
+  playBtn.src = "/assets/img/play.png";
+  tracktime = audio.currentTime;
+  audio.pause();
+}
 
+playBtn.addEventListener("click", () => {
+  const isPlaying = player.classList.contains("active");
+  if (isPlaying) {
+    pauseAudio();
+  } else {
+    playAudio();
+  }
+});
+// let tracktime;
 function previousTrack() {
-  isPlay = false;
   if (trackNum > 0) {
     trackNum--;
   } else {
     trackNum = playListLength - 1;
   }
+  // tracktime = 0;
   playAudio();
 }
 playPrevBtn.addEventListener("click", previousTrack);
 
 function nextTrack() {
-  isPlay = false;
-  if (trackNum >= playListLength - 1) {
+  // tracktime = 0;
+  if (trackNum > playListLength - 1) {
     trackNum = 0;
   } else {
     trackNum++;
   }
+
   playAudio();
 }
-
-function setTrackName() {
-  song.innerText = playList[trackNum].title;
-}
-function setArtistName() {
-  artist.innerText = playList[trackNum].artist;
-}
-function setAlbumCover() {
-  albumCover.style.backgroundImage = `url(${playList[trackNum].cover})`;
-}
-
-function setTrackDuration() {
-  duration.innerText = playList[trackNum].duration;
-}
-minimize.addEventListener("click", () => {
-  albumCover.classList.toggle("cover_hidden");
-});
-
 playNextBtn.addEventListener("click", nextTrack);
 audio.addEventListener("ended", nextTrack);
+
+function updateProgress(event) {
+  const duration = audio.duration;
+  const currentTime = audio.currentTime;
+  const progressPercentage = (currentTime / duration) * 100;
+  progressBar.style.width = `${progressPercentage}%`;
+}
+audio.addEventListener("timeupdate", updateProgress);
+
+function setProgress(event) {
+  const width = progressBarCont.clientWidth;
+  const clickX = event.offsetX;
+  const duration = audio.duration;
+  audio.currentTime = (clickX / width) * duration;
+}
+progressBarCont.addEventListener("click", setProgress);
+
+minimizeBtn.addEventListener("click", () => {
+  albumCover.classList.toggle("cover_hidden");
+});
