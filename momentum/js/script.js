@@ -264,6 +264,14 @@ function setProgressBar(event) {
 }
 progressBarCont.addEventListener("click", setProgressBar);
 
+function setCurrentTime() {
+  const current = document.querySelector(".current");
+  let seconds = Math.floor(audio.currentTime);
+  const minutes = Math.floor(seconds / 60);
+  current.innerText = `${String(minutes).padStart(2, 0)}:${String(seconds % 60).padStart(2, 0)}`;
+}
+audio.addEventListener("timeupdate", setCurrentTime);
+
 function minimizePlayer() {
   albumCover.classList.toggle("cover_hidden");
 }

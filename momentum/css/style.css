@@ -73,13 +73,16 @@ body {
 }
 
 .minimize {
-  display: flex;
-  justify-content: right;
+  /* display: flex;
+  justify-content: right; */
 }
 
 .minimize_btn {
-  cursor: pointer;
+  position: relative;
+  left: 117px;
+  right: 32px;
   width: 16px;
+  cursor: pointer;
 }
 .cover {
   margin: 0 auto;
@@ -128,7 +131,7 @@ body {
 
 .current,
 .duration {
-  font-size: 13px;
+  font-size: 12px;
 }
 .buttons {
   width: 100%;
