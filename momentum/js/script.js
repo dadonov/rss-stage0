@@ -43,6 +43,11 @@ const duration = document.querySelector(".duration");
 duration.innerText = playList[0].duration;
 const progressBar = document.querySelector(".progress");
 const progressBarCont = document.querySelector(".progress_container");
+const volumeBtn = document.querySelector(".volume_btn");
+const volumeControls = document.querySelector(".volume_controls");
+const volumeBarCont = document.querySelector(".volume_bar-container");
+const volumeBar = document.querySelector(".volume_bar");
+audio.volume = 0.5;
 
 //----------------------TIME & DATE--------------------
 function showTime() {
@@ -272,7 +277,34 @@ function setCurrentTime() {
 }
 audio.addEventListener("timeupdate", setCurrentTime);
 
+function hideVolumeControls() {
+  volumeControls.classList.toggle("hidden");
+}
+volumeBtn.addEventListener("click", hideVolumeControls);
+
+function setVolume(event) {
+  const volumeBarWidth = volumeBarCont.clientWidth;
+  const clickX = event.offsetX;
+  const currentVolume = (clickX / Number(volumeBarWidth)) * 100;
+  volumeBar.style.width = `${currentVolume}%`;
+  audio.volume = currentVolume / 100;
+}
+volumeBarCont.addEventListener("click", setVolume);
+
+function muteVolume() {
+  audio.volume = 0;
+  volumeBtn.classList.toggle("mute");
+  if (volumeBtn.classList.contains("mute")) {
+    volumeBtn.src = "../assets/img/mute_volume.png";
+  } else {
+    volumeBtn.src = "../assets/img/volume.png";
+    audio.volume = 0.5;
+  }
+}
+volumeBtn.addEventListener("click", muteVolume);
+
 function minimizePlayer() {
   albumCover.classList.toggle("cover_hidden");
 }
+
 minimizeBtn.addEventListener("click", minimizePlayer);
