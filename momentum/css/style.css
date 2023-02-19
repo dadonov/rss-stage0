@@ -79,6 +79,12 @@ body {
 .player.mini.hidden_volume {
   padding-bottom: 0;
 }
+
+.player_container.hidden {
+  filter: blur(5px);
+  transform: rotateY(180deg);
+  transition: 500ms;
+}
 .song.mini {
   margin-top: 0;
 }
@@ -218,6 +224,38 @@ body {
   border-radius: 10px;
   transform: scaleY(1.2);
   transition: 250ms;
+}
+
+.play-list {
+  display: flex;
+  flex-direction: column;
+  align-items:space-between
+}
+.playlist_item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+.track_info {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+.album_cover {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  background-position: center;
+  background-size: contain;
+  border-radius: 50%;
+}
+.song_name {
+  color: black;
+}
+.play_mini {
+  width: 15px;
+  cursor: pointer;
 }
 .weather {
   display: flex;

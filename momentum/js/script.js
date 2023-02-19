@@ -106,7 +106,7 @@ function getLocalStorage() {
   }
   if (localStorage.getItem("city")) {
     city.value = localStorage.getItem("city");
-    getWeather(); // have no idea if i need it there
+    getWeather();
   } else {
     city.value = "Minsk";
   }
@@ -193,15 +193,26 @@ changeQuoteBtn.addEventListener("click", getQuote);
 getQuote();
 
 //----------------------AUDIO PLAYER--------------------
+
 function createPlaylist() {
   for (let i = 0; i < playListLength; i++) {
+    const template = `
+      <div class="album_cover" style ="background-image: url(${playList[i].cover})" alt="" class="album_cover-mini"></div>
+      <div class="track_info">
+        <div class="song_name">${playList[i].title}</div>
+        <div class="artist_name">${playList[i].artist}</div>
+      </div >
+      <div class="duration"></div>
+      <div><img src="/assets/img/play.png" alt="Play icon" class="play_mini">
+         </div>
+      `;
     const li = document.createElement("li");
     playListContainer.append(li);
-    li.classList.add("track");
-    li.innerText = playList[i].title;
+    li.classList.add("playlist_item");
+    li.innerHTML = template;
   }
+  playListContainer.style.height = playListContainer.scrollHeight;
 }
-// createPlaylist();
 
 function initSong(song) {
   audio.src = song.src;
@@ -232,7 +243,18 @@ playBtn.addEventListener("click", () => {
     playAudio();
   }
 });
+const playlistItem = document.querySelector(".playlist_item");
 
+// play clicked playlist item
+document.addEventListener("click", function (e) {
+  const target = e.target.closest(".playlist_item");
+  if (target) {
+    const trackInfo = e.target.closest(".track_info");
+    const songName = trackInfo.firstElementChild.textContent;
+    audio.src = `../assets/sounds/${songName}.mp3`;
+    playAudio();
+  }
+});
 function previousTrack() {
   trackNum--;
   if (trackNum < 0) {
@@ -314,5 +336,16 @@ function minimizePlayer() {
   volumeBarCont.classList.toggle("mini");
   minimizeBtn.classList.toggle("mini");
 }
-
 minimizeBtn.addEventListener("click", minimizePlayer);
+
+const playlistBtn = document.querySelector(".playlist_btn");
+const playerCont = document.querySelector(".player_container");
+function showPlaylist() {
+  playerCont.classList.toggle("hidden");
+  setTimeout(() => {
+    playerCont.style.display = "none";
+  }, 500);
+  setTimeout(createPlaylist, 500);
+}
+
+playlistBtn.addEventListener("click", showPlaylist);
