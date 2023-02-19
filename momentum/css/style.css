@@ -62,7 +62,6 @@ body {
 }
 
 .player {
-  /* display: inline-block; */
   width: 300px;
   margin-left: 25px;
   padding: 25px;
@@ -70,9 +69,31 @@ body {
   background-color: rgba(255, 255, 255, 0.497);
   box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.5);
   z-index: 100;
-  transition: 500ms;
+  transition: 350ms ease-in-out;
+}
+.player.mini {
+  padding-top: 0;
+  padding-bottom: 18px;
 }
 
+.player.mini.hidden_volume {
+  padding-bottom: 0;
+}
+.song.mini {
+  margin-top: 0;
+}
+.progress_container.mini {
+  margin-top: 6.5px;
+}
+.buttons.mini {
+  margin-top: 5px;
+}
+.volume_controls.mini {
+  margin-top: 5px;
+}
+.minimize_btn.mini {
+  top: 15px;
+}
 .minimize_btn {
   position: relative;
   left: 117px;

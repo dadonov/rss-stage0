@@ -43,6 +43,7 @@ const duration = document.querySelector(".duration");
 duration.innerText = playList[0].duration;
 const progressBar = document.querySelector(".progress");
 const progressBarCont = document.querySelector(".progress_container");
+const playerButtonsCont = document.querySelector(".buttons");
 const volumeBtn = document.querySelector(".volume_btn");
 const volumeControls = document.querySelector(".volume_controls");
 const volumeBarCont = document.querySelector(".volume_bar-container");
@@ -279,6 +280,7 @@ audio.addEventListener("timeupdate", setCurrentTime);
 
 function hideVolumeControls() {
   volumeControls.classList.toggle("hidden");
+  player.classList.toggle("hidden_volume");
 }
 volumeBtn.addEventListener("click", hideVolumeControls);
 
@@ -304,7 +306,13 @@ function muteVolume() {
 volumeBtn.addEventListener("click", muteVolume);
 
 function minimizePlayer() {
+  player.classList.toggle("mini");
   albumCover.classList.toggle("cover_hidden");
+  song.classList.toggle("mini");
+  progressBarCont.classList.toggle("mini");
+  playerButtonsCont.classList.toggle("mini");
+  volumeBarCont.classList.toggle("mini");
+  minimizeBtn.classList.toggle("mini");
 }
 
 minimizeBtn.addEventListener("click", minimizePlayer);
