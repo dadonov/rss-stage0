@@ -204,11 +204,11 @@ getQuote();
 //----------------------AUDIO PLAYER--------------------
 
 function createPlaylist() {
-  const closeButton = document.createElement("img");
-  closeButton.src = "../assets/img/close.png";
-  closeButton.classList.add("close_btn");
+  const buttonCont = document.createElement("div");
+  buttonCont.classList.add("close_btn-container");
+  buttonCont.innerHTML = `<img class="close_btn" src="../assets/img/close.png" alt="Close">`;
   playListContainer.style.display = "block";
-  playListContainer.append(closeButton);
+  playListContainer.append(buttonCont);
   for (let i = 0; i < playListLength; i++) {
     const template = `
       <div class="album_cover" style ="background-image: url(${playList[i].cover})" alt="" class="album_cover-mini"></div>
@@ -216,10 +216,7 @@ function createPlaylist() {
         <div class="song_name">${playList[i].title}</div>
         <div class="artist_name">${playList[i].artist}</div>
       </div >
-      <div class="duration"></div>
-      <div><img src="/assets/img/play.png" alt="Play icon" class="play_mini">
-         </div>
-      `;
+      <div class="duration">${playList[i].duration}</div>`;
     const li = document.createElement("li");
     playListContainer.append(li);
     li.classList.add("playlist_item");
@@ -352,7 +349,6 @@ function minimizePlayer() {
 }
 minimizeBtn.addEventListener("click", minimizePlayer);
 
-
 function showPlaylist() {
   playerCont.classList.toggle("hidden");
   setTimeout(() => {
@@ -364,9 +360,9 @@ playlistBtn.addEventListener("click", showPlaylist);
 
 function hidePlaylist() {
   if (playListContainer.style.height !== 0) {
-      playerCont.style.display = "block";
-      playerCont.classList.toggle("hidden");
-      playListContainer.innerHTML = "";
+    playerCont.style.display = "block";
+    playerCont.classList.toggle("hidden");
+    playListContainer.innerHTML = "";
   }
 }
 document.addEventListener("click", (e) => {
