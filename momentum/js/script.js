@@ -371,3 +371,35 @@ document.addEventListener("click", (e) => {
     hidePlaylist();
   }
 });
+
+const openSettings = document.querySelector(".open_settings");
+console.log(openSettings);
+const closeSettings = document.querySelector(".close_settings");
+console.log(closeSettings);
+const settingsWindow = document.querySelector(".settings_window");
+
+openSettings.addEventListener("click", () => {
+  settingsWindow.classList.add("active");
+});
+
+closeSettings.addEventListener("click", () => {
+  settingsWindow.classList.remove("active");
+});
+
+// settingsWindow.addEventListener("click", () => {
+//   settingsWindow.classList.remove("active");
+// });
+
+const switches = document.querySelectorAll(".section_switch");
+
+for (let i = 0; i < switches.length; i++) {
+  switches[i].addEventListener("click", (event) => {
+    if (switches[i].classList.contains("active")) {
+      switches[i].classList.remove("active");
+      switches[i].querySelector("input").checked = false;
+    } else {
+      switches[i].classList.add("active");
+      switches[i].querySelector("input").checked = true;
+    }
+  });
+}

@@ -78,13 +78,121 @@
       <span class="greeting"></span>
       <input type="text" class="name" />
     </div>
+    <div class="settings_window">
+      <div class="settings_window-container">
+        <div class="settings_window-content">
+          <div class="close_settings"><img src="/assets/img/close.png" alt="" class="close_settings-btn"></div>
+          <div class="language_choice">
+            <h2 class="menu_heading">Language</h2>
+            <p class="menu_desc">Choose app language</p>
+            <ul class="language_list">
+              <li class="language">
+                <p class="menu_option">Russian</p><img src="/assets/img/ru.png" alt="Russian" class="lang_ico">
+              </li>
+              <li class="language">
+                <p class="menu_option">English</p><img src="/assets/img/en.png" alt="English" class="lang_ico">
+              </li>
+            </ul>
+          </div>
+          <div class="show_sections">
+            <h2 class="menu_heading">Show</h2>
+            <p class="menu_desc">Customize your dashboard</p>
+            <ul class="sections_list">
+              <li class="section">
+                <div class="section_switch active">
+                  <label class="menu_option">Greeting</label>
+                  <input type="checkbox" name="greeting">
+                  <div class="section_switch-body">
+                    <div class="section_switch-toggle"></div>
+                  </div>
+                </div>
+              </li>
+              <li class="section">
+                <div class="section_switch active">
+                  <label class="menu_option">Time</label>
+                  <input type="checkbox" name="time">
+                  <div class="section_switch-body">
+                    <div class="section_switch-toggle"></div>
+                  </div>
+                </div>
+              </li>
+              <li class="section">
+                <div class="section_switch active">
+                  <label class="menu_option">Date</label>
+                  <input type="checkbox" name="date">
+                  <div class="section_switch-body">
+                    <div class="section_switch-toggle"></div>
+                  </div>
+                </div>
+              </li>
+              <li class="section">
+                <div class="section_switch active">
+                  <label class="menu_option">Quote</label>
+                  <input type="checkbox" name="quote">
+                  <div class="section_switch-body">
+                    <div class="section_switch-toggle"></div>
+                  </div>
+                </div>
+              </li>
+              <li class="section">
+                <div class="section_switch active">
+                  <label class="menu_option">Weather</label>
+                  <input type="checkbox" name="weather">
+                  <div class="section_switch-body">
+                    <div class="section_switch-toggle"></div>
+                  </div>
+
+                </div>
+              </li>
+              <li class="section">
+                <div class="section_switch active">
+                  <label class="menu_option">Audio player</label>
+                  <input type="checkbox" name="player">
+                  <div class="section_switch-body">
+                    <div class="section_switch-toggle"></div>
+                  </div>
+                </div>
+              </li>
+              <li class="section">
+                <div class="section_switch active">
+                  <label class="menu_option">To-do list</label>
+                  <input type="checkbox" name="todo_list">
+                  <div class="section_switch-body">
+                    <div class="section_switch-toggle"></div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="photos">
+            <h2 class="menu_heading">Photos</h2>
+            <p class="menu_desc">Choose background photo's source</p>
+            <div class="photo_sources">
+              <img class="feed" src="/assets/img/flickr.png" alt="Flickr">
+              <img class="feed" src="/assets/img/github.png" alt="GitHub">
+              <img class="feed" src="/assets/img/unsplash.png" alt="Unsplash"></div>
+              <p class="menu_desc">Enter tags to choose background photo themes</p>
+              <input class= "tag_input" type="text" name="photo_tag" placeholder="Enter the tag">
+          </div>
+        </div>
+      </div>
+
+    </div>
   </main>
+
   <footer class="footer">
     <button class="change-quote"></button>
     <div>
       <div class="quote"></div>
       <div class="author"></div>
     </div>
+    <div class="settings">
+      <img src="/assets/svg/settings.svg" alt="Settings" class="open_settings">
+      <div class="settings_right">
+        <img src="/assets/svg/todo.svg" alt="To-do list" class="todo_button">
+        <img src="/assets/svg/info.svg" alt="Info" class="info_button">
+        </di>
+      </div>
   </footer>
   <script type="module" src="js/script.js"></script>
 </body>
