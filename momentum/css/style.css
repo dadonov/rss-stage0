@@ -3,6 +3,15 @@
   src: url("../assets/fonts/Arial-MT.woff"); /* Путь к файлу со шрифтом */
 }
 
+@font-face {
+  font-family: "Helvetice Neue";
+  src: url("../assets/fonts/Helvetica-Neue-Medium.ttf"); /* Путь к файлу со шрифтом */
+}
+@font-face {
+  font-family: "Helvetice Neue Light";
+  src: url("../assets/fonts/Helvetica-Neue-UltraLight.ttf"); /* Путь к файлу со шрифтом */
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -225,17 +234,24 @@ body {
   transform: scaleY(1.2);
   transition: 250ms;
 }
+.close_btn {
+  position: relative;
+  width: 16px;
+  left: 123px;
+  cursor: pointer;
+}
 
 .play-list {
   display: flex;
   flex-direction: column;
-  align-items:space-between
+  align-items: space-between;
 }
 .playlist_item {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 5px;
+  cursor: pointer;
 }
 .track_info {
   display: flex;
@@ -259,48 +275,70 @@ body {
 }
 .weather {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-  row-gap: 5px;
-  width: 180px;
-  min-height: 180px;
-  text-align: left;
+  font-family: "Helvetice Neue";
 }
 
-.weather-error {
-  margin-top: -10px;
-}
-
-.description-container {
+.weather > .left_column {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
+  padding: 20px;
+  padding-right: 0;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  column-gap: 12px;
 }
 
-.weather-icon {
-  font-size: 44px;
+span.temperature {
+  font-family: "Helvetice Neue Light";
+  font-size: 50px;
 }
-
 .city {
-  width: 170px;
-  height: 34px;
-  padding: 5px;
+  text-align: center;
+  width: 140px;
   font-size: 20px;
-  line-height: 24px;
-  color: #fff;
+  text-transform: uppercase;
+  background-color: rgba(255, 255, 255, 0.497);
+  background-color: transparent;
   border: 0;
   outline: 0;
-  border-bottom: 1px solid #fff;
-  background-color: transparent;
+  color: white;
 }
-
-.city::placeholder {
+.weather-error {
+  font-family: "Helvetice Neue Light";
+  font-size: 18px;
+}
+.weather > .right_column {
+  display: flex;
+  width: 180px;
+  font-family: "Helvetice Neue Light";
+  flex-direction: column;
+  justify-content: space-between;
+}
+.weather_description-container {
+  display: flex;
+  flex-direction: column;
+}
+.weather-icon {
+  font-size: 64px;
+  color: white;
+}
+.meteo {
+  display: flex;
+  align-items: center;
+  border-radius: 15px;
   font-size: 20px;
-  color: #fff;
-  opacity: 0.6;
+  padding: 10px;
+  justify-content: space-between;
+}
+.humidity {
+  text-align: center;
+  text-align: left;
+}
+.meteo > img {
+  width: 25px;
+}
+.humidity_ico.hidden,
+.wind_ico.hidden {
+  display: none;
 }
 
 .main {

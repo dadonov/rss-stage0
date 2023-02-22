@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="assets/favicon.ico" rel="shortcut icon" />
   <link rel="stylesheet" href="css/owfont-regular.css" />
+
   <link rel="stylesheet" href="css/style.css" />
   <title>momentum</title>
 </head>
@@ -47,15 +48,23 @@
       </div>
     </div>
     <div class="weather">
-      <input type="text" class="city" />
-      <i class="weather-icon owf"></i>
-      <div class="weather-error"></div>
-      <div class="description-container">
-        <span class="weather-description"></span>
+      <div class="left_column">
         <span class="temperature"></span>
+        <input type="text" class="city" />
+        <div class="weather-error"></div>
       </div>
-      <div class="wind"></div>
-      <div class="humidity"></div>
+      <div class="right_column">
+        <div class="weather_description-container">
+          <i class="weather-icon owf"></i>
+          <span class="weather-description"></span>
+        </div>
+        <div class="meteo">
+          <img src="/assets/img/humidity.png" alt="" class="humidity_ico">
+          <div class="humidity"></div>
+          <img src="/assets/img/wind.png" alt="" class="wind_ico">
+          <div class="wind"></div>
+        </div>
+      </div>
     </div>
   </header>
   <main class="main">

@@ -17,7 +17,9 @@ const weatherDescription = document.querySelector(".weather-description");
 const weatherError = document.querySelector(".weather-error");
 const temperature = document.querySelector(".temperature");
 const wind = document.querySelector(".wind");
+const windIcon = document.querySelector(".wind_ico");
 const humidity = document.querySelector(".humidity");
+const humidityIcon = document.querySelector(".humidity_ico");
 //quote widget
 const quote = document.querySelector(".quote");
 const quoteAuthor = document.querySelector(".author");
@@ -33,6 +35,9 @@ const playNextBtn = document.querySelector(".play-next");
 const playListLength = Object.keys(playList).length;
 const playListContainer = document.querySelector(".play-list");
 const minimizeBtn = document.querySelector(".minimize_btn");
+const playlistBtn = document.querySelector(".playlist_btn");
+const playerCont = document.querySelector(".player_container");
+const closeBtn = document.querySelector(".close_btn");
 const song = document.querySelector(".song");
 song.innerText = playList[0].title;
 const artist = document.querySelector(".artist");
@@ -164,9 +169,11 @@ async function getWeather() {
     weatherDescription.textContent =
       weatherData.weather[0].description[0].toUpperCase() +
       weatherData.weather[0].description.slice(1);
-    temperature.textContent = `Temperature: ${Math.round(weatherData.main.temp)}°C`;
-    wind.textContent = `Wind speed: ${Math.round(weatherData.wind.speed)} m/s`;
-    humidity.textContent = `Humidity: ${Math.round(weatherData.main.humidity)}%`;
+    temperature.textContent = `${Math.round(weatherData.main.temp)}°C`;
+    wind.textContent = `${Math.round(weatherData.wind.speed)} m/s`;
+    humidity.textContent = `${Math.round(weatherData.main.humidity)}%`;
+    windIcon.classList.remove("hidden");
+    humidityIcon.classList.remove("hidden");
   } else {
     weatherError.innerText = "Please, enter the correct location name";
     weatherIcon.className = "weather-icon owf";
@@ -174,6 +181,8 @@ async function getWeather() {
     temperature.textContent = "";
     wind.textContent = "";
     humidity.textContent = "";
+    windIcon.classList.add("hidden");
+    humidityIcon.classList.add("hidden");
   }
 }
 city.addEventListener("change", getWeather);
@@ -195,6 +204,11 @@ getQuote();
 //----------------------AUDIO PLAYER--------------------
 
 function createPlaylist() {
+  const closeButton = document.createElement("img");
+  closeButton.src = "../assets/img/close.png";
+  closeButton.classList.add("close_btn");
+  playListContainer.style.display = "block";
+  playListContainer.append(closeButton);
   for (let i = 0; i < playListLength; i++) {
     const template = `
       <div class="album_cover" style ="background-image: url(${playList[i].cover})" alt="" class="album_cover-mini"></div>
@@ -338,8 +352,7 @@ function minimizePlayer() {
 }
 minimizeBtn.addEventListener("click", minimizePlayer);
 
-const playlistBtn = document.querySelector(".playlist_btn");
-const playerCont = document.querySelector(".player_container");
+
 function showPlaylist() {
   playerCont.classList.toggle("hidden");
   setTimeout(() => {
@@ -347,5 +360,18 @@ function showPlaylist() {
   }, 500);
   setTimeout(createPlaylist, 500);
 }
-
 playlistBtn.addEventListener("click", showPlaylist);
+
+function hidePlaylist() {
+  if (playListContainer.style.height !== 0) {
+      playerCont.style.display = "block";
+      playerCont.classList.toggle("hidden");
+      playListContainer.innerHTML = "";
+  }
+}
+document.addEventListener("click", (e) => {
+  const target = e.target.closest(".close_btn");
+  if (target) {
+    hidePlaylist();
+  }
+});
