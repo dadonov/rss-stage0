@@ -54,13 +54,56 @@ const volumeControls = document.querySelector(".volume_controls");
 const volumeBarCont = document.querySelector(".volume_bar-container");
 const volumeBar = document.querySelector(".volume_bar");
 audio.volume = 0.5;
+//translation
+let appLang;
+const langButtons = document.querySelectorAll(".language");
+const langHeading = document.querySelector(".language_heading");
+const languageDesc = document.querySelector(".language_desc");
+const ruButton = document.querySelector(".ru");
+const enButton = document.querySelector(".en");
+const showMenuHeading = document.querySelector(".show_heading");
+const showMenuDesc = document.querySelector(".show_desc");
+const greetingLabel = document.querySelector(".greeting_label");
+const timeLabel = document.querySelector(".time_label");
+const dateLabel = document.querySelector(".date_label");
+const quoteLabel = document.querySelector(".quote_label");
+const weatherLabel = document.querySelector(".weather_label");
+const audioLabel = document.querySelector(".audio_player_label");
+const todoLabel = document.querySelector(".todo_label");
+const photosHeading = document.querySelector(".photos_heading");
+const photosDesc = document.querySelector(".photos_desc");
+const tagInputDesc = document.querySelector(".tag_input_desc");
+const tagInput = document.querySelector(".tag_input");
+
+//-------------------LOCAL STORAGE SET & GET--------------------
+function setLocalStorage() {
+  localStorage.setItem("language", appLang);
+  localStorage.setItem("city", city.value);
+  localStorage.setItem("username", username.value);
+}
+window.addEventListener("beforeunload", setLocalStorage);
+
+function getLocalStorage() {
+  if (localStorage.getItem("language")) {
+    appLang = localStorage.getItem("language");
+  } else {
+    appLang === "en";
+  }
+  if (localStorage.getItem("city")) {
+    city.value = localStorage.getItem("city");
+  } else {
+    appLang === "en" ? (city.value = "Minsk") : "Минск";
+  }
+  if (localStorage.getItem("username")) {
+    username.value = localStorage.getItem("username");
+  }
+}
+window.addEventListener("load", getLocalStorage);
 
 //----------------------TIME & DATE--------------------
 function showTime() {
   const date = new Date();
-  const currentTime = date.toLocaleTimeString("en-UK", {
-    hour12: false,
-  });
+  const currentTime = date.toLocaleTimeString(appLang);
   timeElement.innerText = currentTime;
   showDate();
   showGreeting();
@@ -76,7 +119,7 @@ function showDate() {
     day: "numeric",
     hour12: false,
   };
-  const currentDate = date.toLocaleDateString("en-US", options);
+  const currentDate = date.toLocaleDateString(appLang, options);
   dateElement.innerText = currentDate;
 }
 //------------------------GREETING------------------------------
@@ -95,29 +138,21 @@ function getTimeOfDay() {
 }
 
 function showGreeting() {
-  const greeting = `Good ${timeOfDay},`;
-  greetingElement.innerText = greeting;
-}
-//-------------------LOCAL STORAGE SET & GET--------------------
-function setLocalStorage() {
-  localStorage.setItem("username", username.value);
-  localStorage.setItem("city", city.value);
-}
-window.addEventListener("beforeunload", setLocalStorage);
-
-function getLocalStorage() {
-  if (localStorage.getItem("username")) {
-    username.value = localStorage.getItem("username");
-  }
-  if (localStorage.getItem("city")) {
-    city.value = localStorage.getItem("city");
-    getWeather();
-  } else {
-    city.value = "Minsk";
+  let lang = localStorage.getItem("language");
+  if (lang === "en") {
+    greetingElement.innerText = `Good ${timeOfDay},`;
+  } else if (lang === "ru") {
+    if (timeOfDay === "night") {
+      greetingElement.innerText = "Доброй ночи,";
+    } else if (timeOfDay === "morning") {
+      greetingElement.innerText = "Доброе утро,";
+    } else if (timeOfDay === "afternoon") {
+      greetingElement.innerText = "Добрый день,";
+    } else if (timeOfDay === "evening") {
+      greetingElement.innerText = "Добрый вечер,";
+    }
   }
 }
-window.addEventListener("load", getLocalStorage);
-
 //-----------------------BACKGROUND IMAGE SLIDER--------------------
 function getRandomNum() {
   randomNumber = Math.round(Math.random() * (20 - 1) + 1);
@@ -158,7 +193,8 @@ slidePrevBtn.addEventListener("click", getSlidePrev);
 
 //------------------------WEATHER WIDGET--------------------
 async function getWeather() {
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=en&appid=f0002bf3f73c9f1f545985301e5142ab&units=metric`;
+  const lang = localStorage.getItem("language");
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=${lang}&appid=f0002bf3f73c9f1f545985301e5142ab&units=metric`;
   const response = await fetch(url);
   const weatherData = await response.json();
 
@@ -186,20 +222,21 @@ async function getWeather() {
   }
 }
 city.addEventListener("change", getWeather);
+window.addEventListener("load", getWeather);
+setInterval(getWeather, 9e5);
 
 //-----------------------QUOTE WIDGET--------------------
 async function getQuote() {
-  const quotesSrc = "/assets/json/quotes_en.json";
+  let lang = localStorage.getItem("language");
+  const quotesSrc = "/assets/json/quotes.json";
   const response = await fetch(quotesSrc);
   const quotesData = await response.json();
-  const randomNum = (Math.random() * quotesData.quotes.length).toFixed(0);
-
-  quote.innerText = quotesData.quotes[randomNum].quote;
-  quoteAuthor.innerText = quotesData.quotes[randomNum].author;
+  const randomNum = (Math.random() * quotesData[lang].length).toFixed(0);
+  quote.innerText = quotesData[lang][randomNum].quote;
+  quoteAuthor.innerText = quotesData[lang][randomNum].author;
 }
-
-changeQuoteBtn.addEventListener("click", getQuote);
 getQuote();
+changeQuoteBtn.addEventListener("click", getQuote);
 
 //----------------------AUDIO PLAYER--------------------
 
@@ -254,9 +291,8 @@ playBtn.addEventListener("click", () => {
     playAudio();
   }
 });
-const playlistItem = document.querySelector(".playlist_item");
 
-// play clicked playlist item
+// play track on click
 document.addEventListener("click", function (e) {
   const target = e.target.closest(".playlist_item");
   if (target) {
@@ -266,6 +302,7 @@ document.addEventListener("click", function (e) {
     playAudio();
   }
 });
+
 function previousTrack() {
   trackNum--;
   if (trackNum < 0) {
@@ -373,9 +410,7 @@ document.addEventListener("click", (e) => {
 });
 
 const openSettings = document.querySelector(".open_settings");
-console.log(openSettings);
 const closeSettings = document.querySelector(".close_settings");
-console.log(closeSettings);
 const settingsWindow = document.querySelector(".settings_window");
 
 openSettings.addEventListener("click", () => {
@@ -402,4 +437,44 @@ for (let i = 0; i < switches.length; i++) {
       switches[i].querySelector("input").checked = true;
     }
   });
+}
+
+//get application language
+for (let i = 0; i < langButtons.length; i++) {
+  langButtons[i].addEventListener("click", (event) => {
+    appLang = langButtons[i].id;
+    translate(appLang);
+    setLocalStorage();
+    getWeather();
+    getQuote();
+    showGreeting();
+  });
+}
+//translate application elements
+async function translate(appLang) {
+  const translation = "/assets/json/translation.json";
+  const response = await fetch(translation);
+  const translationData = await response.json();
+  //language menu
+  langHeading.textContent = translationData[appLang].language.heading;
+  languageDesc.textContent = translationData[appLang].language.subheading;
+  ruButton.textContent = translationData[appLang].language.russian;
+  enButton.textContent = translationData[appLang].language.english;
+  //show menu
+  showMenuHeading.textContent = translationData[appLang].show.heading;
+  showMenuDesc.textContent = translationData[appLang].show.subheading;
+  greetingLabel.textContent = translationData[appLang].show.greeting;
+  timeLabel.textContent = translationData[appLang].show.time;
+  dateLabel.textContent = translationData[appLang].show.date;
+  quoteLabel.textContent = translationData[appLang].show.quote;
+  weatherLabel.textContent = translationData[appLang].show.weather;
+  audioLabel.textContent = translationData[appLang].show.audio;
+  todoLabel.textContent = translationData[appLang].show.todo;
+  //photos menu
+  photosHeading.textContent = translationData[appLang].photos.heading;
+  photosDesc.textContent = translationData[appLang].photos.subheading;
+  tagInputDesc.textContent = translationData[appLang].photos.tags;
+  tagInput.placeholder = translationData[appLang].photos.placeholder;
+  //general
+  username.placeholder = translationData[appLang].general.placeholder;
 }

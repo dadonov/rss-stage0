@@ -76,31 +76,31 @@
     <date class="date"></date>
     <div class="greeting-container">
       <span class="greeting"></span>
-      <input type="text" class="name" />
+      <input type="text" class="name" placeholder="" />
     </div>
     <div class="settings_window">
       <div class="settings_window-container">
         <div class="settings_window-content">
           <div class="close_settings"><img src="/assets/img/close.png" alt="" class="close_settings-btn"></div>
           <div class="language_choice">
-            <h2 class="menu_heading">Language</h2>
-            <p class="menu_desc">Choose app language</p>
+            <h2 class="language_heading menu_heading">Language</h2>
+            <p class=" language_desc menu_desc">Choose app language</p>
             <ul class="language_list">
-              <li class="language">
-                <p class="menu_option">Russian</p><img src="/assets/img/ru.png" alt="Russian" class="lang_ico">
+              <li class="language" id="ru">
+                <p class="menu_option ru">Russian</p><img src="/assets/img/ru.png" alt="Russian" class="lang_ico">
               </li>
-              <li class="language">
-                <p class="menu_option">English</p><img src="/assets/img/en.png" alt="English" class="lang_ico">
+              <li class="language" id="en">
+                <p class="menu_option en">English</p><img src="/assets/img/en.png" alt="English" class="lang_ico">
               </li>
             </ul>
           </div>
           <div class="show_sections">
-            <h2 class="menu_heading">Show</h2>
-            <p class="menu_desc">Customize your dashboard</p>
+            <h2 class="show_heading menu_heading">Show</h2>
+            <p class="show_desc menu_desc">Customize your dashboard</p>
             <ul class="sections_list">
               <li class="section">
                 <div class="section_switch active">
-                  <label class="menu_option">Greeting</label>
+                  <label class="greeting_label menu_option">Greeting</label>
                   <input type="checkbox" name="greeting">
                   <div class="section_switch-body">
                     <div class="section_switch-toggle"></div>
@@ -109,7 +109,7 @@
               </li>
               <li class="section">
                 <div class="section_switch active">
-                  <label class="menu_option">Time</label>
+                  <label class="time_label menu_option">Time</label>
                   <input type="checkbox" name="time">
                   <div class="section_switch-body">
                     <div class="section_switch-toggle"></div>
@@ -118,7 +118,7 @@
               </li>
               <li class="section">
                 <div class="section_switch active">
-                  <label class="menu_option">Date</label>
+                  <label class="date_label menu_option">Date</label>
                   <input type="checkbox" name="date">
                   <div class="section_switch-body">
                     <div class="section_switch-toggle"></div>
@@ -127,7 +127,7 @@
               </li>
               <li class="section">
                 <div class="section_switch active">
-                  <label class="menu_option">Quote</label>
+                  <label class="quote_label menu_option">Quote</label>
                   <input type="checkbox" name="quote">
                   <div class="section_switch-body">
                     <div class="section_switch-toggle"></div>
@@ -136,7 +136,7 @@
               </li>
               <li class="section">
                 <div class="section_switch active">
-                  <label class="menu_option">Weather</label>
+                  <label class="weather_label menu_option">Weather</label>
                   <input type="checkbox" name="weather">
                   <div class="section_switch-body">
                     <div class="section_switch-toggle"></div>
@@ -146,7 +146,7 @@
               </li>
               <li class="section">
                 <div class="section_switch active">
-                  <label class="menu_option">Audio player</label>
+                  <label class="audio_player_label menu_option">Audio player</label>
                   <input type="checkbox" name="player">
                   <div class="section_switch-body">
                     <div class="section_switch-toggle"></div>
@@ -155,7 +155,7 @@
               </li>
               <li class="section">
                 <div class="section_switch active">
-                  <label class="menu_option">To-do list</label>
+                  <label class="todo_label menu_option">To-do list</label>
                   <input type="checkbox" name="todo_list">
                   <div class="section_switch-body">
                     <div class="section_switch-toggle"></div>
@@ -165,14 +165,15 @@
             </ul>
           </div>
           <div class="photos">
-            <h2 class="menu_heading">Photos</h2>
-            <p class="menu_desc">Choose background photo's source</p>
+            <h2 class="photos_heading menu_heading"></h2>
+            <p class=" photos_desc menu_desc"></p>
             <div class="photo_sources">
               <img class="feed" src="/assets/img/flickr.png" alt="Flickr">
               <img class="feed" src="/assets/img/github.png" alt="GitHub">
-              <img class="feed" src="/assets/img/unsplash.png" alt="Unsplash"></div>
-              <p class="menu_desc">Enter tags to choose background photo themes</p>
-              <input class= "tag_input" type="text" name="photo_tag" placeholder="Enter the tag">
+              <img class="feed" src="/assets/img/unsplash.png" alt="Unsplash">
+            </div>
+            <p class="menu_desc tag_input_desc"></p>
+            <input class="tag_input" type="text" name="photo_tag" placeholder="Enter the tag">
           </div>
         </div>
       </div>
