@@ -74,12 +74,17 @@ const photosHeading = document.querySelector(".photos_heading");
 const photosDesc = document.querySelector(".photos_desc");
 const tagInputDesc = document.querySelector(".tag_input_desc");
 const tagInput = document.querySelector(".tag_input");
+const submitTagBtn = document.querySelector(".submit");
+let currentPhotoAPI;
+let photoTags;
 
 //-------------------LOCAL STORAGE SET & GET--------------------
 function setLocalStorage() {
   localStorage.setItem("language", appLang);
   localStorage.setItem("city", city.value);
   localStorage.setItem("username", username.value);
+  localStorage.setItem("currentPhotoAPI", currentPhotoAPI);
+  localStorage.setItem("photoTags", photoTags);
 }
 window.addEventListener("beforeunload", setLocalStorage);
 
@@ -96,6 +101,16 @@ function getLocalStorage() {
   }
   if (localStorage.getItem("username")) {
     username.value = localStorage.getItem("username");
+  }
+  if (localStorage.getItem("currentPhotoAPI")) {
+    currentPhotoAPI = localStorage.getItem("currentPhotoAPI");
+  } else {
+    currentPhotoAPI = "github";
+  }
+  if (localStorage.getItem("photoTags")) {
+    photoTags = localStorage.getItem("photoTags");
+  } else {
+    photoTags = `${timeOfDay}`;
   }
 }
 window.addEventListener("load", getLocalStorage);
@@ -153,43 +168,6 @@ function showGreeting() {
     }
   }
 }
-//-----------------------BACKGROUND IMAGE SLIDER--------------------
-function getRandomNum() {
-  randomNumber = Math.round(Math.random() * (20 - 1) + 1);
-}
-getRandomNum();
-
-function setBg() {
-  const bgNum = randomNumber.toString().padStart(2, "0");
-  const img = new Image();
-  img.src = `https://raw.githubusercontent.com/dadonov/Momentum-Images-/master/${timeOfDay}/${bgNum}.webp`;
-  img.onload = () => {
-    body.style.backgroundImage = `url(${img.src})`;
-  };
-}
-setBg();
-
-function getSlideNext() {
-  randomNumber++;
-  if (randomNumber <= 20) {
-    setBg();
-  } else {
-    randomNumber = 1;
-    setBg();
-  }
-}
-
-function getSlidePrev() {
-  randomNumber--;
-  if (randomNumber >= 1) {
-    setBg();
-  } else {
-    randomNumber = 20;
-    setBg();
-  }
-}
-slideNextBtn.addEventListener("click", getSlideNext);
-slidePrevBtn.addEventListener("click", getSlidePrev);
 
 //------------------------WEATHER WIDGET--------------------
 async function getWeather() {
@@ -443,7 +421,7 @@ for (let i = 0; i < switches.length; i++) {
 for (let i = 0; i < langButtons.length; i++) {
   langButtons[i].addEventListener("click", (event) => {
     appLang = langButtons[i].id;
-    translate(appLang);
+    translate();
     setLocalStorage();
     getWeather();
     getQuote();
@@ -451,7 +429,7 @@ for (let i = 0; i < langButtons.length; i++) {
   });
 }
 //translate application elements
-async function translate(appLang) {
+async function translate() {
   const translation = "/assets/json/translation.json";
   const response = await fetch(translation);
   const translationData = await response.json();
@@ -478,3 +456,92 @@ async function translate(appLang) {
   //general
   username.placeholder = translationData[appLang].general.placeholder;
 }
+window.addEventListener("load", translate);
+
+//-----------------------BACKGROUND IMAGE SLIDER--------------------
+function getRandomNum() {
+  randomNumber = Math.round(Math.random() * (20 - 1) + 1);
+}
+getRandomNum();
+
+const photoFeeds = document.querySelectorAll(".feed");
+//choose photo API
+for (let i = 0; i < photoFeeds.length; i++) {
+  photoFeeds[i].addEventListener("click", (event) => {
+    document.querySelectorAll(".feed").forEach((element) => {
+      element.classList.remove("active");
+    });
+    event.target.classList.add("active");
+    currentPhotoAPI = event.target.id;
+    setLocalStorage();
+    setBackgroundImage();
+  });
+}
+
+async function setBackgroundImage() {
+  let queryTags = localStorage.getItem("photoTags");
+  if (currentPhotoAPI === "github") {
+    const bgNum = randomNumber.toString().padStart(2, "0");
+    const url = `https://raw.githubusercontent.com/dadonov/Momentum-Images-/master/${timeOfDay}/${bgNum}.webp`;
+    const img = new Image();
+    img.src = url;
+    img.onload = () => {
+      body.style.backgroundImage = `url(${img.src})`;
+    };
+  } else if (currentPhotoAPI === "unsplash") {
+    const url = `https://api.unsplash.com/photos/random?orientation=landscape&query=${queryTags}&client_id=fTjDT6kgDBVvcViQwqqyvU75WOHwXi_xUSfqevvtg5w`;
+    const img = new Image();
+    const response = await fetch(url);
+    const data = await response.json();
+    img.src = data.urls.regular;
+    img.onload = () => {
+      body.style.backgroundImage = `url(${img.src})`;
+    };
+  } else if (currentPhotoAPI === "flickr") {
+    const url = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=b25b2fb9329d4a59d7c3f22f5783f1c8&tags=${queryTags}&extras=url_l&format=json&nojsoncallback=1`;
+    const img = new Image();
+    const response = await fetch(url);
+    const data = await response.json();
+    const num = (Math.random() * data.photos.photo.length).toFixed(0);
+    img.src = data.photos.photo[num].url_l;
+    img.onload = () => {
+      body.style.backgroundImage = `url(${img.src})`;
+    };
+  }
+}
+window.addEventListener("load", setBackgroundImage);
+
+function choosePhotoTags() {
+  let tags = tagInput.value;
+  if (tags.split(" ").length > 1) {
+    photoTags = tags.split(" ").join(",");
+  } else {
+    photoTags = tags;
+  }
+  setLocalStorage();
+  setBackgroundImage();
+}
+submitTagBtn.addEventListener("click", choosePhotoTags);
+
+function getSlideNext() {
+  randomNumber++;
+  if (randomNumber <= 20) {
+    setBackgroundImage();
+  } else {
+    randomNumber = 1;
+    setBackgroundImage();
+  }
+}
+slideNextBtn.addEventListener("click", getSlideNext);
+
+function getSlidePrev() {
+  randomNumber--;
+  if (randomNumber >= 1) {
+    setBackgroundImage();
+  } else {
+    randomNumber = 20;
+    setBackgroundImage();
+  }
+}
+slidePrevBtn.addEventListener("click", getSlidePrev);
+

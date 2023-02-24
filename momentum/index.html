@@ -165,15 +165,18 @@
             </ul>
           </div>
           <div class="photos">
-            <h2 class="photos_heading menu_heading"></h2>
-            <p class=" photos_desc menu_desc"></p>
+            <h2 class="photos_heading menu_heading">Photos</h2>
+            <p class=" photos_desc menu_desc">Choose background photo's source</p>
             <div class="photo_sources">
-              <img class="feed" src="/assets/img/flickr.png" alt="Flickr">
-              <img class="feed" src="/assets/img/github.png" alt="GitHub">
-              <img class="feed" src="/assets/img/unsplash.png" alt="Unsplash">
+              <img class="feed" id="flickr" src="/assets/img/flickr.png" alt="Flickr">
+              <img class="feed" id="github" src="/assets/img/github.png" alt="GitHub">
+              <img class="feed" id="unsplash" src="/assets/img/unsplash.png" alt="Unsplash">
             </div>
-            <p class="menu_desc tag_input_desc"></p>
-            <input class="tag_input" type="text" name="photo_tag" placeholder="Enter the tag">
+            <p class="menu_desc tag_input_desc">Enter tags to choose background photo themes</p>
+            <form>
+              <input class="tag_input" type="text" name="photo_tag" placeholder="nature cat etc.">
+              <button class="submit" type="submit">submit</button>
+            </form>
           </div>
         </div>
       </div>

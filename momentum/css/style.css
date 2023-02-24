@@ -643,6 +643,9 @@ span.temperature {
   font-family: Helvetica-Neue-UltraLight;
   font-size: 18px;
 }
+.submit{
+  display: none;
+}
 @media (max-width: 768px) {
   .time {
     min-height: 80px;

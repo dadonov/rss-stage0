@@ -27,8 +27,8 @@
     "photos": {
       "heading": "Photos",
       "subheading": "Choose background photo's source",
-      "tags": "Enter tags to choose background photo themes",
-      "placeholder": "Enter the tag"
+      "tags": "Enter tags to choose photo theme. Separate multiple tags with whitespace",
+      "placeholder": "nature dog car"
     }
   },
   "ru": {
@@ -60,7 +60,7 @@
       "heading": "Фото",
       "subheading": "Выберите источник фоновых изображений",
       "tags": "Введите тэги для выбора темы изображений",
-      "placeholder": "Введите тэг"
+      "placeholder": "nature dog car"
     }
   }
 }
