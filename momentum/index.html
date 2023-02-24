@@ -99,16 +99,16 @@
             <p class="show_desc menu_desc">Customize your dashboard</p>
             <ul class="sections_list">
               <li class="section">
-                <div class="section_switch active">
+                <div class="section_switch greeting-container_switch active">
                   <label class="greeting_label menu_option">Greeting</label>
-                  <input type="checkbox" name="greeting">
+                  <input type="checkbox" name="greeting-container">
                   <div class="section_switch-body">
                     <div class="section_switch-toggle"></div>
                   </div>
                 </div>
               </li>
               <li class="section">
-                <div class="section_switch active">
+                <div class="section_switch time_switch active">
                   <label class="time_label menu_option">Time</label>
                   <input type="checkbox" name="time">
                   <div class="section_switch-body">
@@ -117,7 +117,7 @@
                 </div>
               </li>
               <li class="section">
-                <div class="section_switch active">
+                <div class="section_switch date_switch active">
                   <label class="date_label menu_option">Date</label>
                   <input type="checkbox" name="date">
                   <div class="section_switch-body">
@@ -126,7 +126,7 @@
                 </div>
               </li>
               <li class="section">
-                <div class="section_switch active">
+                <div class="section_switch quote_switch active">
                   <label class="quote_label menu_option">Quote</label>
                   <input type="checkbox" name="quote">
                   <div class="section_switch-body">
@@ -135,7 +135,7 @@
                 </div>
               </li>
               <li class="section">
-                <div class="section_switch active">
+                <div class="section_switch weather_switch active">
                   <label class="weather_label menu_option">Weather</label>
                   <input type="checkbox" name="weather">
                   <div class="section_switch-body">
@@ -145,7 +145,7 @@
                 </div>
               </li>
               <li class="section">
-                <div class="section_switch active">
+                <div class="section_switch player_switch active">
                   <label class="audio_player_label menu_option">Audio player</label>
                   <input type="checkbox" name="player">
                   <div class="section_switch-body">
@@ -154,7 +154,7 @@
                 </div>
               </li>
               <li class="section">
-                <div class="section_switch active">
+                <div class="section_switch todo_list_switch active">
                   <label class="todo_label menu_option">To-do list</label>
                   <input type="checkbox" name="todo_list">
                   <div class="section_switch-body">
@@ -180,14 +180,14 @@
           </div>
         </div>
       </div>
-
     </div>
+    <div class="todo_list"></div>
   </main>
 
   <footer class="footer">
-    <button class="change-quote"></button>
-    <div>
-      <div class="quote"></div>
+    <div class="quote">
+      <button class="change-quote"></button>
+      <div class="quote_text"></div>
       <div class="author"></div>
     </div>
     <div class="settings">

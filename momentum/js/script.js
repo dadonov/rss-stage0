@@ -10,6 +10,10 @@ const body = document.querySelector("body");
 let randomNumber;
 const slideNextBtn = document.querySelector(".slide-next");
 const slidePrevBtn = document.querySelector(".slide-prev");
+const photoFeeds = document.querySelectorAll(".feed");
+const submitTagBtn = document.querySelector(".submit");
+let currentPhotoAPI;
+let photoTags;
 //weather widget
 const city = document.querySelector(".city");
 const weatherIcon = document.querySelector(".weather-icon");
@@ -21,7 +25,7 @@ const windIcon = document.querySelector(".wind_ico");
 const humidity = document.querySelector(".humidity");
 const humidityIcon = document.querySelector(".humidity_ico");
 //quote widget
-const quote = document.querySelector(".quote");
+const quote = document.querySelector(".quote_text");
 const quoteAuthor = document.querySelector(".author");
 const changeQuoteBtn = document.querySelector(".change-quote");
 //audio player
@@ -55,7 +59,7 @@ const volumeBarCont = document.querySelector(".volume_bar-container");
 const volumeBar = document.querySelector(".volume_bar");
 audio.volume = 0.5;
 //translation
-let appLang;
+let appLang = "en";
 const langButtons = document.querySelectorAll(".language");
 const langHeading = document.querySelector(".language_heading");
 const languageDesc = document.querySelector(".language_desc");
@@ -74,9 +78,9 @@ const photosHeading = document.querySelector(".photos_heading");
 const photosDesc = document.querySelector(".photos_desc");
 const tagInputDesc = document.querySelector(".tag_input_desc");
 const tagInput = document.querySelector(".tag_input");
-const submitTagBtn = document.querySelector(".submit");
-let currentPhotoAPI;
-let photoTags;
+// show & hide sections
+let disabledSwitches = [];
+const toggleSwitches = document.querySelectorAll(".section_switch");
 
 //-------------------LOCAL STORAGE SET & GET--------------------
 function setLocalStorage() {
@@ -85,6 +89,7 @@ function setLocalStorage() {
   localStorage.setItem("username", username.value);
   localStorage.setItem("currentPhotoAPI", currentPhotoAPI);
   localStorage.setItem("photoTags", photoTags);
+  localStorage.setItem("disabledSwitches", JSON.stringify(disabledSwitches));
 }
 window.addEventListener("beforeunload", setLocalStorage);
 
@@ -97,7 +102,7 @@ function getLocalStorage() {
   if (localStorage.getItem("city")) {
     city.value = localStorage.getItem("city");
   } else {
-    appLang === "en" ? (city.value = "Minsk") : "Минск";
+    appLang === "en" ? (city.value = "Minsk") : (city.value = "Минск");
   }
   if (localStorage.getItem("username")) {
     username.value = localStorage.getItem("username");
@@ -111,6 +116,11 @@ function getLocalStorage() {
     photoTags = localStorage.getItem("photoTags");
   } else {
     photoTags = `${timeOfDay}`;
+  }
+  if (JSON.parse(localStorage.getItem("disabledSwitches"))) {
+    disabledSwitches = JSON.parse(localStorage.getItem("disabledSwitches"));
+  } else {
+    disabledSwitches = [];
   }
 }
 window.addEventListener("load", getLocalStorage);
@@ -403,80 +413,66 @@ closeSettings.addEventListener("click", () => {
 //   settingsWindow.classList.remove("active");
 // });
 
-const switches = document.querySelectorAll(".section_switch");
-
-for (let i = 0; i < switches.length; i++) {
-  switches[i].addEventListener("click", (event) => {
-    if (switches[i].classList.contains("active")) {
-      switches[i].classList.remove("active");
-      switches[i].querySelector("input").checked = false;
-    } else {
-      switches[i].classList.add("active");
-      switches[i].querySelector("input").checked = true;
-    }
-  });
-}
-
-//get application language
-for (let i = 0; i < langButtons.length; i++) {
-  langButtons[i].addEventListener("click", (event) => {
-    appLang = langButtons[i].id;
+// <-----------------------------APP TRANSLATION---------------------------------------->
+//choose language
+langButtons.forEach((langButton) => {
+  langButton.addEventListener("click", () => {
+    appLang = langButton.id;
     translate();
     setLocalStorage();
     getWeather();
     getQuote();
     showGreeting();
   });
-}
-//translate application elements
+});
+
 async function translate() {
-  const translation = "/assets/json/translation.json";
-  const response = await fetch(translation);
-  const translationData = await response.json();
+  const url = "/assets/json/translation.json";
+  const response = await fetch(url);
+  const data = await response.json();
   //language menu
-  langHeading.textContent = translationData[appLang].language.heading;
-  languageDesc.textContent = translationData[appLang].language.subheading;
-  ruButton.textContent = translationData[appLang].language.russian;
-  enButton.textContent = translationData[appLang].language.english;
+  langHeading.textContent = data[appLang].language.heading;
+  languageDesc.textContent = data[appLang].language.subheading;
+  ruButton.textContent = data[appLang].language.russian;
+  enButton.textContent = data[appLang].language.english;
   //show menu
-  showMenuHeading.textContent = translationData[appLang].show.heading;
-  showMenuDesc.textContent = translationData[appLang].show.subheading;
-  greetingLabel.textContent = translationData[appLang].show.greeting;
-  timeLabel.textContent = translationData[appLang].show.time;
-  dateLabel.textContent = translationData[appLang].show.date;
-  quoteLabel.textContent = translationData[appLang].show.quote;
-  weatherLabel.textContent = translationData[appLang].show.weather;
-  audioLabel.textContent = translationData[appLang].show.audio;
-  todoLabel.textContent = translationData[appLang].show.todo;
+  showMenuHeading.textContent = data[appLang].show.heading;
+  showMenuDesc.textContent = data[appLang].show.subheading;
+  greetingLabel.textContent = data[appLang].show.greeting;
+  timeLabel.textContent = data[appLang].show.time;
+  dateLabel.textContent = data[appLang].show.date;
+  quoteLabel.textContent = data[appLang].show.quote;
+  weatherLabel.textContent = data[appLang].show.weather;
+  audioLabel.textContent = data[appLang].show.audio;
+  todoLabel.textContent = data[appLang].show.todo;
   //photos menu
-  photosHeading.textContent = translationData[appLang].photos.heading;
-  photosDesc.textContent = translationData[appLang].photos.subheading;
-  tagInputDesc.textContent = translationData[appLang].photos.tags;
-  tagInput.placeholder = translationData[appLang].photos.placeholder;
+  photosHeading.textContent = data[appLang].photos.heading;
+  photosDesc.textContent = data[appLang].photos.subheading;
+  tagInputDesc.textContent = data[appLang].photos.tags;
+  tagInput.placeholder = data[appLang].photos.placeholder;
   //general
-  username.placeholder = translationData[appLang].general.placeholder;
+  username.placeholder = data[appLang].general.placeholder;
 }
 window.addEventListener("load", translate);
 
-//-----------------------BACKGROUND IMAGE SLIDER--------------------
+//<-----------------------BACKGROUND IMAGE SLIDER------------------------>
 function getRandomNum() {
   randomNumber = Math.round(Math.random() * (20 - 1) + 1);
 }
 getRandomNum();
 
-const photoFeeds = document.querySelectorAll(".feed");
 //choose photo API
-for (let i = 0; i < photoFeeds.length; i++) {
-  photoFeeds[i].addEventListener("click", (event) => {
-    document.querySelectorAll(".feed").forEach((element) => {
-      element.classList.remove("active");
+photoFeeds.forEach((photoFeed) => {
+  photoFeed.addEventListener("click", (event) => {
+    photoFeeds.forEach((photoFeed) => {
+      photoFeed.classList.remove("active");
     });
     event.target.classList.add("active");
     currentPhotoAPI = event.target.id;
     setLocalStorage();
     setBackgroundImage();
   });
-}
+});
 
 async function setBackgroundImage() {
   let queryTags = localStorage.getItem("photoTags");
@@ -544,4 +540,43 @@ function getSlidePrev() {
   }
 }
 slidePrevBtn.addEventListener("click", getSlidePrev);
+
+//<--------------------------SHOW & HIDE SECTIONS---------------------->
+//ios style switch animation and checking/unchecking input checkbox
+toggleSwitches.forEach((toggleSwitch) => {
+  toggleSwitch.addEventListener("click", () => {
+    if (toggleSwitch.classList.contains("active")) {
+      toggleSwitch.classList.remove("active");
+      toggleSwitch.querySelector("input").checked = false;
+    } else {
+      toggleSwitch.classList.add("active");
+      toggleSwitch.querySelector("input").checked = true;
+    }
+  });
+});
+//hiding sections and pushing the names of hidden sections into an array
+toggleSwitches.forEach((toggleSwitch) => {
+  toggleSwitch.addEventListener("click", () => {
+    let inputName = toggleSwitch.querySelector("input").name;
+    if (!toggleSwitch.querySelector("input").checked) {
+      disabledSwitches.push(inputName);
+      document.querySelector(`.${inputName}`).classList.add("hidden");
+    } else {
+      let index = disabledSwitches.indexOf(inputName);
+      disabledSwitches.splice(index, 1);
+      document.querySelector(`.${inputName}`).classList.remove("hidden");
+    }
+  });
+});
+//hiding sections on window load, according to hidden sections array saved in localStorage
+function hideSectionsOnLoad() {
+  let switches = JSON.parse(localStorage.getItem("disabledSwitches"));
+  if (switches) {
+    for (let i = 0; i < switches.length; i++) {
+      document.querySelector(`.${switches[i]}`).classList.add("hidden");
+      document.querySelector(`div.${switches[i]}_switch`).classList.remove("active");
+    }
+  }
+}
+window.addEventListener("load", hideSectionsOnLoad);
 

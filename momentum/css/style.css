@@ -78,7 +78,7 @@ body {
   background-color: rgba(255, 255, 255, 0.497);
   box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.5);
   z-index: 100;
-  transition: 350ms ease-in-out;
+  transition: 300ms ease;
 }
 .player.mini {
   padding-top: 0;
@@ -277,10 +277,14 @@ body {
   cursor: pointer;
 }
 .weather {
+  opacity: 1;
   display: flex;
   font-family: "Helvetice Neue";
+  transition: 300ms ease;
 }
-
+.hidden {
+  opacity: 0;
+}
 .weather > .left_column {
   display: flex;
   padding: 20px;
@@ -379,12 +383,14 @@ span.temperature {
   font-family: "Arial-MT";
   font-size: 100px;
   letter-spacing: -4px;
+  transition: 300ms ease;
 }
 
 .date {
   min-height: 28px;
   font-size: 24px;
   margin-bottom: 20px;
+  transition: 300ms ease;
 }
 
 .greeting-container {
@@ -395,6 +401,7 @@ span.temperature {
   min-height: 48px;
   width: 100vw;
   font-size: 40px;
+  transition: 300ms ease;
 }
 
 .greeting {
@@ -437,6 +444,9 @@ span.temperature {
 }
 
 .quote {
+  transition: 300ms ease;
+}
+.quote_text {
   min-height: 32px;
 }
 
@@ -643,8 +653,11 @@ span.temperature {
   font-family: Helvetica-Neue-UltraLight;
   font-size: 18px;
 }
-.submit{
+.submit {
   display: none;
+}
+.todo_list {
+  transition: 300ms ease;
 }
 @media (max-width: 768px) {
   .time {
