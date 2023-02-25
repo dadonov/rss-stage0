@@ -595,7 +595,7 @@ function addToDoItem() {
     const template = `
     <input type="checkbox" class="todo_checkbox">
     <label class="todo_text">${toDoText}</label>
-    <img src="/assets/svg/trash-bin.svg" alt="Trash bin" class="todo_delete">
+    <img src="assets/svg/trash-bin.svg" alt="Trash bin" class="todo_delete">
     `;
     const li = document.createElement("li");
     li.classList.add("todo_item");
