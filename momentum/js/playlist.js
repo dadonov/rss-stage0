@@ -2,8 +2,8 @@ const playList = [
   {
     artist: "Tokyo Music Walker",
     title: "Colorful Flowers",
-    src: "../assets/sounds/Colorful Flowers.mp3",
-    cover: "../assets/img/covers/cover4.png",
+    src: "assets/sounds/Colorful Flowers.mp3",
+    cover: "assets/img/covers/cover4.png",
     duration: "04:04",
   },
   {
