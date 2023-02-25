@@ -231,7 +231,7 @@ changeQuoteBtn.addEventListener("click", getQuote);
 function createPlaylist() {
   const buttonCont = document.createElement("div");
   buttonCont.classList.add("close_btn-container");
-  buttonCont.innerHTML = `<img class="close_btn" src="../assets/img/close.png" alt="Close">`;
+  buttonCont.innerHTML = `<img class="close_btn" src="assets/img/close.png" alt="Close">`;
   playListContainer.style.display = "block";
   playListContainer.append(buttonCont);
   for (let i = 0; i < playListLength; i++) {
