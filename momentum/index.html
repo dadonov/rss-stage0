@@ -153,7 +153,7 @@
                   </div>
                 </div>
               </li>
-              <li class="section">
+              <!-- <li class="section">
                 <div class="section_switch todo_list_switch active">
                   <label class="todo_label menu_option">To-do list</label>
                   <input type="checkbox" name="todo_list">
@@ -161,7 +161,7 @@
                     <div class="section_switch-toggle"></div>
                   </div>
                 </div>
-              </li>
+              </li> -->
             </ul>
           </div>
           <div class="photos">
@@ -181,9 +181,13 @@
         </div>
       </div>
     </div>
-    <div class="todo_list"></div>
+    <div class="todo_container hidden">
+      <h2 class="todo_heading">To-do list</h2>
+      <ul class="todo_list">
+      </ul>
+      <input type="text" class="todo_input" placeholder="New ToDo">
+    </div>
   </main>
-
   <footer class="footer">
     <div class="quote">
       <button class="change-quote"></button>

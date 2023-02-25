@@ -409,10 +409,6 @@ closeSettings.addEventListener("click", () => {
   settingsWindow.classList.remove("active");
 });
 
-// settingsWindow.addEventListener("click", () => {
-//   settingsWindow.classList.remove("active");
-// });
-
 // <-----------------------------APP TRANSLATION---------------------------------------->
 //choose language
 langButtons.forEach((langButton) => {
@@ -444,7 +440,7 @@ async function translate() {
   quoteLabel.textContent = data[appLang].show.quote;
   weatherLabel.textContent = data[appLang].show.weather;
   audioLabel.textContent = data[appLang].show.audio;
-  todoLabel.textContent = data[appLang].show.todo;
+  // todoLabel.textContent = data[appLang].show.todo;
   //photos menu
   photosHeading.textContent = data[appLang].photos.heading;
   photosDesc.textContent = data[appLang].photos.subheading;
@@ -579,4 +575,45 @@ function hideSectionsOnLoad() {
   }
 }
 window.addEventListener("load", hideSectionsOnLoad);
+//<----------------------TO-DO--LIST----------------------------------->
+const todoContainer = document.querySelector(".todo_container");
+const toDoInput = document.querySelector(".todo_input");
+const toDoList = document.querySelector(".todo_list");
+const addToDoBtn = document.querySelector(".todo_btn");
+const toDoButton = document.querySelector(".todo_button");
+const toDoDeleteButtons = document.querySelectorAll(".todo_delete");
+
+//hide to-do list widget
+toDoButton.addEventListener("click", () => {
+  todoContainer.classList.toggle("hidden");
+});
+//add new to-do item to the list
+function addToDoItem() {
+  let toDoText = toDoInput.value;
+  if (toDoText != "") {
+    toDoInput.value = "";
+    const template = `
+    <input type="checkbox" class="todo_checkbox">
+    <label class="todo_text">${toDoText}</label>
+    <img src="/assets/svg/trash-bin.svg" alt="Trash bin" class="todo_delete">
+    `;
+    const li = document.createElement("li");
+    li.classList.add("todo_item");
+    li.innerHTML = template;
+    toDoList.appendChild(li);
+  }
+}
+toDoInput.addEventListener("keyup", (event) => {
+  if (event.keyCode === 13) {
+    addToDoItem();
+  }
+});
+// delete to-do list items on trash bin icon click
+document.addEventListener("click", (event) => {
+  const target = event.target.closest(".todo_delete");
+  if (target) {
+    target.parentElement.remove();
+  }
+});
+
 
