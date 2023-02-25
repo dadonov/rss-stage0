@@ -216,7 +216,7 @@ setInterval(getWeather, 9e5);
 //-----------------------QUOTE WIDGET--------------------
 async function getQuote() {
   let lang = localStorage.getItem("language");
-  const quotesSrc = "/assets/json/quotes.json";
+  const quotesSrc = "./assets/json/quotes.json";
   const response = await fetch(quotesSrc);
   const quotesData = await response.json();
   const randomNum = (Math.random() * quotesData[lang].length).toFixed(0);
@@ -261,13 +261,13 @@ initSong(playList[trackNum]);
 
 function playAudio() {
   player.classList.add("active");
-  playBtn.src = "/assets/img/pause.png";
+  playBtn.src = "./assets/img/pause.png";
   audio.play();
 }
 
 function pauseAudio() {
   player.classList.remove("active");
-  playBtn.src = "/assets/img/play.png";
+  playBtn.src = "./assets/img/play.png";
   audio.pause();
 }
 
@@ -286,7 +286,7 @@ document.addEventListener("click", function (e) {
   if (target) {
     const trackInfo = e.target.closest(".track_info");
     const songName = trackInfo.firstElementChild.textContent;
-    audio.src = `../assets/sounds/${songName}.mp3`;
+    audio.src = `./assets/sounds/${songName}.mp3`;
     playAudio();
   }
 });
@@ -355,9 +355,9 @@ function muteVolume() {
   audio.volume = 0;
   volumeBtn.classList.toggle("mute");
   if (volumeBtn.classList.contains("mute")) {
-    volumeBtn.src = "../assets/img/mute_volume.png";
+    volumeBtn.src = "./assets/img/mute_volume.png";
   } else {
-    volumeBtn.src = "../assets/img/volume.png";
+    volumeBtn.src = "./assets/img/volume.png";
     audio.volume = 0.5;
   }
 }
@@ -423,7 +423,7 @@ langButtons.forEach((langButton) => {
 });
 
 async function translate() {
-  const url = "/assets/json/translation.json";
+  const url = "./assets/json/translation.json";
   const response = await fetch(url);
   const data = await response.json();
   //language menu
