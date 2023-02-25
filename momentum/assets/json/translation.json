@@ -1,0 +1,66 @@
+{
+  "en": {
+    "general": {
+      "placeholder": "Enter your name"
+    },
+    "weather": {
+      "default": "Minsk",
+      "error": "Please, enter the correct location name"
+    },
+    "language": {
+      "heading": "Language",
+      "subheading": "Choose app language",
+      "russian": "Russian",
+      "english": "English"
+    },
+    "show": {
+      "heading": "Show",
+      "subheading": "Customize your dashboard",
+      "greeting": "Greeting",
+      "time": "Time",
+      "date": "Date",
+      "quote": "Quote",
+      "weather": "Weather",
+      "audio": "Audio player",
+      "todo": "To-do list"
+    },
+    "photos": {
+      "heading": "Photos",
+      "subheading": "Choose background photo's source",
+      "tags": "Enter tags to choose photo theme. Separate multiple tags with whitespace",
+      "placeholder": "nature dog car"
+    }
+  },
+  "ru": {
+    "general": {
+      "placeholder": "Введите ваше имя"
+    },
+    "weather": {
+      "default": "Минск",
+      "error": "Пожалуйста, введите местоположение правильно"
+    },
+    "language": {
+      "heading": "Язык",
+      "subheading": "Выберите язык приложения",
+      "russian": "Русский",
+      "english": "Английский"
+    },
+    "show": {
+      "heading": "Внешний вид",
+      "subheading": "Редактируйте внешний вид приложения",
+      "greeting": "Приветствие",
+      "time": "Время",
+      "date": "Дата",
+      "quote": "Цитата",
+      "weather": "Погода",
+      "audio": "Аудиоплеер",
+      "todo": "Список задач"
+    },
+    "photos": {
+      "heading": "Фото",
+      "subheading": "Выберите источник фоновых изображений",
+      "tags": "Введите тэги для выбора темы изображений",
+      "placeholder": "nature dog car"
+    }
+  }
+}
