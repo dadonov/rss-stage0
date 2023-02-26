@@ -13,24 +13,24 @@
 
 <body>
   <header class="header">
-    <div class="player">
-      <ul class="play-list hidden"></ul>
+    <div class="player mini">
+      <ul class="play-list"></ul>
       <div class="player_container">
         <audio src="" class="audio" controls></audio>
-        <img src="assets/img/minimize.png" alt="" class="minimize_btn">
+        <img src="assets/img/minimize.png" alt="" class="minimize_btn mini">
         <div class="cover_container">
-          <div class="cover"></div>
+          <div class="cover cover_hidden"></div>
         </div>
-        <div class="song"></div>
+        <div class="song mini"></div>
         <div class="artist"></div>
-        <div class="progress_container">
+        <div class="progress_container mini">
           <div class="progress"></div>
         </div>
         <div class="play_time">
           <div class="current"></div>
           <div class="duration"></div>
         </div>
-        <div class="buttons">
+        <div class="buttons mini">
           <div><img src="assets/img/playlist.png" alt="Playlist icon" class="playlist_btn"></div>
           <div><img src="assets/img/prev.png" alt="Previous track icon" class="play-prev"></div>
           <div><img src="assets/img/play.png" alt="Play icon" class="play">
@@ -40,7 +40,7 @@
         </div>
         <div class="volume_controls">
           <img src="assets/img/low-volume.png" alt="" class="volume_down">
-          <div class="volume_bar-container">
+          <div class="volume_bar-container mini">
             <div class="volume_bar"></div>
           </div>
           <img src="assets/img/volume-up.png" alt="" class="volume_up">
@@ -178,6 +178,19 @@
       </ul>
       <input type="text" class="todo_input" placeholder="New ToDo">
     </div>
+    <div class="info hidden">
+      <h2 class="info_heading">Igor Dadonov</h2>
+      <p class="info_desc">Junior Front-end Developer</p>
+      <div class="info_social">
+        <a href="https://rs.school/js/" class="rss" target="_blank"><img src="assets/svg/rsschool-logo.svg" alt="RSS"
+            class="rss_ico"></a>
+        <a href="https://github.com/dadonov" class="git" target="_blank"><img src="assets/svg/github-logo.svg"
+            alt="GitHub" class="git_ico"></a>
+        <a href="https://discordapp.com/users/dadonov.igor#1346" class="discord" target="_blank"><img
+            src="assets/svg/discord-ico.png" alt="Discord" class="discord_ico"></a>
+      </div>
+      <p class="copyright">© 2023</p>
+    </div>
   </main>
   <footer class="footer">
     <div class="quote">
@@ -185,13 +198,14 @@
       <div class="quote_text"></div>
       <div class="author"></div>
     </div>
-    <div class="settings">
-      <img src="assets/svg/settings.svg" alt="Settings" class="open_settings">
-      <div class="settings_right">
-        <img src="assets/svg/todo.svg" alt="To-do list" class="todo_button">
+    <div class="footer_buttons">
+      <div class="footer_buttons-left">
+        <img src="assets/svg/settings.svg" alt="Settings" class="open_settings">
         <img src="assets/svg/info.svg" alt="Info" class="info_button">
-        </di>
       </div>
+      <img src="assets/svg/todo.svg" alt="To-do list" class="todo_button">
+      </di>
+    </div>
   </footer>
   <script type="module" src="js/script.js"></script>
 </body>

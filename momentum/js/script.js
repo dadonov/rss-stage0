@@ -58,7 +58,11 @@ const volumeControls = document.querySelector(".volume_controls");
 const volumeBarCont = document.querySelector(".volume_bar-container");
 const volumeBar = document.querySelector(".volume_bar");
 audio.volume = 0.5;
-//translation
+//settings window
+const openSettings = document.querySelector(".open_settings");
+const closeSettings = document.querySelector(".close_settings");
+const settingsWindow = document.querySelector(".settings_window");
+//app translation
 let appLang = "en";
 const langButtons = document.querySelectorAll(".language");
 const langHeading = document.querySelector(".language_heading");
@@ -81,6 +85,16 @@ const tagInput = document.querySelector(".tag_input");
 // show & hide sections
 let disabledSwitches = [];
 const toggleSwitches = document.querySelectorAll(".section_switch");
+//to-do list widget
+const todoContainer = document.querySelector(".todo_container");
+const toDoInput = document.querySelector(".todo_input");
+const toDoList = document.querySelector(".todo_list");
+const addToDoBtn = document.querySelector(".todo_btn");
+const toDoButton = document.querySelector(".todo_button");
+const toDoDeleteButtons = document.querySelectorAll(".todo_delete");
+//info widget
+const infoBtn = document.querySelector(".info_button");
+const info = document.querySelector(".info");
 
 //-------------------LOCAL STORAGE SET & GET--------------------
 function setLocalStorage() {
@@ -102,7 +116,7 @@ function getLocalStorage() {
   if (localStorage.getItem("city")) {
     city.value = localStorage.getItem("city");
   } else {
-    appLang === "en" ? (city.value = "Minsk") : (city.value = "Минск");
+    city.value = "Minsk";
   }
   if (localStorage.getItem("username")) {
     username.value = localStorage.getItem("username");
@@ -227,7 +241,6 @@ getQuote();
 changeQuoteBtn.addEventListener("click", getQuote);
 
 //----------------------AUDIO PLAYER--------------------
-
 function createPlaylist() {
   const buttonCont = document.createElement("div");
   buttonCont.classList.add("close_btn-container");
@@ -397,10 +410,7 @@ document.addEventListener("click", (e) => {
   }
 });
 
-const openSettings = document.querySelector(".open_settings");
-const closeSettings = document.querySelector(".close_settings");
-const settingsWindow = document.querySelector(".settings_window");
-
+//<-----------------------OPEN&CLOSE SETTINGS WINDOW------------------------------------->
 openSettings.addEventListener("click", () => {
   settingsWindow.classList.add("active");
 });
@@ -440,7 +450,6 @@ async function translate() {
   quoteLabel.textContent = data[appLang].show.quote;
   weatherLabel.textContent = data[appLang].show.weather;
   audioLabel.textContent = data[appLang].show.audio;
-  // todoLabel.textContent = data[appLang].show.todo;
   //photos menu
   photosHeading.textContent = data[appLang].photos.heading;
   photosDesc.textContent = data[appLang].photos.subheading;
@@ -575,14 +584,8 @@ function hideSectionsOnLoad() {
   }
 }
 window.addEventListener("load", hideSectionsOnLoad);
-//<----------------------TO-DO--LIST----------------------------------->
-const todoContainer = document.querySelector(".todo_container");
-const toDoInput = document.querySelector(".todo_input");
-const toDoList = document.querySelector(".todo_list");
-const addToDoBtn = document.querySelector(".todo_btn");
-const toDoButton = document.querySelector(".todo_button");
-const toDoDeleteButtons = document.querySelectorAll(".todo_delete");
 
+//<----------------------TO-DO--LIST----------------------------------->
 //hide to-do list widget
 toDoButton.addEventListener("click", () => {
   todoContainer.classList.toggle("hidden");
@@ -616,4 +619,8 @@ document.addEventListener("click", (event) => {
   }
 });
 
+//<------------------------INFO-WIDGET---------------------------------->
+infoBtn.addEventListener("click", () => {
+  info.classList.toggle("hidden");
+});
 
