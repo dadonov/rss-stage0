@@ -263,12 +263,12 @@ function createPlaylist() {
   playListContainer.style.height = playListContainer.scrollHeight;
 }
 
-function initSong(song) {
-  audio.src = song.src;
-  song.innerText = song.title;
-  artist.innerText = song.artist;
-  albumCover.style.backgroundImage = `url(${song.cover})`;
-  duration.innerText = song.duration;
+function initSong(songInfo) {
+  audio.src = songInfo.src;
+  song.innerText = songInfo.title;
+  artist.innerText = songInfo.artist;
+  albumCover.style.backgroundImage = `url(${songInfo.cover})`;
+  duration.innerText = songInfo.duration;
 }
 initSong(playList[trackNum]);
 
@@ -623,4 +623,3 @@ document.addEventListener("click", (event) => {
 infoBtn.addEventListener("click", () => {
   info.classList.toggle("hidden");
 });
-
