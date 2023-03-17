@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="assets/favicon.ico" rel="shortcut icon" />
+  <link rel="stylesheet" href="css/owfont-regular.css" />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <title>momentum</title>
+</head>
+
+<body>
+  <header class="header">
+    <div class="player mini">
+      <ul class="play-list"></ul>
+      <div class="player_container">
+        <audio src="" class="audio" controls></audio>
+        <img src="assets/img/minimize.png" alt="" class="minimize_btn mini">
+        <div class="cover_container">
+          <div class="cover cover_hidden"></div>
+        </div>
+        <div class="song mini"></div>
+        <div class="artist"></div>
+        <div class="progress_container mini">
+          <div class="progress"></div>
+        </div>
+        <div class="play_time">
+          <div class="current"></div>
+          <div class="duration"></div>
+        </div>
+        <div class="buttons mini">
+          <div><img src="assets/img/playlist.png" alt="Playlist icon" class="playlist_btn"></div>
+          <div><img src="assets/img/prev.png" alt="Previous track icon" class="play-prev"></div>
+          <div><img src="assets/img/play.png" alt="Play icon" class="play">
+          </div>
+          <div><img src="assets/img/next.png" alt="Next track icon" class="play-next"></div>
+          <div><img src="assets/img/volume.png" alt="Volume icon" class="volume_btn"></div>
+        </div>
+        <div class="volume_controls">
+          <img src="assets/img/low-volume.png" alt="" class="volume_down">
+          <div class="volume_bar-container mini">
+            <div class="volume_bar"></div>
+          </div>
+          <img src="assets/img/volume-up.png" alt="" class="volume_up">
+        </div>
+      </div>
+    </div>
+    <div class="weather">
+      <div class="left_column">
+        <span class="temperature"></span>
+        <input type="text" class="city" />
+        <div class="weather-error"></div>
+      </div>
+      <div class="right_column">
+        <div class="weather_description-container">
+          <i class="weather-icon owf"></i>
+          <span class="weather-description"></span>
+        </div>
+        <div class="meteo">
+          <img src="assets/img/humidity.png" alt="" class="humidity_ico">
+          <div class="humidity"></div>
+          <img src="assets/img/wind.png" alt="" class="wind_ico">
+          <div class="wind"></div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main class="main">
+    <div class="slider-icons">
+      <button class="slide-prev slider-icon"></button>
+      <button class="slide-next slider-icon"></button>
+    </div>
+    <time class="time"></time>
+    <date class="date"></date>
+    <div class="greeting-container">
+      <span class="greeting"></span>
+      <input type="text" class="name" placeholder="" />
+    </div>
+    <div class="settings_window">
+      <div class="settings_window-container">
+        <div class="settings_window-content">
+          <div class="close_settings"><img src="assets/img/close.png" alt="" class="close_settings-btn"></div>
+          <div class="language_choice">
+            <h2 class="language_heading menu_heading">Language</h2>
+            <p class=" language_desc menu_desc">Choose app language</p>
+            <ul class="language_list">
+              <li class="language" id="ru">
+                <p class="menu_option ru">Russian</p><img src="assets/img/ru.png" alt="Russian" class="lang_ico">
+              </li>
+              <li class="language" id="en">
+                <p class="menu_option en">English</p><img src="assets/img/en.png" alt="English" class="lang_ico">
+              </li>
+            </ul>
+          </div>
+          <div class="show_sections">
+            <h2 class="show_heading menu_heading">Show</h2>
+            <p class="show_desc menu_desc">Customize your dashboard</p>
+            <ul class="sections_list">
+              <li class="section">
+                <div class="section_switch greeting-container_switch active">
+                  <label class="greeting_label menu_option">Greeting</label>
+                  <input type="checkbox" name="greeting-container">
+                  <div class="section_switch-body">
+                    <div class="section_switch-toggle"></div>
+                  </div>
+                </div>
+              </li>
+              <li class="section">
+                <div class="section_switch time_switch active">
+                  <label class="time_label menu_option">Time</label>
+                  <input type="checkbox" name="time">
+                  <div class="section_switch-body">
+                    <div class="section_switch-toggle"></div>
+                  </div>
+                </div>
+              </li>
+              <li class="section">
+                <div class="section_switch date_switch active">
+                  <label class="date_label menu_option">Date</label>
+                  <input type="checkbox" name="date">
+                  <div class="section_switch-body">
+                    <div class="section_switch-toggle"></div>
+                  </div>
+                </div>
+              </li>
+              <li class="section">
+                <div class="section_switch quote_switch active">
+                  <label class="quote_label menu_option">Quote</label>
+                  <input type="checkbox" name="quote">
+                  <div class="section_switch-body">
+                    <div class="section_switch-toggle"></div>
+                  </div>
+                </div>
+              </li>
+              <li class="section">
+                <div class="section_switch weather_switch active">
+                  <label class="weather_label menu_option">Weather</label>
+                  <input type="checkbox" name="weather">
+                  <div class="section_switch-body">
+                    <div class="section_switch-toggle"></div>
+                  </div>
+
+                </div>
+              </li>
+              <li class="section">
+                <div class="section_switch player_switch active">
+                  <label class="audio_player_label menu_option">Audio player</label>
+                  <input type="checkbox" name="player">
+                  <div class="section_switch-body">
+                    <div class="section_switch-toggle"></div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="photos">
+            <h2 class="photos_heading menu_heading">Photos</h2>
+            <p class=" photos_desc menu_desc">Choose background photo's source</p>
+            <div class="photo_sources">
+              <img class="feed" id="flickr" src="assets/img/flickr.png" alt="Flickr">
+              <img class="feed" id="github" src="assets/img/github.png" alt="GitHub">
+              <img class="feed" id="unsplash" src="assets/img/unsplash.png" alt="Unsplash">
+            </div>
+            <p class="menu_desc tag_input_desc">Enter tags to choose background photo themes</p>
+            <form>
+              <input class="tag_input" type="text" name="photo_tag" placeholder="nature cat etc.">
+              <button class="submit" type="submit">submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="todo_container hidden">
+      <h2 class="todo_heading">To-do list</h2>
+      <ul class="todo_list">
+      </ul>
+      <input type="text" class="todo_input" placeholder="New ToDo">
+    </div>
+    <div class="info hidden">
+      <h2 class="info_heading">Igor Dadonov</h2>
+      <p class="info_desc">Junior Front-end Developer</p>
+      <div class="info_social">
+        <a href="https://rs.school/js/" class="rss" target="_blank"><img src="assets/svg/rsschool-logo.svg" alt="RSS"
+            class="rss_ico"></a>
+        <a href="https://github.com/dadonov" class="git" target="_blank"><img src="assets/svg/github-logo.svg"
+            alt="GitHub" class="git_ico"></a>
+        <a href="https://discordapp.com/users/dadonov.igor#1346" class="discord" target="_blank"><img
+            src="assets/svg/discord-ico.png" alt="Discord" class="discord_ico"></a>
+      </div>
+      <p class="copyright">© 2023</p>
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="quote">
+      <button class="change-quote"></button>
+      <div class="quote_text"></div>
+      <div class="author"></div>
+    </div>
+    <div class="footer_buttons">
+      <div class="footer_buttons-left">
+        <img src="assets/svg/settings.svg" alt="Settings" class="open_settings">
+        <img src="assets/svg/info.svg" alt="Info" class="info_button">
+      </div>
+      <img src="assets/svg/todo.svg" alt="To-do list" class="todo_button">
+      </di>
+    </div>
+  </footer>
+  <script type="module" src="js/script.js"></script>
+</body>
+
+</html>
